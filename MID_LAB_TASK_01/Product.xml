@@ -1,0 +1,27 @@
+<Product>
+	<colm_1>
+		<id>11<id/>
+		<name>Samesung</name>
+		<unit_price>35000</unit_price>
+		<stock>50</stock>
+		<status>1</status>
+	</colm_1>
+	
+	<colm_2>
+		<id>20<id/>
+		<name>HTC</name>
+		<unit_price>65300</unit_price>
+		<stock>35</stock>
+		<status>0</status>
+	</colm_2>
+
+	
+	<colm_3>
+		<id>23<id/>
+		<name>Nokia</name>
+		<unit_price>25100</unit_price>
+		<stock>100</stock>
+		<status>1</status>
+	</colm_3>
+
+</Product>
