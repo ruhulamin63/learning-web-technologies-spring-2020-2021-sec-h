@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>registration page</title>
+</head>
+<body>
+
+	<form id="myForm" method="post" action="regCheck.php">
+		<fieldset>
+			<legend>REGISTRATION</legend>
+			<table>
+				<tr>
+					<td>Name</td>
+					<td><input type="text" name="name" value=""></td>
+				</tr>
+				<tr>
+					<td>Email</td>
+					<td><input type="text" name="email" value=""></td>
+				</tr>
+				<tr>
+					<td>User Name</td>
+					<td><input type="text" name="username" value=""></td>
+				</tr>
+				<tr>
+					<td>Password</td>
+					<td><input type="password" name="password" value=""></td>
+				</tr>
+				<tr>
+					<td>Confirm Password</td>
+					<td><input type="password" name="confpass" value=""></td>
+				</tr>
+			</table>
+			<hr>
+
+			<fieldset>
+				<legend>Gender</legend>
+				<input type="radio" name="gender" value=""> Male
+				<input type="radio" name="gender" value=""> Female
+				<input type="radio" name="gender" value=""> Other
+			</fieldset>
+			
+			<hr>
+			<fieldset>
+				<legend>Date of Birth</legend>
+				<input type="date" name="date" value="">
+			</fieldset>
+			
+			<hr>
+			<input type="submit" name="submit" value="Submit">
+			<input type="reset" name="" value="Reset">
+		</fieldset>
+	</form>
+	
+	<script>
+		function myFunction() {
+	  		document.getElementById("myForm").reset();
+		}
+	</script>
+</body>
+</html>
