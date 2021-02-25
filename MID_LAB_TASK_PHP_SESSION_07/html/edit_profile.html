@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Profile</title>
+<style>
+	th, td {
+	  padding: 10px;
+	}
+</style>
+</head>
+<body>
+	<table border="3px" align="center" width="100%">
+		<tr>
+			<td width="200px" height="60px">
+				<img src="logo.png" width="100%" height="100%">
+			</td>
+			<td align="right"> 
+				<p>Logged in as 
+					<a href="view_profile.html">Bob</a> | 
+					<a href="public_Home.html">Logout</a>
+				</p>
+			</td>
+		</tr>
+		<tr height="400px">
+			<td>Account<hr>
+				<ul>
+					<li><a href="dashboard.html"><u>Dashboard</u></a></li>
+					<li><a href="view_profile.html"><u>View Profile</u></a></li>
+					<li><a href=""><u>Edit Profile</u></a></li>
+					<li><a href=""><u>Change Profile</u></a></li>
+					<li><a href="change_pass.html"><u>Change Password</u></a></li>
+					<li><a href="public_Home.html"><u>Logout</u></a></li>
+				</ul>
+			</td>
+			<td>
+				<form method="post" action="">
+					<fieldset>
+						<legend>EDIT PROFILE</legend>
+						<table>
+							<tr>
+								<td>Name</td>
+								<td>:<input type="name" name="name" value=""></td> 
+							</tr>
+							<tr>
+								<td>Email</td>
+								<td>:<input type="email" name="email" value=""></td> 
+							</tr>
+							<tr>
+								<td>Gender</td>
+								<td>:
+									<input type="radio" name="gender"> Male
+									<input type="radio" name="gender"> Female
+									<input type="radio" name="gender"> Other 
+								</td> 
+							</tr>
+							<tr>
+								<td>Date of Birth</td>
+								<td>:<input type="date" name="date" value=""></td> 
+							</tr>
+							<tr>
+								<td><input type="submit" name="view_submit" value="Submit"></td>
+							</tr>
+						</table>
+					</fieldset>
+				</form>
+			</td>
+		</tr>
+		<tr height="50px">
+			<td colspan="2" align="center">
+				copyright@2021
+			</td> 
+		</tr>
+	</table>
+</body>
+</html>
