@@ -71,7 +71,7 @@
 					<li><a href="dashboard.php">Dashboard</a></li>
 					<li><a href="view_profile_check.php">View Profile</a></li>
 					<li><a href="edit_profile_check.php">Edit Profile</a></li>
-					<li><a href="">Change Profile</a></li>
+					<li><a href="profile_pic.php">Change Profile Picture</a></li>
 					<li><a href="change_pass_check.php">Change Password</a></li>
 					<li><a href="public_Home.html">Logout</a></li>
 				</ul>
