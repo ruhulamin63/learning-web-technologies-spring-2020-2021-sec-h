@@ -29,7 +29,7 @@
 
 				$encode = json_encode($user);
 
-				$myfile = fopen('users.json', 'w');
+				$myfile = fopen('../model/users.json', 'w');
 				fwrite($myfile, $encode);
 				fclose($myfile);
 
