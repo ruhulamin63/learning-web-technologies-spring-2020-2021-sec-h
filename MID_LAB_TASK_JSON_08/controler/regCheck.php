@@ -47,10 +47,17 @@
 <!-- ======================================================================================= -->
 
 
-<?php 
-	$title= "Registration Page";
-	include('../view/header.php');
-?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Public Home</title>
+<style>
+	th, td {
+	  padding: 10px;
+	}
+</style>
+</head>
+<body>
 
 <table border="1px" align="center" width="100%">
 		<tr>	
