@@ -27,7 +27,7 @@
 
 <?php 
 	$title= "Forgot Pssword Page";
-	include('header.php');
+	include('../view/header.php');
 ?>
 
 	<table border="1px" align="center" width="100%">
