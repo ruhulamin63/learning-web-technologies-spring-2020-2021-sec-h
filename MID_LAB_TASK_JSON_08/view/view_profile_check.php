@@ -74,7 +74,7 @@
 
 								</td>
 								<td rowspan="4" align="center">
-									<img src="user.png" width="100px" height="100px"><br>
+									<img src="../asset/user.png" width="100px" height="100px"><br>
 									<a href="profile_pic.php">Change</a>
 								</td>
 							</tr>
