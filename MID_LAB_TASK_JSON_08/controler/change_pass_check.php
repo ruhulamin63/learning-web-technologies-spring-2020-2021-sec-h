@@ -42,7 +42,7 @@
 
 <?php 
 	$title= "Change Password Page";
-	include('header.php');
+	include('../view/header.php');
 ?>
 
 	<table border="3px" align="center" width="100%">
