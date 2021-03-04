@@ -8,7 +8,7 @@
 
 
 <?php 
-	$title= "Dashboard";
+	$title= "Dashboard Page";
 	include('header.php');
 ?>
 
@@ -17,7 +17,7 @@
 			<td>
 				<table width="100%">
 					<tr>
-						<td width="200px" height="60px"><img src="logo.png" width="100%" height="100%"></td>
+						<td width="200px" height="60px"><img src="../asset/logo.png" width="100%" height="100%"></td>
 						<td align="right" >
 							Logged in as
 							<a href="dashboard.php"> 

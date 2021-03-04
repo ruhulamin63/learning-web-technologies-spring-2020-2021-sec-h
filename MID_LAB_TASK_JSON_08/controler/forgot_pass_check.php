@@ -25,17 +25,10 @@
 <!-- ========================================================================================= -->
 
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Forgot Password</title>
-<style>
-	th, td {
-	  padding: 10px;
-	}
-</style>
-</head>
-<body>
+<?php 
+	$title= "Forgot Pssword Page";
+	include('header.php');
+?>
 
 	<table border="1px" align="center" width="100%">
 		<tr>	
@@ -43,7 +36,7 @@
 				<table width="100%">
 					<tr>
 						<td width="200px" height="60px">
-							<img src="logo.png" width="100%" height="100%">
+							<img src="../asset/logo.png" width="100%" height="100%">
 						</td>
 						<td align="right"> 
 							<a href="../view/public_Home.html">Home</a> |

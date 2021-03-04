@@ -11,8 +11,8 @@
 		}else{
 			//$user = $_SESSION['current_user'];
 
-			$myfile = fopen('users.json', 'r');
-			$data = fread($myfile, filesize('users.json'));
+			$myfile = fopen('../model/users.json', 'r');
+			$data = fread($myfile, filesize('../model/users.json'));
 			fclose($myfile);
 			//echo $data;
 
@@ -36,17 +36,10 @@
 
 <!-- ============================================================================ -->
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login Page</title>
-<style>
-	th, td {
-	  padding: 10px;
-	}
-</style>
-</head>
-<body>
+<?php 
+	$title= "Login Page";
+	include('header.php');
+?>
 
 	<table border="1px" align="center" width="100%">
 		<tr>	
@@ -54,7 +47,7 @@
 				<table width="100%">
 					<tr>
 						<td width="200px" height="60px">
-							<img src="logo.png" width="100%" height="100%">
+							<img src="../asset/logo.png" width="100%" height="100%">
 						</td>
 						<td align="right"> 
 							<a href="../view/public_Home.html">Home</a> |

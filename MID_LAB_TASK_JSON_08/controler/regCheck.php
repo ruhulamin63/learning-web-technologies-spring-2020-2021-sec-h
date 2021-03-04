@@ -29,7 +29,7 @@
 
 				$encode = json_encode($user);
 
-				$myfile = fopen('users.json', 'w');
+				$myfile = fopen('../model/users.json', 'w');
 				fwrite($myfile, $encode);
 				fclose($myfile);
 
@@ -47,17 +47,10 @@
 <!-- ======================================================================================= -->
 
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Registration</title>
-<style>
-	th, td {
-	  padding: 10px;
-	}
-</style>
-</head>
-<body>
+<?php 
+	$title= "Registration Page";
+	include('header.php');
+?>
 
 <table border="1px" align="center" width="100%">
 		<tr>	
@@ -65,7 +58,7 @@
 				<table width="100%">
 					<tr>
 						<td width="200px" height="50px">
-							<img src="logo.png" width="100%" height="100%">
+							<img src="../asset/logo.png" width="100%" height="100%">
 						</td>
 						<td align="right"> 
 							<a href="../view/public_Home.html">Home</a> |
