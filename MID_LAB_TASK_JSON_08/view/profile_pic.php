@@ -13,24 +13,17 @@
 
 <!-- ========================================================= -->
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Picture Change</title>
-<style>
-	th, td {
-	  padding: 10px;
-	}
-</style>
-</head>
-<body>
+<?php 
+	$title= "Picture Change";
+	include('header.php');
+?>
 
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>
 				<table width="100%">
 					<tr>
-						<td width="200px" height="60px"><img src="logo.png" width="100%" height="100%"></td>
+						<td width="200px" height="60px"><img src="../asset/logo.png" width="100%" height="100%"></td>
 						<td align="right" >
 							Logged in as
 							<a href="dashboard.php"> 
@@ -68,7 +61,7 @@
 						<table>
 							<tr>
 								<td>
-									<img src="user.png" width="300px" height="200px"><br>
+									<img src="../asset/user.png" width="300px" height="200px"><br>
 									<input type="file" name="choose_file" value="">
 								</td>
 							</tr>
