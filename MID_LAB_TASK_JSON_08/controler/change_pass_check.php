@@ -40,17 +40,10 @@
 
 <!-- ======================================================================================================= -->
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Change Password</title>
-<style>
-	th, td {
-	  padding: 10px;
-	}
-</style>
-</head>
-<body>
+<?php 
+	$title= "Change Password Page";
+	include('header.php');
+?>
 
 	<table border="3px" align="center" width="100%">
 		<tr>
