@@ -1,7 +1,7 @@
 <?php
 	if(!isset($_SESSION['flag']))
 	{
-		header('location: login.html');
+		header('location: login_check.php');
 	}
 ?>
 
