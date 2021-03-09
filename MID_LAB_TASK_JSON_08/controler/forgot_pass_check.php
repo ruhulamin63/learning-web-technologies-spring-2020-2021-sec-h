@@ -81,9 +81,3 @@
 	</table>
 </body>
 </html>
-
-<?php
-	}else{
-		header('location: login_check.php');
-	}
-?>
