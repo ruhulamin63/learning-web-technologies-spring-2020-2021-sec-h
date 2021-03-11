@@ -1,0 +1,76 @@
+ body{
+ 	background: #333;
+ 	margin: 0;
+ 	padding: 0;
+ }
+
+ .container{
+ 	width: 360px;
+ 	height: 400px;
+ 	background: #85929E;
+ 	position: absolute;
+ 	top: 50%;
+ 	left: 50%;
+ 	transform: translate(-50%, -50%);
+ 	color: white;
+ 	text-align: center;
+ }
+
+ .tbox{
+ 	width: 260px;
+ 	height: 40px;
+ 	background: #f1f1f1b3;
+ 	border-radius: 10px;
+ 	margin: 10px auto;
+ }
+
+ .tbox input{
+ 	background: none;
+ 	border: none;
+ 	outline: none;
+ 	text-align: center;
+ 	width: 90%;
+ 	line-height: 37px;
+ 	font-size: 14px;
+ 	color: #333;
+ }
+
+ .btn{
+ 	width: 130px;
+ 	height: 40px;
+ 	background: #48C9B0;
+ 	border: none;
+ 	border-radius: 10px;
+ 	margin: 16px auto;
+ 	display: block;
+ 	font-size: 16px;
+ 	color: black;
+ 	cursor: pointer;
+ }
+
+ .b1{
+ 	display: block;
+ 	width: 260px;
+ 	padding: 10px;
+ 	text-decoration: none;
+ 	color: white;
+ 	text-align: center;
+ 	margin: auto;
+ }
+
+ .b2{
+ 	position: absolute;
+ 	bottom: 10px;
+ 	left: 50%;
+ 	transform: translate(-50%);
+ 	width: 260px;
+ 	padding: 10px;
+ 	text-decoration: none;
+ 	text-align: center;
+ }
+
+ a:hover{
+ 	background: #00000045;
+ 	width: 150px;
+ 	border-radius: 10px;
+ }
