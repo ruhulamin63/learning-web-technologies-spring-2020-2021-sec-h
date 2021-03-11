@@ -119,9 +119,9 @@
 
 									<fieldset>
 										<legend>Gender</legend>
-										<input type="radio" name="gender" value="Male"> Male
-										<input type="radio" name="gender" value="Female"> Female
-										<input type="radio" name="gender" value="Other"> Other
+										<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male"> Male
+										<input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Female"> Female
+										<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Other") echo "checked";?> value="Other"> Other
 									</fieldset>
 									
 									<hr>
