@@ -2,7 +2,7 @@
 
 <!-- ========================================================================= -->
 <?php 
-	$title= "Change Pass";
+	$title= "Login Page";
 	include('../view/header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -14,8 +14,8 @@
 							<img src="../asset/logo.png" width="100%" height="100%">
 						</td>
 						<td align="right"> 
-							<a href="#">Home</a> |
-							<a href="#">Login</a> |
+							<a href="home.html">Home</a> |
+							<a href="login_check.php">Login</a> |
 							<a href="#">Registration</a> 
 						</td>
 					</tr>

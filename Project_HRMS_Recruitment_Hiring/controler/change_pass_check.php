@@ -1,6 +1,6 @@
 
 <?php 
-	$title= "Change Pass";
+	$title= "Pass Page";
 	include('../view/header.html');
 ?>
 
