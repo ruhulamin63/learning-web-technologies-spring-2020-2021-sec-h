@@ -63,10 +63,11 @@
 													<br>
 												</td>
 											</tr>
-											<tr align="center">
+											<tr align="left">
 												<td colspan="2">
 													<hr>
 													<input type="submit" name="signup_btn" value="Sign Up">
+													<a href="login_check.php">Sign In</a>
 												</td>
 											</tr>
 										</table>
