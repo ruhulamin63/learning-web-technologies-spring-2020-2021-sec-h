@@ -17,10 +17,10 @@
 										<table>
 											<tr>
 												<td>
-													Username<br>
+													Id<br>
 												</td>
 												<td>
-													<input type="text" name="username" value="">
+													<input type="number" name="id" value="">
 												</td>
 											</tr>
 											<tr>
