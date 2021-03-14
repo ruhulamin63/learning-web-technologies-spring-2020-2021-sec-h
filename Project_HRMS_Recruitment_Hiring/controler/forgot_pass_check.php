@@ -112,7 +112,8 @@
 										</tr>
 									</table>
 									<hr>
-									<input type="submit" name="forgot_pass_submit_button" value="Submit">
+									<input type="submit" name="forgot_pass_btn" value="Submit">
+									<span><a href="#">Back</a></span>
 								</fieldset>
 							</form>
 						</td>

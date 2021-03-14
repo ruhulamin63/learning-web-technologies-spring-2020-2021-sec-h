@@ -3,7 +3,6 @@
 	$title= "Pass Page";
 	include('../view/header.html');
 ?>
-
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>

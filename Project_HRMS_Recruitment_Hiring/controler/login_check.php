@@ -14,9 +14,9 @@
 							<img src="../asset/logo.png" width="100%" height="100%">
 						</td>
 						<td align="right"> 
-							<a href="home.html">Home</a> |
+							<a href="../view/home.html">Home</a> |
 							<a href="login_check.php">Login</a> |
-							<a href="#">Registration</a> 
+							<a href="regCheck.php">Registration</a> 
 						</td>
 					</tr>
 				</table>
@@ -56,8 +56,8 @@
 												<hr><br>
 												<input align="center" type="submit" name="login_btn" value="LOGIN"><br><br>
 
-												<a href="#">Forgot Password?</a><br><br>
-												<a href="#">Create an account?</a>
+												<a href="forgot_pass_check.php">Forgot Password?</a><br><br>
+												<a href="regCheck.php">Create an account?</a>
 											</td>
 										</tr>
 									</table>
