@@ -1,3 +1,56 @@
+<?php
+	session_start();
+
+	if(isset($_POST['signup_btn'])){
+
+		$id = $_POST['id'];
+		$password = $_POST['password'];
+		$confpass = $_POST['confpass'];
+		$name = $_POST['name'];
+		$user = $_POST['user'];
+
+		if($id == "" || $name == "" || $password == "" || $confpass == ""){
+			echo "*Null submission...";
+		}else{
+
+			if($password == $confpass){
+
+
+				$myfile = fopen('data.json', 'r');
+				$data = fread($myfile, filesize('data.json'));
+				fclose($myfile);
+//================================================================================
+				$decode = json_decode($data,true);
+
+				$user = [	
+						'id'=>$id,
+						'password'=>$password,
+						'name'=>$username,  
+						'user'=>$user
+					];
+
+					/*$_SESSION['current_user']=$user;
+					$user=$_['current_user'];*/
+
+					$decode[] = $user;
+					
+					$curr_encode=json_encode($decode);
+					
+					$myfile = fopen('data.json', 'w');
+					fwrite($myfile, $curr_encode);
+					fclose($myfile);
+
+					
+					header('location: login_check.php');
+			}else{
+				echo "*password & confirm password mismatch...";
+			}
+		}
+
+	}
+?>
+
+<!-- ========================================================= -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,8 +107,8 @@
 													User Type
 												</td>
 												<td>
-													<input type="radio" name="gender" value="Male">User
-													<input type="radio" name="gender" value="Female">Admin
+													<input type="radio" name="user" value="User">User
+													<input type="radio" name="user" value="Admin">Admin
 												</td>
 											</tr>
 											<tr align="center">
