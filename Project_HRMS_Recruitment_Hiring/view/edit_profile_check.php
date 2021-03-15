@@ -1,38 +1,11 @@
-<?php
-	session_start();
 
-	if(!isset($_SESSION['flag'])){
-		header('location: login_check.php');
-
-	}else{
-		$user=$_SESSION['current_user'];
-
-		$name=$user['name'];
-		$email=$user['email'];
-		$gender=$user['gender'];
-		$date=$user['date'];
-
-		if(isset($_POST['edit_profile_submit_button'])){
-			$name=$_POST['name'];
-			$name=$_POST['email'];
-			$name=$_POST['gender'];
-			$name=$_POST['date'];
-
-			$user['name']=$name;
-			$user['email']=$email;
-			$user['gender']=$gender;
-			$user['date']=$date;
-		}
-	}
-
-?>
 
 <!-- ================================================================================== -->
 
 
 <?php 
 	$title= "Edit Profile";
-	include('header.php');
+	include('header.html');
 ?>
 
 	<table border="1px" align="center" width="100%">
@@ -43,14 +16,10 @@
 						<td width="200px" height="60px"><img src="../asset/logo.png" width="100%" height="100%"></td>
 						<td align="right" >
 							Logged in as
-							<a href="dashboard.php"> 
-								<?php
-									$user=$_SESSION['current_user'];
-									$name=$user['name'];
-									echo $name;
-								?>
+							<a href="#"> 
+								
 							</a> |
-							<a href="public_Home.html"> Logout </a> 
+							<a href="#"> Logout </a> 
 						</td>
 					</tr>
 				</table>
@@ -60,56 +29,153 @@
 
 	<table border="1px" align="center" width="100%">
 		<tr height="420px">
-			<td width="200px">Account<hr>
-				<ul>
-					<li><a href="dashboard.php">Dashboard</a></li>
-					<li><a href="view_profile_check.php">View Profile</a></li>
-					<li><a href="edit_profile_check.php">Edit Profile</a></li>
-					<!-- Add url in change profile pic -->
-					<li><a href="profile_pic.php">Change Profile Picture</a></li>
-					<li><a href="../controler/change_pass_check.php">Change Password</a></li>
-					<li><a href="public_Home.html">Logout</a></li>
-				</ul>
+			<td width="200px" height="425px">MENU
+				<hr>
+				<details>
+					<summary><a href="#">Dashboard</a></summary>
+						
+				</details>
+
+				<details>
+					<summary>Portal</summary>
+						<details>
+							<summary><a href="#">Create Leave Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Create Travel Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Monthly Performance</a></summary>
+						</details>
+				</details>
+
+				<details>
+					<summary>Screening & Approval</summary>
+						<details>
+							<summary><a href="#">Leave Approval</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Travel Approval</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Performance Overview</a></summary>
+						</details>
+				</details>
+
+				<details>
+					<summary>Requirement</summary>
+						<details>
+							<summary><a href="#">Add Job Titles</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">View Job Titles</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Add Job Vacancy</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">View Job Vacancy</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Online Application</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Fixing Interview Online</a></summary>
+						</details>
+				</details>
+
+				<details>
+					<summary>Setting</summary>
+						<details>
+							<summary><a href="#">View Profile</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Edit Profile</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Change Password</a></summary>
+						</details>
+				</details>
+
+				<details>
+					<summary><a href="#">About</a></summary>
+				</details>
+
+				<details>
+					<summary><a href="#">Logout</a></summary>
+				</details>
 			</td>
 			<td align="center">
-				<form method="post" action="edit_profile_check.php">
-					<fieldset>
-						<legend>EDIT PROFILE</legend>
-						<table>
-							<tr>
-								<td>Name</td>
-								<td>:<input type="name" name="name" value="<?php echo $name;?>"></td> 
-							</tr>
-							<tr>
-								<td>Email</td>
-								<td>:<input type="email" name="email" value="<?php echo $email;?>"></td> 
-							</tr>
-							<tr>
-								<td>Gender</td>
-								<td>:
-									<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male"> Male
-									<input type="radio" name="gender" <?php if (isset($gender) && $gender=="female") echo "checked";?> value="Female"> Female
-									<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Other") echo "checked";?> value="Other"> Other 
-								</td> 
-							</tr>
-							<tr>
-								<td>Date of Birth</td>
-								<td>:<input type="date" name="date" value="<?php echo $date;?>"></td> 
-							</tr>
-							<tr>
-								<!-- add line -->
-								<td><input type="submit" name="edit_profile_submit_button" value="Submit"></td>
-							</tr>
-						</table>
-					</fieldset>
-				</form>
+				<table align="center">
+					<tr>
+						<td>
+							<form method="post" action="#">
+								<fieldset>
+									<legend>EDIT PROFILE</legend>
+									<table>
+										<tr>
+											<td>Name</td>
+											<td>
+												<input type="name" name="name" value="">
+											</td> 
+										</tr>
+										<tr>
+											<td>Email</td>
+											<td>
+												<input type="email" name="email" value="">
+											</td> 
+										</tr>
+										<tr>
+											<td>Gender</td>
+											<td>
+												<input type="radio" name="gender" value="Male"> Male
+												<input type="radio" name="gender" value="Female"> Female
+												<input type="radio" name="gender" value="Other"> Other 
+											</td> 
+										</tr>
+										<tr>
+											<td>Phone</td>
+											<td>
+												<input type="number" name="phone" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Address</td>
+											<td>
+												<textarea cols="22"></textarea>
+											</td>
+										</tr>
+										<tr>
+											<td>Department</td>
+											<td>
+												
+											</td>
+										</tr>
+										<tr>
+											<td>Blood Group</td>
+											<td>
+												
+											</td>
+										</tr>
+										<tr>
+											<td>Date of Birth</td>
+											<td>
+												<input type="date" name="date" value="">
+											</td> 
+										</tr>
+										<tr>
+											<!-- add line -->
+											<td><input type="submit" name="#" value="Save"></td>
+										</tr>
+									</table>
+								</fieldset>
+							</form>
+						</td>
+					</tr>
+				</table>
+				
 			</td>
 		</tr>
-		<tr height="50px">
-			<td colspan="2" align="center">
-				copyright@2021
-			</td> 
-		</tr>
-	</table>
-</body>
-</html>
+<?php 
+	include('footer.html'); 
+?>

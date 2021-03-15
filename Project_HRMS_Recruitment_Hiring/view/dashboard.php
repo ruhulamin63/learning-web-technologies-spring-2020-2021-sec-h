@@ -3,7 +3,6 @@
 	$title= "Dashboard";
 	include('header.html');
 ?>
-
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>
@@ -32,6 +31,19 @@
 				</details>
 
 				<details>
+					<summary>Portal</summary>
+						<details>
+							<summary><a href="#">Create Leave Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Create Travel Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Monthly Performance</a></summary>
+						</details>
+				</details>
+
+				<details>
 					<summary>Screening & Approval</summary>
 						<details>
 							<summary><a href="#">Leave Approval</a></summary>
@@ -40,18 +52,15 @@
 							<summary><a href="#">Travel Approval</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">Response of Grievances</a></summary>
-						</details>
-						<details>
 							<summary><a href="#">Performance Overview</a></summary>
-						</details>
-						<details>
-							<summary><a href="#">Loan Approval</a></summary>
 						</details>
 				</details>
 
 				<details>
 					<summary>Requirement</summary>
+						<details>
+							<summary><a href="#">Add Job Titles</a></summary>
+						</details>
 						<details>
 							<summary><a href="#">View Job Titles</a></summary>
 						</details>
@@ -91,7 +100,7 @@
 				</details>
 			</td>
 			<td colspan="2" align="center">
-				<h1>Welcome
+				<h1>Welcome , 
 				</h1>
 			</td>
 		</tr>

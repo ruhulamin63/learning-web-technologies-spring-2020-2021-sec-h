@@ -1,47 +1,11 @@
-<?php
-	session_start();
 
-
-	if(isset($_SESSION['flag'])){
-
-		$user=$_SESSION['current_user'];
-		$name=$user['name'];
-		$email=$user['email'];
-		$gender=$user['gender'];
-		$date=$user['date'];
-//==================================================
-		//if(isset($_POST['submit_pic'])){
-			$file_info = $_FILES['choose_file'];
-			//echo $file_info['tmp_name'];
-			
-			$file = $file_info['name'];
-			$path = '../asset/'.$file;
-			$filename = $file_info['tmp_name'];
-
-			if(move_uploaded_file($filename, $path)){
-				echo "success";
-			}else{
-				echo "Error...";
-			}
-		//}else{
-			//echo "*please click submit...";
-		//}
-?>
 
 <!-- ========================================================= -->
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>View Profile</title>
-<style>
-	th, td {
-	  padding: 10px;
-	}
-</style>
-</head>
-<body>
-
+<?php 
+	$title= "View Profile";
+	include('header.html');
+?>
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>
@@ -53,11 +17,7 @@
 						<td align="right" >
 							Logged in as
 							<a href="dashboard.php"> 
-								<?php
-									$user=$_SESSION['current_user'];
-									$name=$user['name'];
-									echo $name;
-								?>
+								
 							</a> |
 							<a href="public_Home.html"> Logout </a> 
 						</td>
@@ -68,91 +28,166 @@
 	</table>
 <!-- creating new table -->
 	<table border="1px" align="center" width="100%">
-		<tr height="400px">
-			<td width="200px">Account<hr>
-				<ul>
-					<li><a href="dashboard.php">Dashboard</a></li>
-					<li><a href="view_profile_check.php">View Profile</a></li>
-					<li><a href="edit_profile_check.php">Edit Profile</a></li>
-					<li><a href="profile_pic.php">Change Profile Picture</a></li>
-					<li><a href="../controler/change_pass_check.php">Change Password</a></li>
-					<li><a href="public_Home.html">Logout</a></li>
-				</ul>
+		<tr>
+			<td width="200px" height="425px">MENU
+				<hr>
+				<details>
+					<summary><a href="#">Dashboard</a></summary>
+						
+				</details>
+
+				<details>
+					<summary>Portal</summary>
+						<details>
+							<summary><a href="#">Create Leave Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Create Travel Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Monthly Performance</a></summary>
+						</details>
+				</details>
+
+				<details>
+					<summary>Screening & Approval</summary>
+						<details>
+							<summary><a href="#">Leave Approval</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Travel Approval</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Performance Overview</a></summary>
+						</details>
+				</details>
+
+				<details>
+					<summary>Requirement</summary>
+						<details>
+							<summary><a href="#">Add Job Titles</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">View Job Titles</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Add Job Vacancy</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">View Job Vacancy</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Online Application</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Fixing Interview Online</a></summary>
+						</details>
+				</details>
+
+				<details>
+					<summary>Setting</summary>
+						<details>
+							<summary><a href="#">View Profile</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Edit Profile</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Change Password</a></summary>
+						</details>
+				</details>
+
+				<details>
+					<summary><a href="#">About</a></summary>
+				</details>
+
+				<details>
+					<summary><a href="#">Logout</a></summary>
+				</details>
 			</td>
 			<td align="center">
-				<form method="post" action="profile_pic.php" enctype="multipart/form-data">
-					<fieldset>
-						<legend>PROFILE</legend>
-						<table>
-							<tr>
-								<td>Name</td>
-								<td>:
-									<?php
-										echo $name;
-									?>
+				<table>
+					<tr>
+						<td>
+							<form method="post" action="profile_pic.php" enctype="multipart/form-data">
+								<fieldset>
+									<legend>PROFILE</legend>
+									<table align="center">
+										<tr>
+											<td>Name</td>
+											<td>:
+												<!-- <?php
+													echo $name;
+												?>-->
+											</td>
+											<td rowspan="4" align="center">
+												
+												<img src="../asset/user.png" width="200px" height="200px"><br>
+												<a href="#">Change</a>
+											</td>
+										</tr>
+										<tr>
+											<td>Email</td>
+											<td>:
+												<!-- <?php
+													echo $email;
+												?> -->
 
-								</td>
-								<td rowspan="4" align="center">
-									<?php
-										if(isset($_POST['submit_pic'])){
-									?>
-										<img src="../asset/<?php echo $file; ?>" width="100px" height="100px"><br>
-									<?php 
-										}else{
-									?>
-										<img src="../asset/user.png" width="200px" height="200px"><br>
-									<?php 
-										}
-									?>
-									<a href="profile_pic.php">Change</a>
-								</td>
-							</tr>
-							<tr>
-								<td>Email</td>
-								<td>:
-									<?php
-										echo $email;
-									?>
+											</td>
+										</tr>
+										<tr>
+											<td>Gender</td>
+											<td>:
+												<!-- <?php
+													echo $gender;
+												?> -->
 
-								</td>
-							</tr>
-							<tr>
-								<td>Gender</td>
-								<td>:
-									<?php
-										echo $gender;
-									?>
+											</td>
+										</tr>
+										<tr>
+											<td>Phone</td>
+											<td>:
+												
+											</td>
+										</tr>
+										<tr>
+											<td>Address</td>
+											<td>:
+												
+											</td>
+										</tr>
+										<tr>
+											<td>Department</td>
+											<td>:
+												
+											</td>
+										</tr>
+										<tr>
+											<td>Blood Group</td>
+											<td>:
+												
+											</td>
+										</tr>
+										<tr>
+											<td>Date of Birth</td>
+											<td>:
+												<!-- <?php
+													echo $date;
+												?> -->
 
-								</td>
-							</tr>
-							<tr>
-								<td>Date of Birth</td>
-								<td>:
-									<?php
-										echo $date;
-									?>
-
-								</td>
-							</tr>
-							<tr>
-								<td><a href="edit_profile_check.php">Edit Profile</a></td>
-							</tr>
-						</table>
-					</fieldset>
-				</form>
+											</td>
+										</tr>
+										<tr>
+											<td><a href="#">Edit Profile</a></td>
+										</tr>
+									</table>
+								</fieldset>
+							</form>
+						</td>
+					</tr>
+				</table>
 			</td>
 		</tr>
-		<tr height="50px">
-			<td colspan="2" align="center">
-				copyright@2021
-			</td> 
-		</tr>
-	</table>
-</body>
-</html>
-
-<?php
-	}else{
-		header('location: login_check.php');
-	}
+<?php 
+	include('../view/footer.html'); 
 ?>

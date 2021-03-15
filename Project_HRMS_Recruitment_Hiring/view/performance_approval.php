@@ -1,35 +1,30 @@
 
-
-<!-- ========================================================= -->
-
 <?php 
-	$title= "Picture Change";
-	include('header.php');
+	$title= "Performance";
+	include('header.html');
 ?>
-
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>
 				<table width="100%">
 					<tr>
-						<td width="200px" height="60px"><img src="../asset/logo.png" width="100%" height="100%"></td>
-						<td align="right" >
-							Logged in as
-							<a href="dashboard.php"> 
-								
-							</a> |
-							<a href="public_Home.html"> Logout </a> 
+						<td width="150px" height="50px">
+							<img src="../asset/logo.png" alt="main_logo" width="100%" height="100%">
+						</td>
+						<td align="right" >Logged in as
+							<a href="#"></a> |
+							<a href="#">Logout</a> 
 						</td>
 					</tr>
 				</table>
 			</td>
 		</tr>
 	</table>
-
-	<table border="1px" align="center" width="100%">
+<!-- new table creating -->
+	<table  border="1px" align="cen" width="100%">
 		<tr>
 			<td width="200px" height="425px">MENU
-			<hr>
+				<hr>
 				<details>
 					<summary><a href="#">Dashboard</a></summary>
 						
@@ -62,7 +57,7 @@
 				</details>
 
 				<details>
-					<summary>Recruitment</summary>
+					<summary>Requirement</summary>
 						<details>
 							<summary><a href="#">Add Job Titles</a></summary>
 						</details>
@@ -104,29 +99,25 @@
 					<summary><a href="#">Logout</a></summary>
 				</details>
 			</td>
-
-				<form method="post" action="view_profile_check.php" enctype="multipart/form-data">
-					<fieldset>
-						<legend>PROFILE</legend>
-						<table>
-							<tr>
-								<td>
-									<img src="../asset/user.png" width="200px" height="200px"><br>
-									<input type="file" name="choose_file" value="">
-								</td>
-							</tr>
-						</table>
-						<hr>
-						<input type="submit" name="submit_pic" value="Upload">
-					</fieldset>
-				</form>
+			<td colspan="2" align="center">
+				<table border="1px" align="center">
+					<tr>
+						<th>SL</th>
+						<th>Requested By</th>
+						<th>Month</th>
+						<th>Approval Status</th>
+						<th>Del</th>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+					</tr>
+				</table>
 			</td>
 		</tr>
-		<tr height="50px">
-			<td colspan="2" align="center">
-				copyright@2021
-			</td> 
-		</tr>
-	</table>
-</body>
-</html>
+<?php 
+	include('footer.html'); 
+?>
