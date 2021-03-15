@@ -1,6 +1,6 @@
 
 <?php 
-	$title= "Job";
+	$title= "Fixing";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -104,27 +104,50 @@
 					<tr>
 						<td>
 							<fieldset>
-								<b>Search Job</b>
-								<span>
-									<input type="text" name="view_job" value="">
-								</span>
+								<h2>Fixing Intrview Online</h2>
 								<hr>
-								<input type="submit" name="view_job_btn" value="Submit">
-								<input type="submit" name="view_all_btn" value="View All">
-								<a href="#">Back</a>
-								<br><br>
-								<table border="1px" align="center">
+
+								<table>
 									<tr>
-										<th>SL</th>
-										<th>Job Title</th>
-										<th>Edit</th>
+										<td>Vacancy</td>
+										<td>:
+											<input type="text" name="v" value="">
+										</td>
 									</tr>
 									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
+										<td>Candidate</td>
+										<td>:
+											<input type="text" name="c" value="">
+										</td>
+									</tr>
+									<tr>
+										<td>Interview Time</td>
+										<td>:
+											<input type="text" name="it" value="">
+										</td>
+									</tr>
+									<tr>
+										<td>Date</td>
+										<td>:
+											<input type="date" name="d" value="">
+										</td>
+									</tr>
+									<tr>
+										<td>Status</td>
+										<td>:
+											<input type="text" name="s" value="">
+										</td>
+									</tr>
+									<tr>
+										<td>Comments</td>
+										<td>:
+											<textarea></textarea>
+										</td>
 									</tr>
 								</table>
+								<hr>
+								<input type="submit" name="fixing_btn" value="Save"> |
+								<a href="#">Back</a>
 							</fieldset>
 						</td>
 					</tr>

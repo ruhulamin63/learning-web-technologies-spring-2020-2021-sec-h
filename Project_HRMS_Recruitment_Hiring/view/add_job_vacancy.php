@@ -1,6 +1,6 @@
 
 <?php 
-	$title= "Add Job";
+	$title= "Vacancy";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -109,33 +109,39 @@
 
 								<table>
 									<tr>
-										<td>Job Title
-											:<input type="text" name="ajt" value="">
+										<td>Job Title</td>
+										<td>:
+											<input type="text" name="ajt" value="">
 										</td>
 									</tr>
 									<tr>
-										<td>Vacancy Name
-											:<input type="text" name="vn" value="">
+										<td>Vacancy Name</td>
+										<td>:
+											<input type="text" name="vn" value="">
 										</td>
 									</tr>
 									<tr>
-										<td>Hiring Manager
-											:<input type="text" name="hm" value="">
+										<td>Hiring Manager</td>
+										<td>:
+											<input type="text" name="hm" value="">
 										</td>
 									</tr>
 									<tr>
-										<td>Job Location
-											:<input type="text" name="jl" value="">
+										<td>Job Location</td>
+										<td>:
+											<input type="text" name="jl" value="">
 										</td>
 									</tr>
 									<tr>
-										<td>Number Of Position
-											:<input type="text" name="nop" value="">
+										<td>Number Of Position</td>
+										<td>:
+											<input type="text" name="nop" value="">
 										</td>
 									</tr>
 									<tr>
-										<td>Job Description
-											:<textarea></textarea>
+										<td>Job Description</td>
+										<td>:
+											<textarea></textarea>
 										</td>
 									</tr>
 								</table>

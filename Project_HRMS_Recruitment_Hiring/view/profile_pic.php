@@ -15,10 +15,10 @@
 						<td width="200px" height="60px"><img src="../asset/logo.png" width="100%" height="100%"></td>
 						<td align="right" >
 							Logged in as
-							<a href="dashboard.php"> 
+							<a href="#"> 
 								
 							</a> |
-							<a href="public_Home.html"> Logout </a> 
+							<a href="#"> Logout </a> 
 						</td>
 					</tr>
 				</table>
@@ -105,7 +105,7 @@
 				</details>
 			</td>
 
-				<form method="post" action="view_profile_check.php" enctype="multipart/form-data">
+				<form method="post" action="#" enctype="multipart/form-data">
 					<fieldset>
 						<legend>PROFILE</legend>
 						<table>

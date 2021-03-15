@@ -1,6 +1,6 @@
 
 <?php 
-	$title= "Job";
+	$title= "Vacancy";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -104,22 +104,31 @@
 					<tr>
 						<td>
 							<fieldset>
+								<h2>View Job Vacancy</h2>
+								<hr><br>
 								<b>Search Job</b>
 								<span>
-									<input type="text" name="view_job" value="">
+									<input type="text" name="view_job_vacancy" value="">
 								</span>
 								<hr>
-								<input type="submit" name="view_job_btn" value="Submit">
-								<input type="submit" name="view_all_btn" value="View All">
+								<input type="submit" name="view_job_vacancy_btn" value="Submit">
+								<input type="submit" name="view_all_vacancy_btn" value="View All">
 								<a href="#">Back</a>
 								<br><br>
 								<table border="1px" align="center">
 									<tr>
 										<th>SL</th>
 										<th>Job Title</th>
-										<th>Edit</th>
+										<th>Vacancy Name</th>
+										<th>Hiring Manager</th>
+										<th>Job Location</th>
+										<th>Number Of Position</th>
+										<th>Job Description</th>
 									</tr>
 									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
 										<td></td>
 										<td></td>
 										<td></td>

@@ -1,6 +1,6 @@
 
 <?php 
-	$title= "Add Job";
+	$title= "Job";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">

@@ -16,10 +16,10 @@
 						</td>
 						<td align="right" >
 							Logged in as
-							<a href="dashboard.php"> 
+							<a href="#"> 
 								
 							</a> |
-							<a href="public_Home.html"> Logout </a> 
+							<a href="#"> Logout </a> 
 						</td>
 					</tr>
 				</table>

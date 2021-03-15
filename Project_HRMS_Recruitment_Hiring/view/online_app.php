@@ -1,6 +1,6 @@
 
 <?php 
-	$title= "Job";
+	$title= "Online App";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -104,25 +104,78 @@
 					<tr>
 						<td>
 							<fieldset>
-								<b>Search Job</b>
-								<span>
-									<input type="text" name="view_job" value="">
-								</span>
+								<h2>Online Application</h2>
 								<hr>
-								<input type="submit" name="view_job_btn" value="Submit">
-								<input type="submit" name="view_all_btn" value="View All">
-								<a href="#">Back</a>
-								<br><br>
-								<table border="1px" align="center">
+							
+								<table align="center">
 									<tr>
-										<th>SL</th>
-										<th>Job Title</th>
-										<th>Edit</th>
+										<td>Full Name</td>
+										<td>:
+											<input type="text" name="Aname" value="">
+										</td>
 									</tr>
 									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
+										<td>Email</td>
+										<td>:
+											<input type="text" name="Aemail" value="">
+										</td>
+									</tr>
+									<tr>
+										<td>Contract No</td>
+										<td>:
+											<input type="number" name="ACnumber" value="">
+										</td>
+									</tr>
+									<tr>
+										<td>Year Of Experience</td>
+										<td>:
+											<input type="number" name="Aexperience" value="">
+										</td>
+									</tr>
+									<tr>
+										<td>Location Job Applied</td>
+										<td>:
+											<input type="text" name="Alocation" value="">
+										</td>
+									</tr>
+									<tr>
+										<td>Select Vacancy Type</td>
+										<td>:
+											<select>
+												<option>select</option>
+												<option>Jr.Software Engineer</option>
+												<option>Senior Software Engineer</option>
+												<option>Developer</option>
+												<option>Query Expert</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>Date</td>
+										<td>:
+											<input type="date" name="Adate" value="">
+										</td>
+									</tr>
+									<tr>
+										<td>Resume Upload</td>
+										<td>:
+											<img src="../asset/user.png" width="100px" height="100px"><br>
+											<input type="file" name="choose_file" value="">
+										</td>
+									</tr>
+									<tr>
+										<td>Comment</td>
+										<td>:
+											<textarea></textarea>
+										</td>
+									</tr>
+									<tr>
+										<td align="left">
+											<input type="submit" name="Asave_btn" value="Save">
+										</td>
+										<td align="right">
+											<a href="#">Back</a>
+										</td>
 									</tr>
 								</table>
 							</fieldset>
