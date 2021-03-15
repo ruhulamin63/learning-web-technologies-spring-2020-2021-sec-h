@@ -1,10 +1,23 @@
+<?php
+	session_start();
 
+	if(!isset($_SESSION['flag'])){
+		header('location: ../controler/login_check.php');
+	}else{
+
+		$user=$_SESSION['current_user'];
+
+		if(isset($_POST['submit_pic'])){
+			header('location: view_profile_check.php');
+		}
+	}
+?>
 
 <!-- ========================================================= -->
 
 <?php 
 	$title= "Picture Change";
-	include('header.php');
+	include('header.html');
 ?>
 
 	<table border="1px" align="center" width="100%">
@@ -15,8 +28,10 @@
 						<td width="200px" height="60px"><img src="../asset/company_logo.png" width="100%" height="100%"></td>
 						<td align="right" >
 							Logged in as
-							<a href="#"> 
-								
+							<a href="view_profile_check.php"> 
+								<?php
+									echo $_SESSION['current_user']['name'];
+								?>
 							</a> |
 							<a href="../controler/logout_check.php"> Logout </a> 
 						</td>
@@ -104,8 +119,8 @@
 					<summary><a href="../controler/logout_check.php">Logout</a></summary>
 				</details>
 			</td>
-
-				<form method="post" action="#" enctype="multipart/form-data">
+			<td>
+				<form method="post" action="view_profile_check.php" enctype="multipart/form-data">
 					<fieldset>
 						<legend>PROFILE</legend>
 						<table>

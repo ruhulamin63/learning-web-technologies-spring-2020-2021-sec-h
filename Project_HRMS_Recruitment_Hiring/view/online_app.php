@@ -12,7 +12,11 @@
 							<img src="../asset/company_logo.png" alt="main_logo" width="100%" height="100%">
 						</td>
 						<td align="right" >Logged in as
-							<a href="#"></a> |
+							<a href="view_profile_check.php">
+								<?php
+									echo $_SESSION['current_user']['name'];
+								?>
+							</a> |
 							<a href="../controler/logout_check.php">Logout</a> 
 						</td>
 					</tr>

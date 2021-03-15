@@ -1,4 +1,39 @@
+<?php
+	session_start();
 
+	if(!isset($_SESSION['flag'])){
+		header('location: ../controler/login_check.php');
+	}else{
+
+		$user=$_SESSION['current_user'];
+
+		$username=$user['username'];
+		$name=$user['name'];
+		$email=$user['email'];
+		$gender=$user['gender'];
+		$phone=$user['phone'];
+		$address=$user['address'];
+		$deptment=$user['deptment'];
+		$bg=$user['bg'];
+		$dob=$user['dob'];
+
+//==================================================
+		if(isset($_POST['submit_pic'])){
+			$file_info = $_FILES['choose_file'];
+			//echo $file_info['tmp_name'];
+			
+			$file = $file_info['name'];
+			$path = '../asset/upload'.$file;
+			$filename = $file_info['tmp_name'];
+
+			if(move_uploaded_file($filename, $path)){
+				echo "successfully...";
+			}else{
+				echo "Error...";
+			}
+		}
+	}
+?>
 
 <!-- ========================================================= -->
 
@@ -17,7 +52,9 @@
 						<td align="right" >
 							Logged in as
 							<a href="view_profile_check.php"> 
-								
+								<?php
+									echo $_SESSION['current_user']['name'];
+								?>
 							</a> |
 							<a href="../controler/logout_check.php"> Logout </a> 
 						</td>
@@ -105,6 +142,7 @@
 					<summary><a href="../controler/logout_check.php">Logout</a></summary>
 				</details>
 			</td>
+<!-- ========================================================================================================= -->
 			<td align="center">
 				<table>
 					<tr>
@@ -114,71 +152,92 @@
 									<legend>PROFILE</legend>
 									<table align="center">
 										<tr>
+											<td>Username</td>
+											<td>:
+												<input type="username" name="username" value="<?php echo $username;?>">
+											</td> 
+										</tr>
+										<tr>
 											<td>Name</td>
 											<td>:
-												<!-- <?php
+												<?php
 													echo $name;
-												?>-->
+												?>
 											</td>
 											<td rowspan="4" align="center">
-												
-												<img src="../asset/user.png" width="200px" height="200px"><br>
-												<a href="#">Change</a>
+												<?php
+													if(isset($_POST['submit_pic'])){
+												?>
+													<img src="../asset/upload<?php echo $file; ?>" width="100px" height="100px"><br>
+												<?php 
+													}else{
+												?>
+													<img src="../asset/user.png" width="100px" height="100px"><br>
+												<?php 
+													}
+												?>
+												<a href="profile_pic.php">Change</a>
 											</td>
 										</tr>
 										<tr>
 											<td>Email</td>
 											<td>:
-												<!-- <?php
+												<?php
 													echo $email;
-												?> -->
+												?>
 
 											</td>
 										</tr>
 										<tr>
 											<td>Gender</td>
 											<td>:
-												<!-- <?php
+												<?php
 													echo $gender;
-												?> -->
-
+												?>
 											</td>
 										</tr>
 										<tr>
 											<td>Phone</td>
 											<td>:
-												
+												<?php
+													echo $phone;
+												?>
 											</td>
 										</tr>
 										<tr>
 											<td>Address</td>
 											<td>:
-												
+												<?php
+													echo $address;
+												?>
 											</td>
 										</tr>
 										<tr>
 											<td>Department</td>
 											<td>:
-												
+												<?php
+													echo $deptment;
+												?>
 											</td>
 										</tr>
 										<tr>
 											<td>Blood Group</td>
 											<td>:
-												
+												<?php
+													echo $bg;
+												?>
 											</td>
 										</tr>
 										<tr>
 											<td>Date of Birth</td>
 											<td>:
-												<!-- <?php
-													echo $date;
-												?> -->
-
+												<?php
+													echo $dob;
+												?>
 											</td>
 										</tr>
 										<tr>
-											<td><a href="#">Edit Profile</a></td>
+											<td><a href="edit_profile_check.php">Edit Profile</a></td>
 										</tr>
 									</table>
 								</fieldset>

@@ -1,4 +1,36 @@
+<?php
+	session_start();
 
+	if(!isset($_SESSION['flag'])){
+		header('location: ../controler/login_check.php');
+
+	}else{
+		$user=$_SESSION['current_user'];
+
+		$username=$user['username'];
+		$name=$user['name'];
+		$email=$user['email'];
+		$gender=$user['gender'];
+		$phone=$user['phone'];
+		$address=$user['address'];
+		$deptment=$user['deptment'];
+		$bg=$user['bg'];
+		$dob=$user['dob'];
+
+		/*if(isset($_POST['edit_profile_submit_button'])){
+			$name=$_POST['name'];
+			$name=$_POST['email'];
+			$name=$_POST['gender'];
+			$name=$_POST['date'];
+
+			$user['name']=$name;
+			$user['email']=$email;
+			$user['gender']=$gender;
+			$user['date']=$date;
+		}*/
+	}
+
+?>
 
 <!-- ================================================================================== -->
 
@@ -16,7 +48,9 @@
 						<td align="right" >
 							Logged in as
 							<a href="view_profile_check.php"> 
-								
+								<?php
+									echo $_SESSION['current_user']['name'];
+								?>
 							</a> |
 							<a href="../controler/logout_check.php"> Logout </a> 
 						</td>
@@ -92,7 +126,7 @@
 							<summary><a href="edit_profile_check.php">Edit Profile</a></summary>
 						</details>
 						<details>
-							<summary><a href="change_pass_check.php">Change Password</a></summary>
+							<summary><a href="../controler/change_pass_check.php">Change Password</a></summary>
 						</details>
 				</details>
 
@@ -104,6 +138,7 @@
 					<summary><a href="../controler/logout_check.php">Logout</a></summary>
 				</details>
 			</td>
+<!-- ================================================================================================= -->
 			<td align="center">
 				<table align="center">
 					<tr>
@@ -113,58 +148,64 @@
 									<legend>EDIT PROFILE</legend>
 									<table>
 										<tr>
+											<td>Username</td>
+											<td>:
+												<input type="username" name="username" value="<?php echo $username;?>">
+											</td> 
+										</tr>
+										<tr>
 											<td>Name</td>
-											<td>
-												<input type="name" name="name" value="">
+											<td>:
+												<input type="name" name="name" value="<?php echo $name;?>">
 											</td> 
 										</tr>
 										<tr>
 											<td>Email</td>
-											<td>
-												<input type="email" name="email" value="">
+											<td>:
+												<input type="email" name="email" value="<?php echo $email;?>">
 											</td> 
 										</tr>
 										<tr>
 											<td>Gender</td>
-											<td>
-												<input type="radio" name="gender" value="Male"> Male
-												<input type="radio" name="gender" value="Female"> Female
-												<input type="radio" name="gender" value="Other"> Other 
+											<td>:
+												<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male"> Male
+												<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Female") echo "checked";?> value="Female"> Female
+												<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Other") echo "checked";?> value="Other"> Other 
 											</td> 
 										</tr>
 										<tr>
 											<td>Phone</td>
-											<td>
-												<input type="number" name="phone" value="">
+											<td>:
+												<input type="number" name="phone" value="<?php echo $phone;?>">
 											</td>
 										</tr>
 										<tr>
 											<td>Address</td>
-											<td>
-												<textarea cols="22"></textarea>
+											<td>:
+												<?php echo $address;?>
 											</td>
 										</tr>
 										<tr>
 											<td>Department</td>
-											<td>
-												
+											<td>:
+												<?php echo $deptment;?>
 											</td>
 										</tr>
 										<tr>
 											<td>Blood Group</td>
-											<td>
-												
+											<td>:
+												<?php echo $bg;?>
 											</td>
 										</tr>
-										<tr>
+										<tr>:
 											<td>Date of Birth</td>
 											<td>
-												<input type="date" name="date" value="">
+												<input type="date" name="dob" value="<?php echo $dob;?>">
 											</td> 
 										</tr>
 										<tr>
 											<!-- add line -->
-											<td><input type="submit" name="#" value="Save"></td>
+											<td><input type="submit" name="view_profile_check.php" value="Save"></td>
 										</tr>
 									</table>
 								</fieldset>
