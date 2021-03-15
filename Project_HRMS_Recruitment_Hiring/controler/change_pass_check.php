@@ -1,6 +1,6 @@
 
 <?php 
-	$title= "Pass Page";
+	$title= "Change Password";
 	include('../view/header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -33,6 +33,19 @@
 				</details>
 
 				<details>
+					<summary>Portal</summary>
+						<details>
+							<summary><a href="#">Create Leave Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Create Travel Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Monthly Performance</a></summary>
+						</details>
+				</details>
+
+				<details>
 					<summary>Screening & Approval</summary>
 						<details>
 							<summary><a href="#">Leave Approval</a></summary>
@@ -41,18 +54,15 @@
 							<summary><a href="#">Travel Approval</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">Response of Grievances</a></summary>
-						</details>
-						<details>
 							<summary><a href="#">Performance Overview</a></summary>
-						</details>
-						<details>
-							<summary><a href="#">Loan Approval</a></summary>
 						</details>
 				</details>
 
 				<details>
 					<summary>Recruitment</summary>
+						<details>
+							<summary><a href="#">Add Job Titles</a></summary>
+						</details>
 						<details>
 							<summary><a href="#">View Job Titles</a></summary>
 						</details>
@@ -93,27 +103,33 @@
 			</td>
 
 			<td>
-				<form method="post" action="#">
-					<fieldset>
-						<legend>CHANGE PASSWORD</legend>
-						<table>
-							<tr>
-								<td>Current Password</td>
-								<td><input type="password" name="curr_pass" value=""></td>
-							</tr>
-							<tr>
-								<td>New Password</td>
-								<td><input type="password" name="new_pass" value=""></td>
-							</tr>
-							<tr>
-								<td>Retype New Password</td>
-								<td><input type="password" name="re_pass" value=""></td>
-							</tr>
-						</table>
-						<hr>
-						<input type="submit" name="#" value="Save">
-					</fieldset>
-				</form>
+				<table align="center">
+					<tr>
+						<td>
+							<form method="post" action="#">
+								<fieldset>
+									<legend>CHANGE PASSWORD</legend>
+									<table>
+										<tr>
+											<td>Current Password</td>
+											<td><input type="password" name="curr_pass" value=""></td>
+										</tr>
+										<tr>
+											<td>New Password</td>
+											<td><input type="password" name="new_pass" value=""></td>
+										</tr>
+										<tr>
+											<td>Retype New Password</td>
+											<td><input type="password" name="re_pass" value=""></td>
+										</tr>
+									</table>
+									<hr>
+									<input type="submit" name="#" value="Save">
+								</fieldset>
+							</form>
+						</td>
+					</tr>
+				</table>
 			</td>
 		</tr>
 <?php 

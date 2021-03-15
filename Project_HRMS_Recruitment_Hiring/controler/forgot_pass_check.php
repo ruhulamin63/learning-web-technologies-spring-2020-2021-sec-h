@@ -37,6 +37,19 @@
 				</details>
 
 				<details>
+					<summary>Portal</summary>
+						<details>
+							<summary><a href="#">Create Leave Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Create Travel Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="#">Monthly Performance</a></summary>
+						</details>
+				</details>
+
+				<details>
 					<summary>Screening & Approval</summary>
 						<details>
 							<summary><a href="#">Leave Approval</a></summary>
@@ -45,18 +58,15 @@
 							<summary><a href="#">Travel Approval</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">Response of Grievances</a></summary>
-						</details>
-						<details>
 							<summary><a href="#">Performance Overview</a></summary>
-						</details>
-						<details>
-							<summary><a href="#">Loan Approval</a></summary>
 						</details>
 				</details>
 
 				<details>
 					<summary>Recruitment</summary>
+						<details>
+							<summary><a href="#">Add Job Titles</a></summary>
+						</details>
 						<details>
 							<summary><a href="#">View Job Titles</a></summary>
 						</details>
