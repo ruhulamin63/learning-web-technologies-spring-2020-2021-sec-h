@@ -9,11 +9,11 @@
 				<table width="100%">
 					<tr>
 						<td width="150px" height="50px">
-							<img src="../asset/logo.png" alt="main_logo" width="100%" height="100%">
+							<img src="../asset/company_logo.png" alt="main_logo" width="100%" height="100%">
 						</td>
 						<td align="right" >Logged in as
-							<a href="#"></a> |
-							<a href="#">Logout</a> 
+							<a href="view_profile_check.php"></a> |
+							<a href="../controler/logout_check.php">Logout</a> 
 						</td>
 					</tr>
 				</table>
@@ -26,7 +26,7 @@
 			<td width="200px" height="425px">MENU
 				<hr>
 				<details>
-					<summary><a href="#">Dashboard</a></summary>
+					<summary><a href="dashboard.php">Dashboard</a></summary>
 						
 				</details>
 
@@ -46,57 +46,57 @@
 				<details>
 					<summary>Screening & Approval</summary>
 						<details>
-							<summary><a href="#">Leave Approval</a></summary>
+							<summary><a href="leave_approval.php">Leave Approval</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">Travel Approval</a></summary>
+							<summary><a href="travel_approval.php">Travel Approval</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">Performance Overview</a></summary>
+							<summary><a href="performance_approval.php">Performance Overview</a></summary>
 						</details>
 				</details>
 
 				<details>
 					<summary>Requirement</summary>
 						<details>
-							<summary><a href="#">Add Job Titles</a></summary>
+							<summary><a href="add_job.php">Add Job Titles</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">View Job Titles</a></summary>
+							<summary><a href="view_job.php">View Job Titles</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">Add Job Vacancy</a></summary>
+							<summary><a href="add_job_vacancy.php">Add Job Vacancy</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">View Job Vacancy</a></summary>
+							<summary><a href="view_job_vacancy.php">View Job Vacancy</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">Online Application</a></summary>
+							<summary><a href="online_app.php">Online Application</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">Fixing Interview Online</a></summary>
+							<summary><a href="fixing_interview.php">Fixing Interview Online</a></summary>
 						</details>
 				</details>
 
 				<details>
 					<summary>Setting</summary>
 						<details>
-							<summary><a href="#">View Profile</a></summary>
+							<summary><a href="view_profile_check.php">View Profile</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">Edit Profile</a></summary>
+							<summary><a href="edit_profile_check.php">Edit Profile</a></summary>
 						</details>
 						<details>
-							<summary><a href="#">Change Password</a></summary>
+							<summary><a href="../controler/change_pss_check.php">Change Password</a></summary>
 						</details>
 				</details>
 
 				<details>
-					<summary><a href="#">About</a></summary>
+					<summary><a href="about.html">About</a></summary>
 				</details>
 
 				<details>
-					<summary><a href="#">Logout</a></summary>
+					<summary><a href="../controler/logout_check.php">Logout</a></summary>
 				</details>
 			</td>
 			<td colspan="2" align="center">
