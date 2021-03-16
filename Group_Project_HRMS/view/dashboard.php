@@ -2,7 +2,7 @@
 	session_start();
 
 	if(!isset($_SESSION['flag'])){
-		header('location: login_check.php');
+		header('location: ../controler/login_check.php');
 	}
 ?>
 
@@ -46,7 +46,7 @@
 				<details>
 					<summary>Portal</summary>
 						<details>
-							<summary><a href="#">Create Leave Request</a></summary>
+							<summary><a href="create_leave_request.php">Create Leave Request</a></summary>
 						</details>
 						<details>
 							<summary><a href="#">Create Travel Request</a></summary>

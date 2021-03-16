@@ -1,3 +1,12 @@
+<?php
+	session_start();
+
+	if(!isset($_SESSION['flag'])){
+		header('location: ../controler/login_check.php');
+	}
+?>
+
+<!-- ================================================================ -->
 
 <?php 
 	$title= "Leave";
@@ -14,6 +23,7 @@
 						<td align="right" >Logged in as
 							<a href="view_profile_check.php">
 								<?php
+
 									echo $_SESSION['current_user']['name'];
 								?>
 							</a> |

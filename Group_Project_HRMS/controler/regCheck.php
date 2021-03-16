@@ -11,7 +11,7 @@
 		$phone = $_POST['phone'];
 		$address = $_POST['address'];
 		$gender = $_POST['gender'];
-		$deptment = $_POST['deptment'];
+		$department = $_POST['department'];
 		$bg = $_POST['bg'];
 		$dob = $_POST['dob'];
 
@@ -39,13 +39,10 @@
 						'phone'=> $phone,
 						'address' => $address,
 						'gender'=>$gender,
-						'deptment' => $deptment,
+						'department' => $department,
 						'bg' => $bg,
 						'dob'=>$dob
 					];
-
-					/*$_SESSION['current_user']=$user;
-					$user=$_['current_user'];*/
 
 					$decode[] = $user;
 					
@@ -160,8 +157,8 @@
 										<tr>
 											<td>Department</td>
 											<td>
-												<select name="deptment">
-													<option value="">Select...</option>
+												<select name="department">
+													<option value="">--Select--</option>
 													<option value="CSE">CSE</option>
 													<option value="EEE">EEE</option>
 													<option value="IPE">IPE</option>
@@ -174,15 +171,15 @@
 											<td>Blood Group</td>
 											<td>
 												<select name="bg">
-													<option value="">Select...</option>
-													<option value="">A+</option>
-													<option value="">B+</option>
-													<option value="">AB+</option>
-													<option value="">O+</option>
-													<option value="">A-</option>
-													<option value="">B-</option>
-													<option value="">AB-</option>
-													<option value="">O-</option>
+													<option value="">--Select--</option>
+													<option value="A+">A+</option>
+													<option value="B+">B+</option>
+													<option value="AB+">AB+</option>
+													<option value="O+">O+</option>
+													<option value="A-">A-</option>
+													<option value="B-">B-</option>
+													<option value="AB-">AB-</option>
+													<option value="O-">O-</option>
 												</select>
 											</td>
 										</tr>

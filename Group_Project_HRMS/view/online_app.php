@@ -1,6 +1,15 @@
+<?php
+	session_start();
+
+	if(!isset($_SESSION['flag'])){
+		header('location: ../controler/login_check.php');
+	}
+?>
+
+<!-- ================================================================ -->
 
 <?php 
-	$title= "Online App";
+	$title= "Online";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -163,8 +172,10 @@
 									<tr>
 										<td>Resume Upload</td>
 										<td>:
-											<img src="../asset/user.png" width="100px" height="100px"><br>
-											<input type="file" name="choose_file" value="">
+											<form method="post" action="view_profile_check.php" enctype="multipart/form-data">
+												<img src="../asset/user.png" width="100px" height="100px"><br>
+												<input type="file" name="choose_file" value="">
+											</form>
 										</td>
 									</tr>
 									<tr>

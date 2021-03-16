@@ -13,7 +13,7 @@
 		$gender=$user['gender'];
 		$phone=$user['phone'];
 		$address=$user['address'];
-		$deptment=$user['deptment'];
+		$department=$user['department'];
 		$bg=$user['bg'];
 		$dob=$user['dob'];
 
@@ -188,13 +188,15 @@
 										<tr>
 											<td>Department</td>
 											<td>:
-												<?php echo $deptment;?>
+												<?php echo $department;?>
 											</td>
 										</tr>
 										<tr>
 											<td>Blood Group</td>
 											<td>:
-												<?php echo $bg;?>
+												<?php 
+													echo $bg;
+												?>
 											</td>
 										</tr>
 										<tr>:
@@ -205,7 +207,10 @@
 										</tr>
 										<tr>
 											<!-- add line -->
-											<td><input type="submit" name="view_profile_check.php" value="Save"></td>
+											<td>
+												<input type="submit" name="edit_btn" value="Save">
+												<a href="view_profile_check.php"><span>Back</span></a>
+											</td>
 										</tr>
 									</table>
 								</fieldset>

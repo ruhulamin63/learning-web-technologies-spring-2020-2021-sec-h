@@ -1,4 +1,12 @@
+<?php
+	session_start();
 
+	if(!isset($_SESSION['flag'])){
+		header('location: ../controler/login_check.php');
+	}
+?>
+
+<!-- ========================================================== -->
 <?php 
 	$title= "Job";
 	include('header.html');
@@ -108,8 +116,9 @@
 					<tr>
 						<td>
 							<fieldset>
-								<h3>Add Job Title</h3><br>
-								<input type="text" name="add_job" value="">
+								<h3>Add Job Title<hr></h3>
+								Job :<input type="text" name="add_job" value="">
+								<br><br>
 								<hr>
 								<input type="submit" name="add_job_btn" value="Save">
 								<a href="#">Back</a>

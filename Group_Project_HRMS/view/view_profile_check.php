@@ -13,8 +13,8 @@
 		$gender=$user['gender'];
 		$phone=$user['phone'];
 		$address=$user['address'];
-		$deptment=$user['deptment'];
-		$bg=$user['bg'];
+		$department=$_SESSION['department'];
+		$bg=$_SESSION['bg'];
 		$dob=$user['dob'];
 
 //==================================================
@@ -27,7 +27,7 @@
 			$filename = $file_info['tmp_name'];
 
 			if(move_uploaded_file($filename, $path)){
-				echo "successfully...";
+					echo "successfully...";
 			}else{
 				echo "Error...";
 			}
@@ -216,7 +216,7 @@
 											<td>Department</td>
 											<td>:
 												<?php
-													echo $deptment;
+													echo $department;
 												?>
 											</td>
 										</tr>

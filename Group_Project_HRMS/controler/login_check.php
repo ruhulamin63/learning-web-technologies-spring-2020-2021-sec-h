@@ -24,7 +24,7 @@
 					$_SESSION['flag'] = true;
 
 					$_SESSION['current_user']=$value;
-					$value = $_SESSION['current_user'];
+					/*$user = $_SESSION['current_user'];*/
 
 					header('location: ../view/dashboard.php');
 				}else{

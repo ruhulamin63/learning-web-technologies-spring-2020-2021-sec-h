@@ -1,4 +1,12 @@
+<?php
+	session_start();
 
+	if(!isset($_SESSION['flag'])){
+		header('location: ../controler/login_check.php');
+	}
+?>
+
+<!-- =========================================================== -->
 <?php 
 	$title= "Performance";
 	include('header.html');

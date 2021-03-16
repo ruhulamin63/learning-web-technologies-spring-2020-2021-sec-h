@@ -5,10 +5,11 @@
 		header('location: ../controler/login_check.php');
 	}
 ?>
-<!-- 
-============================================================ -->
+
+<!-- ================================================================ -->
+
 <?php 
-	$title= "Fixing";
+	$title= "Online";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -45,7 +46,7 @@
 				<details>
 					<summary>Portal</summary>
 						<details>
-							<summary><a href="create_leave_request.php">Create Leave Request</a></summary>
+							<summary><a href="#">Create Leave Request</a></summary>
 						</details>
 						<details>
 							<summary><a href="#">Create Travel Request</a></summary>
@@ -115,52 +116,92 @@
 				<table align="center">
 					<tr>
 						<td>
-							<fieldset>
-								<h2>Fixing Intrview Online</h2>
-								<hr>
-
-								<table>
-									<tr>
-										<td>Vacancy</td>
-										<td>:
-											<input type="text" name="v" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Candidate</td>
-										<td>:
-											<input type="text" name="c" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Interview Time</td>
-										<td>:
-											<input type="time" name="it" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Date</td>
-										<td>:
-											<input type="date" name="d" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Status</td>
-										<td>:
-											<input type="text" name="s" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Comments</td>
-										<td>:
-											<textarea></textarea>
-										</td>
-									</tr>
-								</table>
-								<hr>
-								<input type="submit" name="fixing_btn" value="Save"> |
-								<a href="#">Back</a>
-							</fieldset>
+							<form method="post" action="#">
+								<fieldset>
+									<h2>Create Leave Request</h2>
+									<hr>
+								
+									<table align="center">
+										<tr>
+											<td>Employee Name</td>
+											<td>:
+												<input type="text" name="Ename" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Leave Approver</td>
+											<td>:
+												<input type="text" name="Eleave_approver" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Leave Type</td>
+											<td>:
+												<input type="number" name="Eleave_type" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Available Balance</td>
+											<td>:
+												<input type="number" name="Ebalance" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Leave For</td>
+											<td>:
+												<select name="Eleave_for">
+													<option>--select leave--</option>
+													<option>Half Day</option>
+													<option>Full Day</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>State Date</td>
+											<td>:
+												<input type="date" name="Estart_date" value="">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>End Date</td>
+											<td>:
+												<input type="date" name="Eend_date" value="">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>Satar Time</td>
+											<td>:
+												<input type="date" name="Estart_time" value="">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>End Time</td>
+											<td>:
+												<input type="time" name="Eend_time" value="">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>Reason for Leave</td>
+											<td>:
+												<input type="text" name="Ereason_for_leave" value="">
+											</td>
+										</tr>
+										<tr>
+											<td align="left">
+												<hr>
+												<input type="submit" name="Asave_btn" value="Save">
+											</td>
+											<td align="right">
+												<a href="#">Back</a>
+											</td>
+										</tr>
+									</table>
+								</fieldset>
+							</form>
 						</td>
 					</tr>
 				</table>
