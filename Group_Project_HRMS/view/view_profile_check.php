@@ -154,7 +154,9 @@
 										<tr>
 											<td>Username</td>
 											<td>:
-												<input type="username" name="username" value="<?php echo $username;?>">
+												<?php
+													echo $username;
+												?>
 											</td> 
 										</tr>
 										<tr>
