@@ -13,8 +13,8 @@
 		$gender=$user['gender'];
 		$phone=$user['phone'];
 		$address=$user['address'];
-		$department=$_SESSION['department'];
-		$bg=$_SESSION['bg'];
+		$department=$user['department'];
+		$bg=$user['bg'];
 		$dob=$user['dob'];
 
 //==================================================
