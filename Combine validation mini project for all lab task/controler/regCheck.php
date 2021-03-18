@@ -17,12 +17,11 @@
 
 			if($password == $confpass){
 
-/*
 				$myfile = fopen('../model/users.json', 'r');
 				$data = fread($myfile, filesize('../model/users.json'));
 				fclose($myfile);
 //================================================================================
-				$decode = json_decode($data,true);*/
+				$decode = json_decode($data,true);
 
 				$user = [	
 						'name'=>$name,
@@ -33,19 +32,16 @@
 						'date'=>$date
 					];
 
-					$_SESSION['current_user']=$user;
-					$user=$_['current_user'];
-
-					/*$decode[] = $user;
+					$decode[] = $user;
 					
 					$curr_encode=json_encode($decode);
 					
 					$myfile = fopen('../model/users.json', 'w');
 					fwrite($myfile, $curr_encode);
-					fclose($myfile);*/
+					fclose($myfile);
 
 					
-					header('location: read_write.php');
+					header('location: login_check.php');
 			}else{
 				echo "*password & confirm password mismatch...";
 			}

@@ -10,24 +10,26 @@
 			echo "*Null submission...";
 		}else{
 
-			/*$myfile = fopen('../model/users.json', 'r');
+			$myfile = fopen('../model/users.json', 'r');
 			$data = fread($myfile, filesize('../model/users.json'));
 			fclose($myfile);
 
-			$final_data = json_decode($data);*/
+			$final_data = json_decode($data);
 			
 //===============================================================================
-			$user=$_SESSION['current_user'];
+			
 //================================================================================			
+			foreach ($final_data as $key => $value) {
+				if($username == $value['username'] && $password == $value['password']){
 
-			if($username == $user['username'] && $password == $user['password']){
+					$_SESSION['flag'] = true;
 
-				$_SESSION['flag'] = true;
-				
-				header('location: ../view/dashboard.php');
-			}else{
-				echo "*Invalid user...";
-				//print_r($user);
+					$_SESSION['current_user']=$value;
+					
+					header('location: ../view/dashboard.php');
+				}else{
+					echo "*Invalid user...";
+				}
 			}
 		}
 	}
