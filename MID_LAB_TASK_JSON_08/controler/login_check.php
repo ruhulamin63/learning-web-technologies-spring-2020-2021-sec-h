@@ -18,17 +18,19 @@
 
 			$decode = json_decode($data,true);
 			//print_r($decode['name']);
-	
-			 $_SESSION['current_user']=$decode;
 
-			if($username == $decode['username'] && $password == $decode['password']){
+			foreach ($decode as $key => $value) {
+				if($username == $value['username'] && $password == $value['password']){
 
-				$_SESSION['flag'] = true;
+					$_SESSION['flag'] = true;
+
+					 $_SESSION['current_user']=$value;
 				
-				header('location: ../view/dashboard.php');
-			}else{
-				echo "*Invalid user...";
-				//print_r($user);
+					header('location: ../view/dashboard.php');
+				}else{
+					echo "*Invalid user...";
+					//print_r($user);
+				}
 			}
 		}
 	}
