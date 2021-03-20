@@ -22,7 +22,12 @@
 
 				//$_SESSION['username'] = $username;
 				//$_SESSION['password'] = $password;
-				$_SESSION['current_user'] = $user;
+				//$_SESSION['current_user'] = $user;
+
+				//$sql = "select * from users where username='' and password=''";
+
+				$sql = "insert into users values('xyz', '12', 'abc@gmail.com')"; 
+				$result = mysqli_query($conn, $sql);		
 
 				header('location: ../view/login.html');
 			}else{
