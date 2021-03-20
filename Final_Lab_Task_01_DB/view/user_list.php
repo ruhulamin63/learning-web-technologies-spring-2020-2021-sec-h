@@ -11,8 +11,36 @@
 		<a href="home.php"> Back</a> |
 		<a href="../controller/logout.php"> logout</a>	
 	</div>
+<?php 
+	$conn = mysqli_connect('localhost', 'root', '', 'user_mgt');
 
-	<div id="main_content">
+		$sql = 'select * from users';
+		$result = mysqli_query($conn, $sql);
+
+
+		echo "<table border=1> 
+			<tr>
+				<td>Username</td>
+				<td>Email</td>
+			</tr>";
+
+		while ($row = mysqli_fetch_assoc($result)) {
+			
+			echo 	"<tr>
+						<td>{$row['username']}</td>
+						<td>{$row['email']}</td>
+						<td>
+							<a href="edit.php">EDIT</a> |
+							<a href="delete.php">DELETE</a> 
+						</td>
+					</tr>";
+		}
+
+		echo "</table>";
+?>
+	
+
+	<!-- <div id="main_content">
 		<table border="1">
 			<tr>
 				<td>ID</td>
@@ -48,6 +76,6 @@
 				</td>
 			</tr>
 		</table>
-	</div>
+	</div> -->
 
 <?php include('footer.php'); ?>
