@@ -1,35 +1,29 @@
 <?php
 	session_start();
 
+	require_once('../model/UserModel.php');
+
 	if(isset($_POST['submit'])){
 
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 
 		if($username == "" || $password == ""){
-			echo "null submission...";
+			echo "*Null submission...";
 		}else{
-			//$user = $_SESSION['current_user'];
 
-			$conn = mysqli_connect('localhost', 'root', '', 'user_mgt');
+			$status = validateUser($username, $password);
 
-				$sql = 'select * from users';
-				$result = mysqli_query($conn, $sql);
+			if($status){
+				
+				$_SESSION['flag'] = true;
 
-				//$row = mysqli_fetch_assoc($result);
+				$_SESSION['username'] = $username;
 
-			while($row = mysqli_fetch_assoc($result)) {
-				if($row['username']==$username&&$row['password']==$password){
-					$_SESSION['flag'] = true;
-
-					$_SESSION['current_user']=$row;
-
-					header('location: ../view/home.php');
-				}else{
-					echo "invalid user";
-				}
+				header('location: ../view/home.php');
+			}else{
+				echo "invalid user";
 			}
 		}
-
 	}
 ?>

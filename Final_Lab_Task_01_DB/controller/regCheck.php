@@ -1,6 +1,8 @@
 <?php
 	session_start();
 
+	require_once('../model/UserModel.php');
+
 	if(isset($_POST['signup'])){
 
 		$username = $_POST['username'];
@@ -9,7 +11,7 @@
 		$email = $_POST['email'];
 
 		if($username == "" || $email == "" || $password == "" || $repass == ""){
-			echo "null submission...";
+			echo "*Null submission...";
 		}else{
 
 			if($password == $repass){
@@ -20,17 +22,12 @@
 							'email'=> $email
 						];
 
-				//$_SESSION['username'] = $username;
-				//$_SESSION['password'] = $password;
-				//$_SESSION['current_user'] = $user;
-
-				//$sql = "select * from users where username='' and password=''";
-				$conn = mysqli_connect('localhost', 'root', '', 'user_mgt');
-
-				$sql = "insert into users values('$username', '$password', '$email')"; 
-				$result = mysqli_query($conn, $sql);		
-
-				header('location: ../view/login.html');
+				$status = insertUser($user);		
+				
+				if($status){
+					header('location: ../view/login.html');
+				}
+				
 			}else{
 				echo "password & confirm password mismatch..";
 			}

@@ -11,9 +11,12 @@
 		<a href="home.php"> Back</a> |
 		<a href="../controller/logout.php"> logout</a>	
 	</div>
-<?php 
-	$conn = mysqli_connect('localhost', 'root', '', 'user_mgt');
 
+<?php 
+
+	require_once('../model/db.php');
+
+		$conn = getConnection();
 		$sql = 'select * from users';
 		$result = mysqli_query($conn, $sql);
 
@@ -22,18 +25,17 @@
 			<tr>
 				<td>Username</td>
 				<td>Email</td>
+				<td>Type</td>
 			</tr>";
 
 		while ($row = mysqli_fetch_assoc($result)) {
-			
-			echo 	"<tr>
-						<td>{$row['username']}</td>
-						<td>{$row['email']}</td>
-						<td>
-							<a href="edit.php">EDIT</a> |
-							<a href="delete.php">DELETE</a> 
-						</td>
-					</tr>";
+	
+			echo "<tr>
+					<td>{$row['username']}</td>
+					<td>{$row['email']}</td>
+					<td>
+					</td>
+				</tr>";
 		}
 
 		echo "</table>";
