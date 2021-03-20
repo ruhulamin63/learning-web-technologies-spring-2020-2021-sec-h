@@ -25,8 +25,9 @@
 				//$_SESSION['current_user'] = $user;
 
 				//$sql = "select * from users where username='' and password=''";
+				$conn = mysqli_connect('localhost', 'root', '', 'user_mgt');
 
-				$sql = "insert into users values('xyz', '12', 'abc@gmail.com')"; 
+				$sql = "insert into users values('$username', '$password', '$email')"; 
 				$result = mysqli_query($conn, $sql);		
 
 				header('location: ../view/login.html');
