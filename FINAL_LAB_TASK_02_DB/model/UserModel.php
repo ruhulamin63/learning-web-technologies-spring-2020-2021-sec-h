@@ -29,7 +29,7 @@
 	function insertUser($user){
 
 		$conn = getConnection();
-		$sql = "insert into products values('', '{$user['name']}', '{$user['Bprice']}', '{$user['Sprice']}')";
+		$sql = "insert into products values('', '{$user['name']}', '{$user['Bprice']}', '{$user['Sprice']}', '{$user['display']}', '{$user['profit']}')";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;
@@ -41,7 +41,7 @@
 	function updateUser($user){
 
 		$conn = getConnection();
-		$sql = "update users set username='{$user['username']}', password='{$user['password']}', email='{$user['email']}', type={$user['type']} ";
+		/*$sql = "update users set username='{$user['username']}', password='{$user['password']}', email='{$user['email']}', type={$user['type']} ";*/
 		
 		if(mysqli_query($conn, $sql)){
 			return true;
