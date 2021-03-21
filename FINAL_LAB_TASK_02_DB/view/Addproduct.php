@@ -28,7 +28,9 @@
 						'display'=>$display,
 						'profit'=>$profit
 					];
-			//print_r($user);
+			//print_r($product);
+
+			$_SESSION['current_user']=$product;
 
 			$status = insertProduct($product);
 
@@ -51,7 +53,7 @@
 	<table align="center">
 		<tr>
 			<td align="center">
-				<form method="post" action="../view/Addproduct.php">
+				<form method="post" action="../view/addproduct.php">
 					<fieldset>
 						<legend>ADD PRODUCT</legend>
 						<table>
