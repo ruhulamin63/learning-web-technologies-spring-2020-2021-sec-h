@@ -2,20 +2,20 @@
 	
 	require_once('db.php');
 
-	function getUserById($id){
+	/*function getProductById($id){
 
 		$conn = getConnection();
 
-		$sql = "select * from users where id='{$id}'";
+		$sql = "select * from product where id='{$id}'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
 
 		return $row;
-	}
+	}*/
 
-	function getAllUser(){
+	/*function getAllProduct(){
 		$conn = getConnection();
-		$sql = "select * from users";
+		$sql = "select * from product";
 		$result = mysqli_query($conn, $sql);
 		$users =[];
 
@@ -24,12 +24,12 @@
 		}
 
 		return $users;
-	}
+	}*/
 
-	function insertUser($user){
+	function insertProduct($product){
 
 		$conn = getConnection();
-		$sql = "insert into products values('', '{$user['name']}', '{$user['Bprice']}', '{$user['Sprice']}', '{$user['display']}', '{$user['profit']}')";
+		$sql = "insert into products values('','{$product['name']}', '{$product['Bprice']}', '{$product['Sprice']}', '{$product['display']}', '{$product['profit']}')";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;
@@ -38,10 +38,10 @@
 		}
 	}
 
-	function updateUser($user){
+	function updateProduct($product){
 
 		$conn = getConnection();
-		/*$sql = "update users set username='{$user['username']}', password='{$user['password']}', email='{$user['email']}', type={$user['type']} ";*/
+		$sql = "update products set name='{$product['name']}', Bprice='{$product['Bprice']}' , Sprice='{$product['Sprice']}', display='{$product['display']}', profit='{$product['profit']}'";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;
@@ -50,15 +50,15 @@
 		}
 	}
 
-	function deleteUser($id){
+	/*function deleteProduct($id){
 		$conn = getConnection();
-		$sql = "delete from users where id={$id}";
+		$sql = "delete from product where id={$id}";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;
 		}else{
 			return false;
 		}
-	}
+	}*/
 
 ?>
