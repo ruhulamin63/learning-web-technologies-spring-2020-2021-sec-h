@@ -25,7 +25,9 @@
 						'user_type'=>$user,
 						'email'=>$email
 					];
-				print_r($user);
+				//print_r($user);
+
+				$_SESSION['current_user'] = $user;
 
 				$status = insertUser($user);		
 				

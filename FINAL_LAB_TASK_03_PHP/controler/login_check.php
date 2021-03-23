@@ -1,30 +1,39 @@
 
 <?php
 	session_start();
+	require_once('../model/UserModel.php');
+
 
 	if(isset($_POST['signin_btn'])){
 
 		$id = $_POST['id'];
 		$password = $_POST['password'];
 
-		if($username == "" || $password == ""){
+		if($id == "" || $password == ""){
 			echo "*Null submission...";
 		}else{
 			
 //===============================================================================
-			/*$user=$_SESSION['current_user'];*/
-//================================================================================			
+			$status = validateUser($id, $password);
 
-			if($id == $user['id'] && $password == $user['password']){
-
-				$_SESSION['flag'] = true;
+			if($status){
 				
-				if(isset($_POST['user'])){
-					header('location: ');
+				$_SESSION['flag'] = true;
+				$user = $_SESSION['current_user'];
+
+				$user_type = $user['user_type'];
+				$check = [];
+
+				$result = array_push($check, "Admin");
+
+				if($user_type==$result){
+					header('location: ../view/admin_home.php');
+				}else{
+					header('location: ../view/user_home.php');
 				}
+
 			}else{
-				echo "*Invalid user...";
-				//print_r($user);
+				echo "invalid user";
 			}
 		}
 	}
@@ -35,12 +44,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Registration</title>
+	<title>Login Page</title>
 </head>
 <body>
-	<form>
+	<form method="post" action="login_check.php">
 		<fieldset>
-			<legend>RIGIRSTRATION</legend>
+			<legend>Login</legend>
 			<table align="center">
 				<tr>
 					<td>
