@@ -5,7 +5,6 @@
 	if(!isset($_SESSION['flag'])){
 		header('location: ../controler/login_check.php');
 	}
-	$user = $_SESSION['current_user'];
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +22,7 @@
 							<tr>
 								<td align="center">
 									<h1>Welcome 
-										<?php echo $user['name']; ?>
+										
 									</h1>
 								</td>
 							</tr>

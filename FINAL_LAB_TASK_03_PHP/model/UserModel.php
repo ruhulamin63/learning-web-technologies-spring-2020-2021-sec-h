@@ -6,11 +6,11 @@
 
 		$conn = getConnection();
 
-		$sql = "select * from users where id='{$id}' and password='{$password}'";
+		$sql = "select * from users where userId='{$id}' and password='{$password}'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
 
-		if(count($row) > 0){
+		if($row!=0){
 			return true;
 		}else{
 			return false;
@@ -21,7 +21,7 @@
 
 		$conn = getConnection();
 
-		$sql = "select * from users where id='{$id}'";
+		$sql = "select * from users where userId='{$id}'";
 		$result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_assoc($result);
 

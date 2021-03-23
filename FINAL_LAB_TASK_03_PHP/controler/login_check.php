@@ -19,14 +19,11 @@
 			if($status){
 				
 				$_SESSION['flag'] = true;
-				$user = $_SESSION['current_user'];
-
-				$user_type = $user['user_type'];
-				$check = [];
-
-				$result = array_push($check, "Admin");
-
-				if($user_type==$result){
+				
+				$user = getUserById($id);
+				
+		
+				if($user['user_type']=="Admin"){
 					header('location: ../view/admin_home.php');
 				}else{
 					header('location: ../view/user_home.php');
