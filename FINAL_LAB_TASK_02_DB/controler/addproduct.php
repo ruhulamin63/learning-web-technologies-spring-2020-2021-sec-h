@@ -53,7 +53,7 @@
 	<table align="center">
 		<tr>
 			<td align="center">
-				<form method="post" action="../view/addproduct.php">
+				<form method="post" action="../controler/addproduct.php">
 					<fieldset>
 						<legend>ADD PRODUCT</legend>
 						<table>

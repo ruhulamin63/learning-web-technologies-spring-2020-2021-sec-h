@@ -42,7 +42,7 @@
 	<table align="center">
 		<tr>
 			<td align="center">
-				<form method="post" action="deleteCheck.php?id=<?php echo $get_id; ?>">
+				<form method="post" action="../controler/deleteCheck.php?id=<?php echo $get_id; ?>">
 					<fieldset>
 						<legend>DELETE PRODUCT</legend>
 						<table cellpadding="5" cellspacing="8">

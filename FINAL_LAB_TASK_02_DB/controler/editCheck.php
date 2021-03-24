@@ -63,7 +63,7 @@
 	<table align="center">
 		<tr>
 			<td align="center">
-				<form method="post" action="../view/editCheck.php?id=<?php echo $get_id; ?>">
+				<form method="post" action="../controler/editCheck.php?id=<?php echo $get_id; ?>">
 					<fieldset>
 						<legend>EDIT PRODUCT</legend>
 						<table>
