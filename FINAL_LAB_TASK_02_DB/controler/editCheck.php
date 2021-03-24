@@ -1,16 +1,59 @@
 <?php
 	session_start();
 
-	$user = $_SESSION['current_user'];
+	require_once('../model/productModel.php');
+	//require_once('../model/db.php');
 
-	$name = $user['name'];
-	$Bprice = $user['Bprice'];
-	$Sprice = $user['Sprice'];
+	$get_id = $_GET['id'];	
 
-	//print_r($_SESSION['current_user']);
+	//print_r($get_id);				
+
+	//$result = getAllProduct();
+	$id = getProductById($get_id);
+
+	while($value = mysqli_fetch_assoc($id)){
+
+		$name = $value['name'];
+		$Bprice = $value['bprice'];
+		$Sprice = $value['sprice'];
+		$display = $value['display'];
+	}
+//=================================================
+	if(isset($_POST['update_btn'])){	
+
+		$name = $_POST['name'];
+		$Bprice = $_POST['Bprice'];
+		$Sprice = $_POST['Sprice'];
+
+		$profit = (int)$Sprice-(int)$Bprice;
+
+		if(isset($_POST['items'])){
+			$display = "Yes";
+		}else{
+			$display = "Null";
+		}
+
+
+		$product = [
+						'name'=>$_POST['name'], 
+						'Bprice'=>$Bprice, 
+						'Sprice'=>$Sprice,
+						'display'=>$display,
+						'profit'=>$profit
+					];
+		//print_r($product);
+
+		$status = updateProduct($product,$get_id);
+
+		if($status){
+			header('location: display.php');
+		}else{
+			echo "Error....";
+		}
+	}
 ?>
 
-
+<!-- ============================================ -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +63,7 @@
 	<table align="center">
 		<tr>
 			<td align="center">
-				<form method="post" action="addproduct.php">
+				<form method="post" action="../view/editCheck.php?id=<?php echo $get_id; ?>">
 					<fieldset>
 						<legend>EDIT PRODUCT</legend>
 						<table>
@@ -49,7 +92,7 @@
 							</tr>
 							<tr>
 								<td>
-									<input type="checkbox" name="items" value="<?php echo $display;?>">Display
+									<input type="checkbox" name="items" <?php if (isset($display) && $display=="Yes") echo "checked";?> value="Yes">Display
 								</td>
 							</tr>
 							<tr>
@@ -59,7 +102,7 @@
 							</tr>
 							<tr>
 								<td>
-									<input type="submit" name="save_btn" value="Save">
+									<input type="submit" name="update_btn" value="Update">
 								</td>
 							</tr>
 						</table>
