@@ -30,12 +30,10 @@
 					];
 			//print_r($product);
 
-			$_SESSION['current_user']=$product;
-
 			$status = insertProduct($product);
 
 			if($status){
-				echo "Success...";
+				header('location: ../view/display.php');
 			}else{
 				echo "Error....";
 			}

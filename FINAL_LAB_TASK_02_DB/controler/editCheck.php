@@ -8,7 +8,6 @@
 
 	//print_r($get_id);				
 
-	//$result = getAllProduct();
 	$id = getProductById($get_id);
 
 	while($value = mysqli_fetch_assoc($id)){
@@ -46,7 +45,7 @@
 		$status = updateProduct($product,$get_id);
 
 		if($status){
-			header('location: display.php');
+			header('location: ../view/display.php');
 		}else{
 			echo "Error....";
 		}

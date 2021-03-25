@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,39 +7,34 @@
 	<table align="center">
 		<tr>
 			<td>
-				<form method="post" action="display.php">
+				<form method="post" action="../controler/deleteCheck.php">
 					<fieldset>
 						<legend>DISPLAY</legend>
-						<table border="1">
+						<table border="1" cellspacing="8" cellpadding="10" c>
 							<tr>
 								<th>NAME</th>
 								<th>PROFIT</th>
-								<th colspan="2"></th>
+								<th colspan="2">ACTION</th>
 							</tr>
 
 							<?php
-								require_once('../model/db.php');
+								require_once('../model/productModel.php');
 
-								$conn = getConnection();
-								$sql = "select * from products";
-								$data = mysqli_query($conn,$sql);
-
-								$row = mysqli_num_rows($data);
-								$result = mysqli_fetch_assoc($data);
+								$result = getAllProduct();
 
 								//print_r($result);
 
-								if($row!=0){
-									while(mysqli_fetch_assoc($data)){
+								if(count($result)>0){
+									foreach ($result as $key => $value) {
 										echo "
 											<tr>
-												<td>{$result['Name']}</td>
-												<td>{$result['Profit']}</td>
+												<td>{$value['name']}</td>
+												<td>{$value['profit']}</td>
 												<td>
-													<a href='edit.php'>edit
+													<a href='../controler/editCheck.php?id=$value[id]'>Edit</a>
 												</td>
 												<td>
-													<a href='delete.php'>delete
+													<a href='../controler/deleteCheck.php?id=$value[id]'>Delete</a>
 												</td>
 											</tr>
 										";
