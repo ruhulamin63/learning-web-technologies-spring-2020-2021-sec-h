@@ -6,6 +6,8 @@
 
 	if(isset($_POST['signin_btn'])){
 
+		$get_id = $_GET['id'];
+
 		$id = $_POST['id'];
 		$password = $_POST['password'];
 
@@ -20,7 +22,7 @@
 				
 				$_SESSION['flag'] = true;
 				
-				$user = getUserById($id);
+				$user = getUserById($get_id);
 				
 		
 				if($user['user_type']=="Admin"){

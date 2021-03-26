@@ -7,10 +7,10 @@
 	<table align="center">
 		<tr>
 			<td>
-				<form method="post" action="../controler/deleteCheck.php">
+				<form method="post" action="">
 					<fieldset>
 						<legend>DISPLAY</legend>
-						<table border="1" cellspacing="8" cellpadding="10" c>
+						<table border="1" cellspacing="8" cellpadding="10">
 							<tr>
 								<th>NAME</th>
 								<th>PROFIT</th>
