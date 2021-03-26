@@ -1,7 +1,15 @@
+<?php
+	if(!isset($_SESSION['flag'])){
+		header('location: ../controler/login_check.php');
+	}
+?>
+
+<!-- ============================================================ -->
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>View Users</title>
+	<title>Profile</title>
 </head>
 <body>
 	<form>
@@ -10,26 +18,33 @@
 				<tr>
 					<td colspan="2" align="center">Profile</td>
 				</tr>
-				<tr>
-					<th>ID</th>
-					<th>NAME</th>
-					<th>EMAIL</th>
-					<th>USER TYPE</th>
-				</tr>
 					<?php
 						require_once('../model/db.php');
 
-						$get_id = $_GET['id'];
+						$user=$_SESSION['user_type'];
 
-						$id = getProductById($get_id);
+						$conn = getConnection();
+						$sql = "select * from users where userid='{$user['userid']}'";
+						$result = mysqli_query($conn, $sql);
+						$row=mysqli_num_rows($result);
 
 						if($row!=0){
-							while($value = mysqli_fetch_assoc($id)){
+							foreach ($result as $key => $value) {
 								echo "
 									<tr>
-										<td>{$value['id']}</td>
+										<th>ID</th>	
+										<td>{$value['userid']}</td>
+									</tr>
+									<tr>
+										<th>NAME</th>
 										<td>{$value['name']}</td>
+									</tr>
+									<tr>
+										<th>EMAIL</th>
 										<td>{$value['email']}</td>
+									</tr>
+									<tr>
+										<th>USER TYPE</th>
 										<td>{$value['user']}</td>
 									</tr>
 								";
@@ -38,7 +53,17 @@
 					?>
 				<tr>
 					<td colspan="2" align="right">
-						<a href="#">Go Home</a>
+						<?php 
+							if($user['user']=="Admin"){
+						?>
+								<a href="../view/admin_home.php">Go Home</a>
+						<?php
+							}else{
+						?>
+								<a href="../view/user_home.php">Go Home</a>
+						<?php
+							}
+						?>
 					</td>
 				</tr>
 			</table>
