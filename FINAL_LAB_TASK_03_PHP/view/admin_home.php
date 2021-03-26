@@ -30,9 +30,9 @@
 							<tr>
 								<td align="center">
 									<a href="#">Profile</a><br>
-									<a href="#">Change Passowrd</a><br>
+									<a href="../controler/change_pass_check.php">Change Passowrd</a><br>
 									<a href="#">View User</a><br>
-									<a href="#">Logout</a>
+									<a href="../controler/logout_check.php">Logout</a>
 								</td>
 							</tr>
 						</table>
