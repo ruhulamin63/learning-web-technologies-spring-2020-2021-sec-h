@@ -17,33 +17,36 @@
 					<th>USER TYPE</th>
 				</tr>
 					<?php
-						require_once('../model/db.php');
+						require_once('../model/UserModel.php');
 
-						$conn = getConnection();
-						$sql = "select * from users";
-						$data = mysqli_query($conn,$sql);
+						$result = getAllUser();
 
-						$row = mysqli_num_rows($data);
-						//$result = mysqli_fetch_assoc($data);
-
-						//print_r($result);
-
-						if($row!=0){
-							while($result=mysqli_fetch_assoc($data)){
-								echo "
-									<tr>
-										<td>{$result['id']}</td>
-										<td>{$result['name']}</td>
-										<td>{$result['email']}</td>
-										<td>{$result['user']}</td>
-									</tr>
-								";
+							if($result!=0){
+								foreach ($result as $key => $value) {
+									echo "
+										<tr>
+											<td>{$value['userid']}</td>
+											<td>{$value['name']}</td>
+											<td>{$value['email']}</td>
+											<td>{$value['user']}</td>
+										</tr>
+									";
+								}
 							}
-						}
-					?>
-				<tr>
+						?>
+					<tr>
 					<td colspan="4" align="right">
-						<a href="#">Go Home</a>
+						<?php 
+							if($user['user']=="Admin"){
+						?>
+								<a href="../view/admin_home.php">Go Home</a>
+						<?php
+							}else{
+						?>
+								<a href="../view/user_home.php">Go Home</a>
+						<?php
+							}
+						?>
 					</td>
 				</tr>
 			</table>
