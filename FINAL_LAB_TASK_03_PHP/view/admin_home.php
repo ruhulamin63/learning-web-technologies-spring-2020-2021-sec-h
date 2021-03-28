@@ -5,7 +5,7 @@
 	if(!isset($_SESSION['flag'])){
 		header('location: ../controler/login_check.php');
 	}
-	$user = $_SESSION['current_user'];
+	$user = $_SESSION['user_type'];
 ?>
 
 <!DOCTYPE html>
@@ -29,9 +29,9 @@
 							</tr>
 							<tr>
 								<td align="center">
-									<a href="#">Profile</a><br>
+									<a href="profile.php">Profile</a><br>
 									<a href="../controler/change_pass_check.php">Change Passowrd</a><br>
-									<a href="#">View User</a><br>
+									<a href="view_profile.php">View User</a><br>
 									<a href="../controler/logout_check.php">Logout</a>
 								</td>
 							</tr>

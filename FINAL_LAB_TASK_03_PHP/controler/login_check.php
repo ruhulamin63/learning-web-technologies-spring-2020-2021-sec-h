@@ -3,10 +3,7 @@
 	session_start();
 	require_once('../model/UserModel.php');
 
-
 	if(isset($_POST['signin_btn'])){
-
-		$get_id = $_GET['id'];
 
 		$id = $_POST['id'];
 		$password = $_POST['password'];
@@ -34,10 +31,11 @@
 				
 				$_SESSION['flag'] = true;
 				
-				$user = getUserById($get_id);
+				$user = getUserById($id);
 				
+				$_SESSION['user_type']=$user; //global declaration database
 		
-				if($user['user_type']=="Admin"){
+				if($user['user']=="Admin"){
 					header('location: ../view/admin_home.php');
 				}else{
 					header('location: ../view/user_home.php');
