@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+</head>
+<body>
+
+	<form method="POST" action="login.php">
+		<fieldset>
+			<legend>LOGIN</legend>
+			<div id="name">
+				<label>User Name</label>
+				<input type="text" name="username" id="username">
+				<span id="name"></span>
+			</div>
+			<div id="Password">
+				<label>Password</label>
+				<input type="text" name="password" id="pass">
+				<span id="Pass"></span>
+			</div>
+			<div id="name">
+				<label>Email</label>
+				<input type="text" name="email" id="emailid">
+				<span id="email"></span>
+			</div>
+
+			<div>
+				<hr>
+				<input type="submit" name="submit" value="Submit" id="submitid">
+			</div>
+			<div>
+				<a href="#"><u>Forgot Password?</u></a>	
+			</div>
+		</fieldset>
+	</form>
+
+	<script type="text/javascript">
+		function validation(){
+			let username = document.getElementById('username').value;
+			if(username == ""){
+				document.getElementById('name').innerHTML="**Please fil the username field"
+			}
+		}
+	</script>
+</body>
+</html>
