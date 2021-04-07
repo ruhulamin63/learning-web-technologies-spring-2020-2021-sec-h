@@ -17,17 +17,17 @@
 		$bg=$user['bg'];
 		$dob=$user['dob'];
 
-		/*if(isset($_POST['edit_profile_submit_button'])){
-			$name=$_POST['name'];
-			$name=$_POST['email'];
-			$name=$_POST['gender'];
-			$name=$_POST['date'];
-
-			$user['name']=$name;
-			$user['email']=$email;
-			$user['gender']=$gender;
-			$user['date']=$date;
-		}*/
+		// if(isset($_POST['edit_btn'])){
+		// 	$username=$user['username'];
+		// 	$name=$user['name'];
+		// 	$email=$user['email'];
+		// 	$gender=$user['gender'];
+		// 	$phone=$user['phone'];
+		// 	$address=$user['address'];
+		// 	$department=$user['department'];
+		// 	$bg=$user['bg'];
+		// 	$dob=$user['dob'];
+		// }
 	}
 
 ?>
@@ -182,21 +182,37 @@
 										<tr>
 											<td>Address</td>
 											<td>:
-												<?php echo $address;?>
+											<textarea cols="22" name="address" value=""><?php echo $address;?></textarea>
 											</td>
 										</tr>
 										<tr>
 											<td>Department</td>
 											<td>:
-												<?php echo $department;?>
+												
+												<select name="department">
+													<option><?php echo $department;?></option>
+													<option >CSE</option>
+													<option>EEE</option>
+													<option >IPE</option>
+													<option>BBA</option>
+													<option >ENG</option>
+												</select>
 											</td>
 										</tr>
 										<tr>
 											<td>Blood Group</td>
 											<td>:
-												<?php 
-													echo $bg;
-												?>
+												<select name="bg">
+													<option><?php echo $bg;?></option>
+													<option>A+</option>
+													<option>B+</option>
+													<option>AB+</option>
+													<option>O+</option>
+													<option>A-</option>
+													<option>B-</option>
+													<option>AB-</option>
+													<option>O-</option>
+												</select>
 											</td>
 										</tr>
 										<tr>:

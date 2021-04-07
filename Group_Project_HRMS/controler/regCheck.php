@@ -158,12 +158,12 @@
 											<td>Department</td>
 											<td>
 												<select name="department">
-													<option value="">--Select--</option>
-													<option value="CSE">CSE</option>
-													<option value="EEE">EEE</option>
-													<option value="IPE">IPE</option>
-													<option value="ENG">ENG</option>
-													<option value="BBA">BBA</option>
+													<option><?php $department; ?></option>
+													<option>CSE</option>
+													<option>EEE</option>
+													<option>IPE</option>
+													<option>ENG</option>
+													<option>BBA</option>
 												</select>
 											</td>
 										</tr>
@@ -171,7 +171,7 @@
 											<td>Blood Group</td>
 											<td>
 												<select name="bg">
-													<option value="">--Select--</option>
+													<option value=""><?php $bg; ?></option>
 													<option value="A+">A+</option>
 													<option value="B+">B+</option>
 													<option value="AB+">AB+</option>
