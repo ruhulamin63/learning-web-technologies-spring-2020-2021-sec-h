@@ -1,27 +1,25 @@
-<!-- <?php
+<?php
 
 	session_start();
 
-	if(isset($_SESSION['flag'])){
-		if(isset($_POST['forgot_pass_btn'])){
+	if(isset($_POST['forgot_pass_btn'])){
 
-			$email = $_POST['curr_email'];
+		$email = $_POST['curr_email'];
 
-			if($email == ""){
-				echo "*Null Submission...";
+		if($email == ""){
+			echo "*Null Submission...";
+		}else{
+			$user = $_SESSION['current_user'];
+
+			if($email == $user['email']){
+				header('location: dashboard.php');
 			}else{
-				$user = $_SESSION['current_user'];
-
-				if($email == $user['email']){
-					header('location: dashboard.php');
-				}else{
-					echo "*Invalid user...";
-					//print_r($user);
-				}
+				echo "*Invalid user...";
+				//print_r($user);
 			}
 		}
 	}
-?> -->
+?>
 
 <!-- ========================================================================================= -->
 
@@ -118,7 +116,7 @@
 							<summary><a href="../view/edit_profile_check.php">Edit Profile</a></summary>
 						</details>
 						<details>
-							<summary><a href="../controler/change_pass_check.php">Change Password</a></summary>
+							<summary><a href="change_pass_check.php">Change Password</a></summary>
 						</details>
 				</details>
 
@@ -148,7 +146,7 @@
 									</table>
 									<hr>
 									<input type="submit" name="forgot_pass_btn" value="Submit">
-									<span><a href="#">Back</a></span>
+									<!-- <span><a href="#">Back</a></span> -->
 								</fieldset>
 							</form>
 						</td>

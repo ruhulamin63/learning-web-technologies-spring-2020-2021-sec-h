@@ -16,21 +16,37 @@
 
 			$final_data = json_decode($data, true);
 			
-			/*$user=$_SESSION['current_user'];*/
 //================================================================================	
+			
+			if($username == $final_data['username'] && $password == $final_data['password']){
 
-			foreach ($final_data as $key => $value){
-				if($username == $value['username'] && $password == $value['password']){
-					$_SESSION['flag'] = true;
-
-					$_SESSION['current_user']=$value;
-					/*$user = $_SESSION['current_user'];*/
-
-					header('location: ../view/dashboard.php');
+				/*Using Cookie*/
+				if(!empty($_POST['remember'])){
+					setcookie('username', $username, time()+(86400 * 30)); // 86400 = 1 day
+					setcookie('password', $password, time()+(86400 * 30));
 				}else{
-					echo "*Invalid user...";
+					if(isset($_COOKIE['username'])){
+						setcookie('username','');
+					}
+					if(isset($_COOKIE['password'])){
+						setcookie('password','');
+					}
 				}
-			}		
+//=======================================================================
+			/*	if($user['user']=="Admin"){
+					header('location: ../view/admin_home.php');
+				}else{
+					header('location: ../view/user_home.php');
+				}*/
+//=========================================================================
+				$_SESSION['flag'] = true;
+
+				$_SESSION['current_user']=$final_data;
+
+				header('location: ../view/dashboard.php');
+			}else{
+				echo "*Invalid user...";
+			}	
 		}
 	}
 ?>
@@ -78,21 +94,21 @@
 										</tr>
 										<tr>
 											<td>Username</td>
-											<td><input type="text" name="username" placeholder="@username" value=""></td>
+											<td><input type="text" name="username" placeholder="@username" value="<?php if(isset($_COOKIE['username'])){ echo $_COOKIE['username'];} ?>"></td>
 										</tr>
 										<tr>
 											<td>Password</td>
-											<td><input type="password" name="password" placeholder="password" value=""></td>
+											<td><input type="password" name="password" placeholder="password" value="<?php if(isset($_COOKIE['password'])){ echo $_COOKIE['password'];} ?>"></td>
 										</tr>
 										<tr>
-											<td><input type="checkbox" name="items[]"> Remember Me</td>
+											<td><input type="checkbox" name="remember" <?php if (isset($_COOKIE['username'])){ echo "checked";} ?>> Remember Me</td>
 										</tr>
 										<tr align="center">
 											<td colspan="2">
 												<hr><br>
 												<input align="center" type="submit" name="login_btn" value="Sing In"><br><br>
 
-												<a href="forgot_pass_check.php">Forgot Password?</a><br><br>
+												<a href="forgot_pass_check.php">Forgot Password ?</a><br><br>
 												<a href="regCheck.php">Create an account?</a>
 											</td>
 										</tr>

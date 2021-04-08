@@ -18,7 +18,7 @@
 //====================================================================================
 
 		if($username == "" || $name == "" || $password == "" || $confpass == "" || $email == "" || 
-			$phone == "" || $address == "" || $gender == "" || $dob == ""){
+			$phone == "" || $address == "" || $gender=="" || $dob == ""){
 
 			echo "*Null submission...";
 		}else{
@@ -52,6 +52,8 @@
 					fwrite($myfile, $curr_encode);
 					fclose($myfile);
 
+					//$_SESSION['json_data']=$curr_encode;
+					//print_r($myfile);
 					
 					header('location: login_check.php');
 			}else{
@@ -93,7 +95,7 @@
 				<table align="center">
 					<tr>
 						<td>
-							<form id="myForm" method="post" action="regCheck.php">
+							<form method="post" action="regCheck.php">
 								<fieldset>
 									<legend>REGISTRATION</legend>
 									<table>
@@ -158,7 +160,7 @@
 											<td>Department</td>
 											<td>
 												<select name="department">
-													<option><?php $department; ?></option>
+													<option>--Select--</option>
 													<option>CSE</option>
 													<option>EEE</option>
 													<option>IPE</option>
@@ -171,7 +173,7 @@
 											<td>Blood Group</td>
 											<td>
 												<select name="bg">
-													<option value=""><?php $bg; ?></option>
+													<option value="">--Select--</option>
 													<option value="A+">A+</option>
 													<option value="B+">B+</option>
 													<option value="AB+">AB+</option>
@@ -199,19 +201,14 @@
 										<tr align="left">
 											<td colspan="2">
 												<input type="submit" name="sign_up_btn" value="Sign Up">
-												<input type="reset" name="" value="Reset">
+												<span>Already SignUp ?</span><a href="login_check.php">Login</a>
 											</td>
-											<td align="right">
-												<a href="#">Back</a>
-											</td>
+											<!-- <td align="right">
+												<a href="login_check.php">Back</a>
+											</td> -->
 										</tr>
 									</table>
 								</fieldset>
-								<script>
-									function myFunction() {
-								  		document.getElementById("myForm").reset();
-									}
-								</script>
 							</form>
 						</td>
 					</tr>

@@ -5,29 +5,54 @@
 		header('location: ../controler/login_check.php');
 
 	}else{
-		$user=$_SESSION['current_user'];
+		
+		if(isset($_POST['edit_btn'])){
 
-		$username=$user['username'];
-		$name=$user['name'];
-		$email=$user['email'];
-		$gender=$user['gender'];
-		$phone=$user['phone'];
-		$address=$user['address'];
-		$department=$user['department'];
-		$bg=$user['bg'];
-		$dob=$user['dob'];
+			$myfile = fopen('../model/users.json', 'r');
+			$data = fread($myfile, filesize('../model/users.json'));
+			fclose($myfile);
 
-		// if(isset($_POST['edit_btn'])){
-		// 	$username=$user['username'];
-		// 	$name=$user['name'];
-		// 	$email=$user['email'];
-		// 	$gender=$user['gender'];
-		// 	$phone=$user['phone'];
-		// 	$address=$user['address'];
-		// 	$department=$user['department'];
-		// 	$bg=$user['bg'];
-		// 	$dob=$user['dob'];
-		// }
+			$decode = json_decode($data,true);
+
+			foreach ($decode as $key => $value){
+				
+				$decode['username']=$_POST['username'];
+				$decode['name']=$_POST['name'];
+				$decode['email']=$_POST['email'];
+				$decode['gender']=$_POST['gender'];
+				$decode['phone']=$_POST['phone'];
+				$decode['address']=$_POST['address'];
+				$decode['department']=$_POST['department'];
+				$decode['bg']=$_POST['bg'];
+				$decode['dob']=$_POST['dob'];
+
+				$curr_encode=json_encode($decode);
+				
+				$myfile = fopen('../model/users.json', 'w');
+				fwrite($myfile, $curr_encode);
+				fclose($myfile);
+			}
+
+			header('location: ../view/edit_profile_check.php');
+
+		}else{
+			$myfile = fopen('../model/users.json', 'r');
+			$data = fread($myfile, filesize('../model/users.json'));
+			fclose($myfile);
+
+			$decode = json_decode($data,true);
+
+
+			$username=$decode['username'];
+			$name=$decode['name'];
+			$email=$decode['email'];
+			$gender=$decode['gender'];
+			$phone=$decode['phone'];
+			$address=$decode['address'];
+			$department=$decode['department'];
+			$bg=$decode['bg'];
+			$dob=$decode['dob'];
+		}
 	}
 
 ?>
@@ -36,7 +61,7 @@
 
 <?php 
 	$title= "Edit Profile";
-	include('header.html');
+	include('../view/header.html');
 ?>
 
 	<table border="1px" align="center" width="100%">
@@ -52,7 +77,7 @@
 									echo $_SESSION['current_user']['name'];
 								?>
 							</a> |
-							<a href="../controler/logout_check.php"> Logout </a> 
+							<a href="logout_check.php"> Logout </a> 
 						</td>
 					</tr>
 				</table>
@@ -65,7 +90,7 @@
 			<td width="200px" height="425px">MENU
 				<hr>
 				<details>
-					<summary><a href="dashboard.php">Dashboard</a></summary>
+					<summary><a href="../view/dashboard.php">Dashboard</a></summary>
 						
 				</details>
 
@@ -85,35 +110,35 @@
 				<details>
 					<summary>Screening & Approval</summary>
 						<details>
-							<summary><a href="leave_approval.php">Leave Approval</a></summary>
+							<summary><a href="../view/leave_approval.php">Leave Approval</a></summary>
 						</details>
 						<details>
-							<summary><a href="travel_approval.php">Travel Approval</a></summary>
+							<summary><a href="../view/travel_approval.php">Travel Approval</a></summary>
 						</details>
 						<details>
-							<summary><a href="performance_approval.php">Performance Overview</a></summary>
+							<summary><a href="../view/performance_approval.php">Performance Overview</a></summary>
 						</details>
 				</details>
 
 				<details>
 					<summary>Requirement</summary>
 						<details>
-							<summary><a href="add_job.php">Add Job Titles</a></summary>
+							<summary><a href="../view/add_job.php">Add Job Titles</a></summary>
 						</details>
 						<details>
-							<summary><a href="view_job.php">View Job Titles</a></summary>
+							<summary><a href="../view/view_job.php">View Job Titles</a></summary>
 						</details>
 						<details>
-							<summary><a href="add_job_vacancy.php">Add Job Vacancy</a></summary>
+							<summary><a href="../view/add_job_vacancy.php">Add Job Vacancy</a></summary>
 						</details>
 						<details>
-							<summary><a href="view_job_vacancy.php">View Job Vacancy</a></summary>
+							<summary><a href="../view/view_job_vacancy.php">View Job Vacancy</a></summary>
 						</details>
 						<details>
-							<summary><a href="online_app.php">Online Application</a></summary>
+							<summary><a href="../view/online_app.php">Online Application</a></summary>
 						</details>
 						<details>
-							<summary><a href="fixing_interview.php">Fixing Interview Online</a></summary>
+							<summary><a href="../view/fixing_interview.php">Fixing Interview Online</a></summary>
 						</details>
 				</details>
 
@@ -126,16 +151,16 @@
 							<summary><a href="edit_profile_check.php">Edit Profile</a></summary>
 						</details>
 						<details>
-							<summary><a href="../controler/change_pass_check.php">Change Password</a></summary>
+							<summary><a href="change_pass_check.php">Change Password</a></summary>
 						</details>
 				</details>
 
 				<details>
-					<summary><a href="about.html">About</a></summary>
+					<summary><a href="#">About</a></summary>
 				</details>
 
 				<details>
-					<summary><a href="../controler/logout_check.php">Logout</a></summary>
+					<summary><a href="logout_check.php">Logout</a></summary>
 				</details>
 			</td>
 <!-- ================================================================================================= -->
@@ -143,7 +168,7 @@
 				<table align="center">
 					<tr>
 						<td>
-							<form method="post" action="#">
+							<form method="post" action="edit_profile_check.php">
 								<fieldset>
 									<legend>EDIT PROFILE</legend>
 									<table>
@@ -225,7 +250,7 @@
 											<!-- add line -->
 											<td>
 												<input type="submit" name="edit_btn" value="Save">
-												<a href="view_profile_check.php"><span>Back</span></a>
+												<!-- <a href="view_profile_check.php"><span>Back</span></a> -->
 											</td>
 										</tr>
 									</table>
@@ -238,5 +263,5 @@
 			</td>
 		</tr>
 <?php 
-	include('footer.html'); 
+	include('../view/footer.html'); 
 ?>

@@ -4,19 +4,23 @@
 	if(!isset($_SESSION['flag'])){
 		header('location: ../controler/login_check.php');
 	}else{
+		$myfile = fopen('../model/users.json', 'r');
+		$data = fread($myfile, filesize('../model/users.json'));
+		fclose($myfile);
 
-		$user=$_SESSION['current_user'];
+		$decode = json_decode($data,true);
 
-		$username=$user['username'];
-		$name=$user['name'];
-		$email=$user['email'];
-		$gender=$user['gender'];
-		$phone=$user['phone'];
-		$address=$user['address'];
-		$department=$user['department'];
-		$bg=$user['bg'];
-		$dob=$user['dob'];
 
+		$username=$decode['username'];
+		$name=$decode['name'];
+		$email=$decode['email'];
+		$gender=$decode['gender'];
+		$phone=$decode['phone'];
+		$address=$decode['address'];
+		$department=$decode['department'];
+		$bg=$decode['bg'];
+		$dob=$decode['dob'];
+		
 //==================================================
 		if(isset($_POST['submit_pic'])){
 			$file_info = $_FILES['choose_file'];
@@ -39,7 +43,7 @@
 
 <?php 
 	$title= "View Profile";
-	include('header.html');
+	include('../view/header.html');
 ?>
 	<table border="1px" align="center" width="100%">
 		<tr>	
@@ -56,7 +60,7 @@
 									echo $_SESSION['current_user']['name'];
 								?>
 							</a> |
-							<a href="../controler/logout_check.php"> Logout </a> 
+							<a href="logout_check.php"> Logout </a> 
 						</td>
 					</tr>
 				</table>
@@ -69,7 +73,7 @@
 			<td width="200px" height="425px">MENU
 				<hr>
 				<details>
-					<summary><a href="dashboard.php">Dashboard</a></summary>
+					<summary><a href="../view/dashboard.php">Dashboard</a></summary>
 						
 				</details>
 
@@ -89,35 +93,35 @@
 				<details>
 					<summary>Screening & Approval</summary>
 						<details>
-							<summary><a href="leave_approval.php">Leave Approval</a></summary>
+							<summary><a href="../view/leave_approval.php">Leave Approval</a></summary>
 						</details>
 						<details>
-							<summary><a href="travel_approval.php">Travel Approval</a></summary>
+							<summary><a href="../view/travel_approval.php">Travel Approval</a></summary>
 						</details>
 						<details>
-							<summary><a href="performance_approval.php">Performance Overview</a></summary>
+							<summary><a href="../view/performance_approval.php">Performance Overview</a></summary>
 						</details>
 				</details>
 
 				<details>
 					<summary>Requirement</summary>
 						<details>
-							<summary><a href="add_job.php">Add Job Titles</a></summary>
+							<summary><a href="..view/add_job.php">Add Job Titles</a></summary>
 						</details>
 						<details>
-							<summary><a href="view_job.php">View Job Titles</a></summary>
+							<summary><a href="../view/view_job.php">View Job Titles</a></summary>
 						</details>
 						<details>
-							<summary><a href="add_job_vacancy.php">Add Job Vacancy</a></summary>
+							<summary><a href="../view/add_job_vacancy.php">Add Job Vacancy</a></summary>
 						</details>
 						<details>
-							<summary><a href="view_job_vacancy.php">View Job Vacancy</a></summary>
+							<summary><a href="../view/view_job_vacancy.php">View Job Vacancy</a></summary>
 						</details>
 						<details>
-							<summary><a href="online_app.php">Online Application</a></summary>
+							<summary><a href="../view/online_app.php">Online Application</a></summary>
 						</details>
 						<details>
-							<summary><a href="fixing_interview.php">Fixing Interview Online</a></summary>
+							<summary><a href="../view/fixing_interview.php">Fixing Interview Online</a></summary>
 						</details>
 				</details>
 
@@ -130,16 +134,16 @@
 							<summary><a href="edit_profile_check.php">Edit Profile</a></summary>
 						</details>
 						<details>
-							<summary><a href="../controler/change_pass_check.php">Change Password</a></summary>
+							<summary><a href="change_pass_check.php">Change Password</a></summary>
 						</details>
 				</details>
 
 				<details>
-					<summary><a href="about.html">About</a></summary>
+					<summary><a href="#">About</a></summary>
 				</details>
 
 				<details>
-					<summary><a href="../controler/logout_check.php">Logout</a></summary>
+					<summary><a href="logout_check.php">Logout</a></summary>
 				</details>
 			</td>
 <!-- ========================================================================================================= -->

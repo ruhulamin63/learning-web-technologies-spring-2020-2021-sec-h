@@ -1,4 +1,46 @@
+<?php
+	session_start();
 
+	if(!isset($_SESSION['flag'])){
+		header('location: ../controler/login_check.php');
+	}else{
+
+		$user=$_SESSION['current_user'];
+
+		if(isset($_POST['change_pass_btn'])){
+
+			if($user['password']==$_POST['curr_pass']){
+
+				if($_POST['new_pass']==$_POST['re_pass']){
+
+					$myfile = fopen('../model/users.json', 'r');
+					$data = fread($myfile, filesize('../model/users.json'));
+					fclose($myfile);
+
+					$decode = json_decode($data,true);
+
+					foreach ($decode as $key => $value){
+							
+							$decode['password']=$_POST['new_pass'];
+
+								$curr_encode=json_encode($decode);
+								
+								$myfile = fopen('../model/users.json', 'w');
+								fwrite($myfile, $curr_encode);
+								fclose($myfile);
+						}
+
+					header('location: change_pass_check.php');
+				}else{
+					echo "*New password & repassword mismatch...?";
+				}
+
+			}else{
+				echo "*Current password mismatch...?";
+			}
+		}
+	}
+?>
 
 <!-- ======================================================== -->
 
@@ -88,10 +130,10 @@
 				<details>
 					<summary>Setting</summary>
 						<details>
-							<summary><a href="../view/view_profile_check.php">View Profile</a></summary>
+							<summary><a href="view_profile_check.php">View Profile</a></summary>
 						</details>
 						<details>
-							<summary><a href="../view/edit_profile_check.php">Edit Profile</a></summary>
+							<summary><a href="edit_profile_check.php">Edit Profile</a></summary>
 						</details>
 						<details>
 							<summary><a href="change_pass_check.php">Change Password</a></summary>
@@ -111,7 +153,7 @@
 				<table align="center">
 					<tr>
 						<td>
-							<form method="post" action="#">
+							<form method="post" action="change_pass_check.php">
 								<fieldset>
 									<legend>CHANGE PASSWORD</legend>
 									<table>
@@ -137,6 +179,7 @@
 				</table>
 			</td>
 		</tr>
+		
 <?php 
 	include('../view/footer.html'); 
 ?>
