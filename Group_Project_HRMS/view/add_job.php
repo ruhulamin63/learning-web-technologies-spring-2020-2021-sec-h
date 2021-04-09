@@ -8,7 +8,7 @@
 
 <!-- ========================================================== -->
 <?php 
-	$title= "Job";
+	$title= " Add Job";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -20,7 +20,7 @@
 							<img src="../asset/company_logo.png" alt="main_logo" width="100%" height="100%">
 						</td>
 						<td align="right" >Logged in as
-							<a href="view_profile_check.php">
+							<a href="../view/view_profile_check.php">
 								<?php
 									echo $_SESSION['current_user']['name'];
 								?>
@@ -93,10 +93,10 @@
 				<details>
 					<summary>Setting</summary>
 						<details>
-							<summary><a href="view_profile_check.php">View Profile</a></summary>
+							<summary><a href="../view/view_profile_check.php">View Profile</a></summary>
 						</details>
 						<details>
-							<summary><a href="edit_profile_check.php">Edit Profile</a></summary>
+							<summary><a href="../view/edit_profile_check.php">Edit Profile</a></summary>
 						</details>
 						<details>
 							<summary><a href="../controler/change_pass_check.php">Change Password</a></summary>
@@ -104,7 +104,7 @@
 				</details>
 
 				<details>
-					<summary><a href="about.html">About</a></summary>
+					<summary><a href="#">About</a></summary>
 				</details>
 
 				<details>
