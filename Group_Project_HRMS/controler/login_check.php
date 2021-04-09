@@ -9,15 +9,18 @@
 		if($username == "" || $password == ""){
 			echo "*Null submission...";
 		}else{
+				$myfile = fopen('../model/users.json', 'r');
+				$data = fread($myfile, filesize('../model/users.json'));
+				fclose($myfile);
 
-			$myfile = fopen('../model/users.json', 'r');
-			$data = fread($myfile, filesize('../model/users.json'));
-			fclose($myfile);
+				$decode = json_decode($data,true);
 
-			$final_data = json_decode($data, true);
-			
+				foreach ($decode as $key => $value) {
+					$_SESSION['users_data']=$value;
+				}
+				$final_data=$_SESSION['users_data'];
 //================================================================================	
-			
+	
 			if($username == $final_data['username'] && $password == $final_data['password']){
 
 				/*Using Cookie*/
@@ -109,7 +112,7 @@
 												<input align="center" type="submit" name="login_btn" value="Sing In"><br><br>
 
 												<a href="forgot_pass_check.php">Forgot Password ?</a><br><br>
-												<a href="regCheck.php">Create an account?</a>
+												<a href="regCheck.php">Create an account ?</a>
 											</td>
 										</tr>
 									</table>
