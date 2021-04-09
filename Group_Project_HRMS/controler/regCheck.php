@@ -15,15 +15,59 @@
 		$bg = $_POST['bg'];
 		$dob = $_POST['dob'];
 
-//====================================================================================
+//=====================================================================================================
 
-		if($username == "" || $name == "" || $password == "" || $confpass == "" || $email == "" || 
-			$phone == "" || $address == "" || $gender=="" || $dob == ""){
+			if($username="" || $name == "" || $password == "" || $confpass == "" || $email == "" || 
+				$phone == "" || $address == "" || $gender=="" || $bg="" || $dob=""|| $dob == ""){
 
-			echo "*Null submission...";
-		}else{
+				echo "*Null submission...";
+			}else{
 
-			if($password == $confpass){
+//=========================================================================================================
+
+			if(isset($name)){
+
+				$name_len=strlen($name);
+	
+				if( $name_len>1 && ( ($name>='A'&&$name<='Z') || ($name>='a'&&$name<='z') || 
+					($name>='0'&&$name<='9') || $name=='-' || $name=='_' || $name=='.') ){
+						echo "successful";
+						echo "<br>";
+				}else{
+					echo "*Name at least 2 characters";
+					echo "<br>";
+				}
+
+				//========================================================================================================
+
+				if(isset($password)){
+
+					$pass_len=strlen($password);
+
+					if($pass_len>7 && ( $password=='@' || $password=='#'|| $password=='$' || 
+						$password=='%' || ($password>='A'&&$password<='Z') || ($password>='a'
+						&&$password<='z') || ($password>='0'&&$password<='9') || $password=='-' 
+						|| $password=='_' || $password=='.') ){
+							echo "successful";
+							echo "<br>";
+					}else{
+						echo "*password at least 8 characters";
+						echo "<br>";
+					}
+				}
+				else{
+					echo "*required password field?";
+					echo "<br>";
+				}
+				}else{
+					echo "*required name field ?";
+					echo "<br>";
+				}
+
+
+//==============================================================================================================
+
+			if( ($pass_len>7 && ($password == $confpass)) && $name_len>2 ){
 
 				$myfile = fopen('../model/users.json', 'r');
 				$data = fread($myfile, filesize('../model/users.json'));
@@ -57,7 +101,7 @@
 					
 					header('location: login_check.php');
 			}else{
-				echo "*password & confirm password mismatch...";
+				echo "*Please correct your field ?";
 			}
 		}
 

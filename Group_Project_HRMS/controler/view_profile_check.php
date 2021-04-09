@@ -106,7 +106,7 @@
 				<details>
 					<summary>Requirement</summary>
 						<details>
-							<summary><a href="..view/add_job.php">Add Job Titles</a></summary>
+							<summary><a href="../view/add_job.php">Add Job Titles</a></summary>
 						</details>
 						<details>
 							<summary><a href="../view/view_job.php">View Job Titles</a></summary>
@@ -182,7 +182,7 @@
 												<?php 
 													}
 												?>
-												<a href="profile_pic.php">Change</a>
+												<a href="../view/profile_pic.php">Change</a>
 											</td>
 										</tr>
 										<tr>
