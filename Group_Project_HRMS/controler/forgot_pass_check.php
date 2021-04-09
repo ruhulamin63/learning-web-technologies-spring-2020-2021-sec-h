@@ -37,9 +37,9 @@
 							<img src="../asset/company_logo.png" alt="main_logo" width="100%" height="100%">
 						</td>
 						<td align="right"> 
-							<a href="home.html">Home</a> |
-							<a href="../controler/login_check.php">Login</a> |
-							<a href="../controler/regCheck.php">Registration</a> 
+							<a href="../view/home.html">Home</a> |
+							<a href="login_check.php">Login</a> |
+							<a href="regCheck.php">Registration</a> 
 						</td>
 					</tr>
 				</table>

@@ -5,11 +5,9 @@
 		header('location: ../controler/login_check.php');
 	}
 ?>
-
-<!-- ================================================================ -->
-
+<!-- ======================================================================= -->
 <?php 
-	$title= "Online";
+	$title= "Employee Search";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -21,7 +19,7 @@
 							<img src="../asset/company_logo.png" alt="main_logo" width="100%" height="100%">
 						</td>
 						<td align="right" >Logged in as
-							<a href="view_profile_check.php">
+							<a href="../controler/view_profile_check.php">
 								<?php
 									echo $_SESSION['current_user']['name'];
 								?>
@@ -34,7 +32,7 @@
 		</tr>
 	</table>
 <!-- new table creating -->
-	<table  border="1px" align="cen" width="100%">
+	<table  border="1px" align="center" width="100%">
 		<tr>
 			<td width="200px" height="425px"><h2>Main Menu</h2>
 				<hr>
@@ -111,83 +109,35 @@
 				</details>	
 			</td>
 
-			
+
 			<td colspan="2" align="center">
 				<table align="center">
 					<tr>
 						<td>
 							<fieldset>
-								<h2>Online Application</h2>
+								<h2>Employee Search</h2>
+								<span>
+									<input type="text" name="emp_search" value="">
+								</span>
 								<hr>
+								<input type="submit" name="emp_search_btn" value="Search">
+								<input type="submit" name="view_all_btn" value="View All">
 							
-								<table align="center">
+								<br><br>
+								<table border="1px" align="center">
 									<tr>
-										<td>Full Name</td>
-										<td>:
-											<input type="text" name="Aname" value="">
-										</td>
+										<th>SL</th>
+										<th>Employee Name</th>
+										<th>Designation</th>
+										<th>Employee Id</th>
+										<th>Email</th>
 									</tr>
 									<tr>
-										<td>Email</td>
-										<td>:
-											<input type="text" name="Aemail" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Contract No</td>
-										<td>:
-											<input type="number" name="ACnumber" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Year Of Experience</td>
-										<td>:
-											<input type="number" name="Aexperience" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Location Job Applied</td>
-										<td>:
-											<input type="text" name="Alocation" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Select Vacancy Type</td>
-										<td>:
-											<select>
-												<option>select</option>
-												<option>Jr.Software Engineer</option>
-												<option>Senior Software Engineer</option>
-												<option>Developer</option>
-												<option>Query Expert</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>Date</td>
-										<td>:
-											<input type="date" name="Adate" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Resume Upload</td>
-										<td>:
-											<form method="post" action="view_profile_check.php" enctype="multipart/form-data">
-												<img src="../asset/user.png" width="100px" height="100px"><br>
-												<input type="file" name="choose_file" value="">
-											</form>
-										</td>
-									</tr>
-									<tr>
-										<td>Comment</td>
-										<td>:
-											<textarea></textarea>
-										</td>
-									</tr>
-									<tr>
-										<td align="left">
-											<input type="submit" name="Asave_btn" value="Save">
-										</td>
+										<td>X</td>
+										<td>Y</td>
+										<td>Z</td>
+										<td>A</td>
+										<td>B</td>
 									</tr>
 								</table>
 							</fieldset>

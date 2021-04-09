@@ -9,7 +9,7 @@
 <!-- ================================================================ -->
 
 <?php 
-	$title= "Online";
+	$title= "Travel Request";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -21,7 +21,7 @@
 							<img src="../asset/company_logo.png" alt="main_logo" width="100%" height="100%">
 						</td>
 						<td align="right" >Logged in as
-							<a href="view_profile_check.php">
+							<a href="../controler/view_profile_check.php">
 								<?php
 									echo $_SESSION['current_user']['name'];
 								?>
@@ -36,7 +36,7 @@
 <!-- new table creating -->
 	<table  border="1px" align="cen" width="100%">
 		<tr>
-			<td width="200px" height="425px"><h2>Main Menu</h2>
+			<td width="200px" height="425px">MENU
 				<hr>
 
 				<details>
@@ -109,88 +109,77 @@
 							<summary><a href="../controler/logout_check.php">Logout</a></summary>
 						</details>
 				</details>	
-			</td>
 
-			
+			</td>
 			<td colspan="2" align="center">
 				<table align="center">
 					<tr>
 						<td>
-							<fieldset>
-								<h2>Online Application</h2>
-								<hr>
-							
-								<table align="center">
-									<tr>
-										<td>Full Name</td>
-										<td>:
-											<input type="text" name="Aname" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Email</td>
-										<td>:
-											<input type="text" name="Aemail" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Contract No</td>
-										<td>:
-											<input type="number" name="ACnumber" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Year Of Experience</td>
-										<td>:
-											<input type="number" name="Aexperience" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Location Job Applied</td>
-										<td>:
-											<input type="text" name="Alocation" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Select Vacancy Type</td>
-										<td>:
-											<select>
-												<option>select</option>
-												<option>Jr.Software Engineer</option>
-												<option>Senior Software Engineer</option>
-												<option>Developer</option>
-												<option>Query Expert</option>
-											</select>
-										</td>
-									</tr>
-									<tr>
-										<td>Date</td>
-										<td>:
-											<input type="date" name="Adate" value="">
-										</td>
-									</tr>
-									<tr>
-										<td>Resume Upload</td>
-										<td>:
-											<form method="post" action="view_profile_check.php" enctype="multipart/form-data">
-												<img src="../asset/user.png" width="100px" height="100px"><br>
-												<input type="file" name="choose_file" value="">
-											</form>
-										</td>
-									</tr>
-									<tr>
-										<td>Comment</td>
-										<td>:
-											<textarea></textarea>
-										</td>
-									</tr>
-									<tr>
-										<td align="left">
-											<input type="submit" name="Asave_btn" value="Save">
-										</td>
-									</tr>
-								</table>
-							</fieldset>
+							<form method="post" action="#">
+								<fieldset>
+									<h2>Create Travel Request</h2>
+									<hr>
+								
+									<table align="center">
+										<tr>
+											<td>Employee Name</td>
+											<td>:
+												<input type="text" name="Ename" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Contract During Leave</td>
+											<td>:
+												<input type="text" name="Econtract" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Leave Type</td>
+											<td>:
+												<input type="text" name="Eleave_type" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Number Of Days</td>
+											<td>:
+												<input type="number" name="Ework_days" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>State Date</td>
+											<td>:
+												<input type="date" name="Estart_date" value="">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>End Date</td>
+											<td>:
+												<input type="date" name="Eend_date" value="">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>Reason for Leave</td>
+											<td>:
+												<input type="text" name="Ereason_for_leave" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Status for Leave</td>
+											<td>:
+												<input type="text" name="Estatus_for_leave" value="">
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2" align="left">
+												<hr>
+												<input type="submit" name="Asave_btn" value="Save">
+											</td>
+										</tr>
+									</table>
+								</fieldset>
+							</form>
 						</td>
 					</tr>
 				</table>

@@ -10,7 +10,7 @@
 		$email = $_POST['email'];
 		$phone = $_POST['phone'];
 		$address = $_POST['address'];
-		$gender = $_POST['gender'];
+		//$gender = $_POST['gender'];
 		$department = $_POST['department'];
 		$bg = $_POST['bg'];
 		$dob = $_POST['dob'];
@@ -18,7 +18,7 @@
 //=====================================================================================================
 
 			if($username="" || $name == "" || $password == "" || $confpass == "" || $email == "" || 
-				$phone == "" || $address == "" || $gender=="" || $bg="" || $dob=""|| $dob == ""){
+				$phone == "" || $address == "" || $_POST['address']=="" || $bg="" || $dob=""|| $dob == ""){
 
 				echo "*Null submission...";
 			}else{
@@ -82,7 +82,7 @@
 						'email'=> $email,
 						'phone'=> $phone,
 						'address' => $address,
-						'gender'=>$gender,
+						'gender'=>$_POST['address'],
 						'department' => $department,
 						'bg' => $bg,
 						'dob'=>$dob

@@ -28,7 +28,7 @@
 						<td width="200px" height="60px"><img src="../asset/company_logo.png" width="100%" height="100%"></td>
 						<td align="right" >
 							Logged in as
-							<a href="view_profile_check.php"> 
+							<a href="../controler/view_profile_check.php"> 
 								<?php
 									echo $_SESSION['current_user']['name'];
 								?>
@@ -43,28 +43,31 @@
 
 	<table border="1px" align="center" width="100%">
 		<tr>
-			<td width="200px" height="425px">MENU
+			<td width="200px" height="425px"><h2>Main Menu</h2>
 			<hr>
-				<details>
-					<summary><a href="dashboard.php">Dashboard</a></summary>
-						
-				</details>
 
-				<details>
-					<summary>Portal</summary>
+			<details>
+					<summary><b>Dashboard</b></summary>
 						<details>
-							<summary><a href="#">Create Leave Request</a></summary>
-						</details>
-						<details>
-							<summary><a href="#">Create Travel Request</a></summary>
-						</details>
-						<details>
-							<summary><a href="#">Monthly Performance</a></summary>
+							<summary><a href="dashboard.php">Dashboard</a></summary>	
 						</details>
 				</details>
 
 				<details>
-					<summary>Screening & Approval</summary>
+					<summary><b>Portal</b></summary>
+						<details>
+							<summary><a href="create_leave_request.php">Create Leave Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="create_travel_request.php">Create Travel Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="employee_search.php">Search Employee</a></summary>
+						</details>
+				</details>
+
+				<details>
+					<summary><b>Screening & Approval</b></summary>
 						<details>
 							<summary><a href="leave_approval.php">Leave Approval</a></summary>
 						</details>
@@ -77,7 +80,7 @@
 				</details>
 
 				<details>
-					<summary>Recruitment</summary>
+					<summary><b>Requirement</b></summary>
 						<details>
 							<summary><a href="add_job.php">Add Job Titles</a></summary>
 						</details>
@@ -99,26 +102,23 @@
 				</details>
 
 				<details>
-					<summary>Setting</summary>
+					<summary><b>Setting</b></summary>
 						<details>
-							<summary><a href="view_profile_check.php">View Profile</a></summary>
+							<summary><a href="../controler/view_profile_check.php">View Profile</a></summary>
 						</details>
 						<details>
-							<summary><a href="edit_profile_check.php">Edit Profile</a></summary>
+							<summary><a href="../controler/edit_profile_check.php">Edit Profile</a></summary>
 						</details>
 						<details>
 							<summary><a href="../controler/change_pass_check.php">Change Password</a></summary>
 						</details>
-				</details>
-
-				<details>
-					<summary><a href="about.html">About</a></summary>
-				</details>
-
-				<details>
-					<summary><a href="../controler/logout_check.php">Logout</a></summary>
-				</details>
+						<details>
+							<summary><a href="../controler/logout_check.php">Logout</a></summary>
+						</details>
+				</details>	
 			</td>
+
+			
 			<td>
 				<form method="post" action="view_profile_check.php" enctype="multipart/form-data">
 					<fieldset>

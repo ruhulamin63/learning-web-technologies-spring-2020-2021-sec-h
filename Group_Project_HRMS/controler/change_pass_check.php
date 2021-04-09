@@ -72,28 +72,31 @@
 
 	<table  border="1px" align="center" width="100%">
 		<tr>
-			<td width="200px" height="425px">MENU
+			<td width="200px" height="425px"><h2>Main Menu</h2>
 				<hr>
-				<details>
-					<summary><a href="../view/dashboard.php">Dashboard</a></summary>
-						
-				</details>
 
 				<details>
-					<summary>Portal</summary>
+					<summary><b>Dashboard</b></summary>
 						<details>
-							<summary><a href="#">Create Leave Request</a></summary>
-						</details>
-						<details>
-							<summary><a href="#">Create Travel Request</a></summary>
-						</details>
-						<details>
-							<summary><a href="#">Monthly Performance</a></summary>
+							<summary><a href="../view/dashboard.php">Dashboard</a></summary>	
 						</details>
 				</details>
 
 				<details>
-					<summary>Screening & Approval</summary>
+					<summary><b>Portal</b></summary>
+						<details>
+							<summary><a href="../view/create_leave_request.php">Create Leave Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="../view/create_travel_request.php">Create Travel Request</a></summary>
+						</details>
+						<details>
+							<summary><a href="../view/employee_search.php">Search Employee</a></summary>
+						</details>
+				</details>
+
+				<details>
+					<summary><b>Screening & Approval</b></summary>
 						<details>
 							<summary><a href="../view/leave_approval.php">Leave Approval</a></summary>
 						</details>
@@ -106,7 +109,7 @@
 				</details>
 
 				<details>
-					<summary>Recruitment</summary>
+					<summary><b>Requirement</b></summary>
 						<details>
 							<summary><a href="../view/add_job.php">Add Job Titles</a></summary>
 						</details>
@@ -128,7 +131,7 @@
 				</details>
 
 				<details>
-					<summary>Setting</summary>
+					<summary><b>Setting</b></summary>
 						<details>
 							<summary><a href="view_profile_check.php">View Profile</a></summary>
 						</details>
@@ -138,15 +141,10 @@
 						<details>
 							<summary><a href="change_pass_check.php">Change Password</a></summary>
 						</details>
-				</details>
-
-				<details>
-					<summary><a href="#">About</a></summary>
-				</details>
-
-				<details>
-					<summary><a href="logout_check.php">Logout</a></summary>
-				</details>
+						<details>
+							<summary><a href="logout_check.php">Logout</a></summary>
+						</details>
+				</details>	
 			</td>
 
 			<td>
