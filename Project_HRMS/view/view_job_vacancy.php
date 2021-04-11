@@ -135,12 +135,13 @@
 										<th>Job Description</th>
 									</tr>
 									<tr>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
-										<td></td>
+										<td>A</td>
+										<td>B</td>
+										<td>C</td>
+										<td>D</td>
+										<td>X</td>
+										<td>Y</td>
+										<td>Z</td>
 									</tr>
 								</table>
 							</fieldset>

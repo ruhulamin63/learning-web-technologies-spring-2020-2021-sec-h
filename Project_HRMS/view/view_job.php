@@ -121,7 +121,7 @@
 								<hr>
 								<input type="submit" name="view_job_btn" value="Submit">
 								<input type="submit" name="view_all_btn" value="View All">
-								<a href="#">Back</a>
+				
 								<br><br>
 								<table border="1px" align="center">
 									<tr>
