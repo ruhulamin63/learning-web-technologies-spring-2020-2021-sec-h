@@ -24,7 +24,7 @@
 			$status = FixingInterviewUpdateData($user,$id);
 
 			if($status){
-				header('location: ../view/travel_approval.php');
+				header('location: ../view/fixing_interview_approval.php');
 			}else{
 				echo "*Error db connted";
 			}

@@ -9,14 +9,13 @@
 
 //===================================================================	
 
-	if(isset($_POST['save_btn'])){
+	if(isset($_POST['submit'])){
 
-		$file_info = $_FILES['resume'];
+		$file_info = $_FILES['resume']['name'];
 		//echo $file_info['tmp_name'];
 		
-		$file = $file_info['name'];
+		$filename  = $_FILES['resume']['tmp_name'];
 		$path = '../asset/upload'.$file;
-		$filename = $file_info['tmp_name'];
 
 		if(move_uploaded_file($filename, $path)){
 				echo "successfully...";
@@ -228,7 +227,7 @@
 										</tr>
 										<tr>
 											<td align="left">
-												<input type="submit" name="save_btn" value="Save">
+												<input type="submit" name="submit" value="Submit">
 											</td>
 										</tr>
 									</table>

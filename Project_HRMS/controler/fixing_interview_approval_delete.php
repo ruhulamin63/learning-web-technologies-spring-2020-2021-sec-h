@@ -12,6 +12,6 @@
 	$get_id=$_GET['id'];
 	$status = FixingInterviewDeleteData($get_id);
 
-	header('location: ../view/view_job_vacancy.php');
+	header('location: ../view/fixing_interview_approval.php');
 					
 ?>

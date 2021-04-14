@@ -24,7 +24,7 @@
 			$status = AddJobVacancyUpdateData($user,$id);
 
 			if($status){
-				header('location: ../controler/job_vacancy_edit.php');
+				header('location: ../view/view_job_vacancy.php');
 			}else{
 				echo "*Error db connted";
 			}

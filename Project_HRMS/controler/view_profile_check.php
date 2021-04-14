@@ -22,20 +22,6 @@
 		$dob=$data['dob'];
 		
 //==================================================
-		if(isset($_POST['submit_pic'])){
-			$file_info = $_FILES['choose_file'];
-			//echo $file_info['tmp_name'];
-			
-			$file = $file_info['name'];
-			$path = '../asset/upload'.$file;
-			$filename = $file_info['tmp_name'];
-
-			if(move_uploaded_file($filename, $path)){
-					echo "successfully...";
-			}else{
-				echo "Error...";
-			}
-		}
 	}
 ?>
 
@@ -150,7 +136,7 @@
 				<table>
 					<tr>
 						<td>
-							<form method="post" action="profile_pic.php" enctype="multipart/form-data">
+							<form method="post" action="view_profile_check.php">
 								<fieldset>
 									<legend>PROFILE</legend>
 									<table align="center">
@@ -169,20 +155,28 @@
 													echo $name;
 												?>
 											</td>
-											<td rowspan="4" align="center">
-												<?php
-													if(isset($_POST['submit_pic'])){
-												?>
-													<img src="../asset/upload<?php echo $file; ?>" width="100px" height="100px"><br>
-												<?php 
-													}else{
-												?>
-													<img src="../asset/user.png" width="100px" height="100px"><br>
-												<?php 
-													}
-												?>
-												<a href="../view/profile_pic.php">Change</a>
-											</td>
+
+											<form method="post" action="../profile_pic.php" enctype="multipart/form-data">
+												<td rowspan="4" align="center">
+													<?php
+														require_once('../model/db.php');
+														
+														if(isset($_POST['submit_pic'])){
+															$conn = getConnection();
+															$sql = "select * from user_image";
+															$result = mysqli_query($conn, $sql);
+													?>
+														<img src="../asset/upload/<?php echo $result['photos']; ?>" width="100px" height="100px"><br>
+													<?php 
+														}else{
+													?>
+														<img src="../asset/user.png" width="100px" height="100px"><br>
+													<?php 
+														}
+													?>
+													<a href="../view/profile_pic.php">Change</a>
+												</td>
+											</form>
 										</tr>
 										<tr>
 											<td>Email</td>
