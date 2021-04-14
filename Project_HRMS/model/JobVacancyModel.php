@@ -71,8 +71,17 @@
 		}
 		return $users;
 	}
+//======================================================================================
+
+function getUserAddJobSearchById($name){
+
+		$conn = getConnection();
+		$sql = "select * from job_vacancy where name='{$name}'";
+		$result = mysqli_query($conn, $sql);
+
+		return $result;
+	}
 
 //--------------------------End Job Vacancy-----------------------------------
-
 
 ?>

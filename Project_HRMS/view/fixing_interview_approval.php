@@ -114,11 +114,16 @@
 
 			
 			<td colspan="2" align="center">
-				<table border="1px" align="center">
+				<table border="1px" align="center" cellspacing="5" cellpadding="5">
+					<tr>
+						<td align="center" colspan="11">
+							<h2>Fixing Interview Approval</h2>
+						</td>
+					</tr>
 					<tr>
 						<th>SL</th>
-						<th>Vacancy</th>
 						<th>Candidate</th>
+						<th>Vacancy</th>
 						<th>Time</th>
 						<th>Date</th>
 						<th>Status</th>
@@ -138,8 +143,8 @@
 								echo "
 									<tr>
 										<td>{$value['id']}</td>
-										<td>{$value['vacancy']}</td>
 										<td>{$value['candidate']}</td>
+										<td>{$value['vacancy']}</td>
 										<td>{$value['time']}</td>
 										<td>{$value['date']}</td>
 										<td>{$value['status']}</td>

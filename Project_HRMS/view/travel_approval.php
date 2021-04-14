@@ -113,6 +113,11 @@
 			<td colspan="2" align="center">
 				<table border="1px" align="center">
 					<tr>
+						<td align="center" colspan="11">
+							<h2>Travel Approval</h2>
+						</td>
+					</tr>
+					<tr>
 						<th>SL</th>
 						<th>Request By</th>
 						<th>Reason</th>

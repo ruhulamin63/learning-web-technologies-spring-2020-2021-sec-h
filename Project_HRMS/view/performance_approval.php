@@ -114,18 +114,21 @@
 			<td colspan="2" align="center">
 				<table border="1px" align="center">
 					<tr>
+						<td align="center" colspan="4">
+							<h2>Performance Overview</h2>
+						</td>
+					</tr>
+					<tr>
 						<th>SL</th>
 						<th>Requested By</th>
 						<th>Month</th>
 						<th>Approval Status</th>
-						<th>Del</th>
 					</tr>
 					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
+						<td>1</td>
+						<td>Rony</td>
+						<td>January</td>
+						<td>Pending</td>
 					</tr>
 				</table>
 			</td>

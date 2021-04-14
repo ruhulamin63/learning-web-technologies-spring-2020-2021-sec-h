@@ -116,6 +116,11 @@
 			<td colspan="2" align="center">
 				<table border="1px" align="center">
 					<tr>
+						<td align="center" colspan="11">
+							<h2>Leave Approval</h2>
+						</td>
+					</tr>
+					<tr>
 						<th>SL</th>
 						<th>Request By</th>
 						<th>Leave Type</th>
@@ -129,7 +134,7 @@
 					</tr>
 
 					<?php
-						require_once('../model/UserModel.php');
+						require_once('../model/leaveApprovalModel.php');
 
 						$result = getAllLeaveRequest();
 

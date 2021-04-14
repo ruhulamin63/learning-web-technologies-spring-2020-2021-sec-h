@@ -133,79 +133,78 @@
 
 									if(isset($_POST['search_btn'])){
 
-									?>
-									<table border="1px" align="center" cellpadding="8" cellspacing="8">
-										<tr>
-											<th>SL</th>
-											<th>Job Title</th>
-											<th colspan="2">Action</th>
-										</tr>
-											<?php
-											
-												$name=$_POST['addjob'];
-												$result=getUserAddJobSearchById($name);
+								?>
+								<table border="1px" align="center" cellpadding="8" cellspacing="8">
+									<tr>
+										<th>SL</th>
+										<th>Job Title</th>
+										<th colspan="2">Action</th>
+									</tr>
+										<?php
+										
+											$name=$_POST['addjob'];
+											$result=getUserAddJobSearchById($name);
 
-												if(mysqli_num_rows($result)>0){
-													while($row=mysqli_fetch_array($result)){
-														echo "
-															<tr>
-																<td>{$row['id']}</td>
-																<td>{$row['addjob']}</td>
-																<td>
-																	<a href='../controler/add_job_edit.php?id=$row[id]'>Update</a>
-																</td>
-																<td>
-																	<a href='../controler/view_job_delete.php?id=$row[id]'>Delete</a>
-																</td>
-															</tr>
-														";
-													}
-												}else{
-													echo "No data available";
-												}
-											?>
-									</table>
-
-									<?php
-										}
-
-										//===============view all data====================
-
-										if(isset($_POST['view_all_btn'])){
-											require_once('../model/JobTitleModel.php');
-									?>
-
-									<table border="1px" align="center" cellpadding="8" cellspacing="8">
-										<tr>
-											<th>SL</th>
-											<th>Job Title</th>
-											<th colspan="2">Action</th>
-										</tr>
-
-									<?php
-											$result = getAllAddJobData();
-
-											//print_r($result);
-
-											if(count($result)>0){
-												foreach ($result as $key => $value) {
+											if(mysqli_num_rows($result)>0){
+												while($row=mysqli_fetch_array($result)){
 													echo "
 														<tr>
-															<td>{$value['id']}</td>
-															<td>{$value['addjob']}</td>
+															<td>{$row['id']}</td>
+															<td>{$row['addjob']}</td>
 															<td>
-																<a href='../controler/add_job_edit.php?id=$value[id]'>Update</a>
+																<a href='../controler/add_job_edit.php?id=$row[id]'>Update</a>
 															</td>
 															<td>
-																<a href='../controler/view_job_delete.php?id=$value[id]'>Delete</a>
+																<a href='../controler/view_job_delete.php?id=$row[id]'>Delete</a>
 															</td>
 														</tr>
 													";
 												}
+											}else{
+												echo "No data available";
+											}
+										?>
+								</table>
+
+								<?php
+									}
+
+									//===============view all data====================
+
+									if(isset($_POST['view_all_btn'])){
+										require_once('../model/JobTitleModel.php');
+								?>
+
+								<table border="1px" align="center" cellpadding="8" cellspacing="8">
+									<tr>
+										<th>SL</th>
+										<th>Job Title</th>
+										<th colspan="2">Action</th>
+									</tr>
+
+								<?php
+										$result = getAllAddJobData();
+
+										//print_r($result);
+
+										if(count($result)>0){
+											foreach ($result as $key => $value) {
+												echo "
+													<tr>
+														<td>{$value['id']}</td>
+														<td>{$value['addjob']}</td>
+														<td>
+															<a href='../controler/add_job_edit.php?id=$value[id]'>Update</a>
+														</td>
+														<td>
+															<a href='../controler/view_job_delete.php?id=$value[id]'>Delete</a>
+														</td>
+													</tr>
+												";
 											}
 										}
-									?>
-
+									}
+								?>
 								</table>
 							</fieldset>
 						</td>
