@@ -8,7 +8,7 @@
 	//$_SESSION['userid']=$get_id;
 
 	$id = getProductById($get_id);
-
+/*
 	while($value = mysqli_fetch_assoc($id)){
 
 		$name = $value['name'];
@@ -16,7 +16,7 @@
 		$Sprice = $value['sprice'];
 		$display = $value['display'];
 	}
-
+*/
 	if(isset($_POST['del_btn'])){
 		
 		$status = deleteProduct($get_id);

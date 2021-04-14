@@ -9,7 +9,7 @@
 	//print_r($get_id);				
 
 	$id = getProductById($get_id);
-
+/*
 	while($value = mysqli_fetch_assoc($id)){
 
 		$name = $value['name'];
@@ -17,6 +17,7 @@
 		$Sprice = $value['sprice'];
 		$display = $value['display'];
 	}
+*/
 //=================================================
 	if(isset($_POST['update_btn'])){	
 
