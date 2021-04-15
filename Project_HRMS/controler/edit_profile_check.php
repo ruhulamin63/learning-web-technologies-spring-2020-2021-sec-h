@@ -1,33 +1,54 @@
 <?php
 	session_start();
 
+	require_once('../model/UserModel.php');
+
 	if(!isset($_SESSION['flag'])){
 		header('location: ../controler/login_check.php');
 
 	}else{
-		
-			require_once('../model/UserModel.php');
 			
-				$data=$_SESSION['current_user'];
+		$data=$_SESSION['current_user'];
 				
 //==============================================================
 
 		if(isset($_POST['edit_btn'])){
 				
-				$username=$_POST['username'];
-				$name=$_POST['name'];
-				$email=$_POST['email'];
-				$gender=$_POST['gender'];
-				$phone=$_POST['phone'];
-				$address=$_POST['address'];
-				$department=$_POST['department'];
-				$blood=$_POST['blood'];  
-				$dob=$_POST['dob'];
+			$username=$_POST['username'];
+			$name=$_POST['name'];
+			$email=$_POST['email'];
+			$gender=$_POST['gender'];
+			$phone=$_POST['phone'];
+			$address=$_POST['address'];
+			$department=$_POST['department'];
+			$blood=$_POST['blood'];  
+			$dob=$_POST['dob'];
 
-				$conn = getConnection();
-				$sql = "update registration set username='{$username}', name='{$name}', email='{$email}', phone='{$phone}', address='{$address}', gender='{$gender}', department='{$department}', blood='{$blood}', dob='{$dob}' where username='{$data['username']}'";
-				$result=mysqli_query($conn, $sql);		
-			
+			$conn = getConnection();
+			$sql = "update registration set username='{$username}', name='{$name}', email='{$email}', phone='{$phone}', address='{$address}', gender='{$gender}', department='{$department}', blood='{$blood}', dob='{$dob}' where username='{$data['username']}'";
+			$result=mysqli_query($conn, $sql);
+
+//==============================================================================
+
+			/*$get_id=$_SESSION['current_user']['username'];
+			$id=getUserById($get_id);
+
+			$user = [
+						'username'=>$_POST['username'],
+						'name'=>$_POST['name'],
+						'email'=>$_POST['email'],
+						'gender'=>$_POST['gender'],
+						'phone'=>$_POST['phone'],
+						'address'=>$_POST['address'],
+						'department'=>$_POST['department'],
+						'blood'=>$_POST['blood'],
+						'dob'=>$_POST['dob'],
+					];
+
+			$status=updateUser($user,$id);*/	
+				
+//=====================================================================================
+
 		}else{
 			$id=$_SESSION['current_user']['username'];
 			$data = getUserById($id);

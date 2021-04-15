@@ -115,7 +115,7 @@
 
 
 			<td colspan="2" align="center">
-				<h1>Welcome , <?php echo $data['name'];?>
+				<h1>Welcome to our (HRMS) project, <?php echo $data['name'];?>
 				</h1>
 			</td>
 		</tr>

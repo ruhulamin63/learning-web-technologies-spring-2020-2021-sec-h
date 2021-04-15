@@ -60,10 +60,10 @@
 
 //======================================================================================
 
-	function updateUser($user,$id){
+	function updateUser($user,$username){
 
 		$conn = getConnection();
-		$sql = "update registration set username='{$user['username']}', name='{$user['name']}', email='{$user['email']}', phone='{$user['phone']}', address='{$user['address']}', gender='{$user['gender']}', department='{$user['department']}', blood='{$user['blood']}', dob='{$user['dob']}' where id='{$id}'";
+		$sql = "update registration set username='{$user['username']}', name='{$user['name']}', email='{$user['email']}', phone='{$user['phone']}', address='{$user['address']}', gender='{$user['gender']}', department='{$user['department']}', blood='{$user['blood']}', dob='{$user['dob']}' where username='{$username}'";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;
@@ -94,7 +94,7 @@
 	function OnlineApplicatinInsertData($user){
 
 		$conn = getConnection();
-		$sql = "insert into online_application values('', '{$user['name']}', '{$user['email']}', '{$user['contract']}', '{$user['experience']}', '{$user['location']}', '{$user['type']}', '{$user['date']}','{$user['resume']}','{$user['comment']}')";
+		$sql = "insert into online_application values('', '{$user['name']}', '{$user['email']}', '{$user['contract']}', '{$user['experience']}', '{$user['location']}', '{$user['type']}', '{$user['date']}', '{$user['comment']}')";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;

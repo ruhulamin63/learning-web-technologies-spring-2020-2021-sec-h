@@ -11,18 +11,6 @@
 
 	if(isset($_POST['submit'])){
 
-		$file_info = $_FILES['resume']['name'];
-		//echo $file_info['tmp_name'];
-		
-		$filename  = $_FILES['resume']['tmp_name'];
-		$path = '../asset/upload'.$file;
-
-		if(move_uploaded_file($filename, $path)){
-				echo "successfully...";
-		}else{
-			echo "Error..."; 
-		}
-//===================================================================
 		$user = [	
 					'name'=>$_POST['name'], 
 					'email'=>$_POST['email'],
@@ -30,7 +18,6 @@
 					'experience'=> $_POST['experience'],
 					'location'=> $_POST['location'],
 					'type'=>$_POST['type'],
-					'resume'=>$_POST['resume'],
 					'date'=>$_POST['date'],
 					'comment'=>$_POST['comment']
 				];
@@ -211,11 +198,11 @@
 											</td>
 										</tr>
 										<tr>
-											<form method="post" action="online_app.php" enctype="multipart/form-data">
+											<form method="post" action="../view/online_application_image.php" enctype="multipart/form-data">
 												<td>Resume Upload</td>
 												<td>:
 													<img src="../asset/user.png" width="100px" height="100px"><br>
-													<input type="file" name="resume" value="">
+													<input type="file" name="choose_file" value="">
 												</td>
 											</form>
 										</tr>

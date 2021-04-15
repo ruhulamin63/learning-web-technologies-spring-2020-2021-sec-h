@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	require_once('../model/UserModel.php');
+	require_once('../model/LeaveApprovalModel.php');
 
 
 	if(!isset($_SESSION['flag'])){

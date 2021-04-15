@@ -157,7 +157,7 @@
 													echo "
 														<tr>
 															<td>{$row['id']}</td>
-															<td>{$row['title']}</td>
+															<td>{$row['vacancytitle']}</td>
 															<td>{$row['name']}</td>
 															<td>{$row['manager']}</td>
 															<td>{$row['location']}</td>
@@ -209,7 +209,7 @@
 												echo "
 													<tr>
 														<td>{$value['id']}</td>
-															<td>{$value['title']}</td>
+															<td>{$value['vacancytitle']}</td>
 															<td>{$value['name']}</td>
 															<td>{$value['manager']}</td>
 															<td>{$value['location']}</td>

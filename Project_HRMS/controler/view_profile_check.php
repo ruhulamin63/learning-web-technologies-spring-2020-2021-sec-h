@@ -156,17 +156,20 @@
 												?>
 											</td>
 
-											<form method="post" action="../profile_pic.php" enctype="multipart/form-data">
+											<form method="post" action="../view/profile_pic.php" enctype="multipart/form-data">
 												<td rowspan="4" align="center">
 													<?php
 														require_once('../model/db.php');
 														
-														if(isset($_POST['submit_pic'])){
-															$conn = getConnection();
-															$sql = "select * from user_image";
-															$result = mysqli_query($conn, $sql);
+														$conn = getConnection();
+														$sql = "select * from user_image";
+														$result = mysqli_query($conn, $sql);
+														$row = mysqli_fetch_assoc($result);
+
+														//print_r($row);
+														if($row>0){
 													?>
-														<img src="../asset/upload/<?php echo $result['photos']; ?>" width="100px" height="100px"><br>
+														<img src="<?php echo "{$row['photos']}"; ?>" width="200px" height="200px"><br>
 													<?php 
 														}else{
 													?>

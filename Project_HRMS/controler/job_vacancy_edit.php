@@ -12,7 +12,7 @@
 	if(isset($_POST['update_btn'])){
 
 		$user = [	
-					'title'=>$_POST['title'], 
+					'vacancytitle'=>$_POST['vacancytitle'], 
 					'name'=>$_POST['name'], 
 					'manager'=>$_POST['manager'],
 					'location'=>$_POST['location'],
@@ -30,16 +30,16 @@
 			}
 
 //==================================================================================
-			$data = getUserJobVacancyById($id);
+			//$data = getUserJobVacancyById($id);
 
-			$addjob=$data['addjob'];
+			//$addjob=$data['addjob'];
 					
 	}else{
 
 		$id=$_GET['id'];
 		$data = getUserJobVacancyById($id);
 
-		$title=$data['title'];
+		$vacancytitle=$data['vacancytitle'];
 		$name=$data['name'];
 		$manager=$data['manager'];
 		$location=$data['location'];
@@ -169,7 +169,7 @@
 										<tr>
 											<td>Job Title</td>
 											<td>:
-												<input type="text" name="title" value="<?php echo $title;?>">
+												<input type="text" name="vacancytitle" value="<?php echo $vacancytitle;?>">
 											</td>
 										</tr>
 										<tr>

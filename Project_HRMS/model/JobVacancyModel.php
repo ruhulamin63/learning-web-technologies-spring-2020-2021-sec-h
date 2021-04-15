@@ -19,7 +19,7 @@
 		function AddJobVacancyInsertData($user){
 
 		$conn = getConnection();
-		$sql = "insert into job_vacancy values('', '{$user['title']}', '{$user['empname']}', '{$user['manager']}', '{$user['location']}', '{$user['position']}', '{$user['description']}')";
+		$sql = "insert into job_vacancy values('', '{$user['vacancytitle']}', '{$user['name']}', '{$user['manager']}', '{$user['location']}', '{$user['position']}', '{$user['description']}')";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;
@@ -33,7 +33,7 @@
 	function AddJobVacancyUpdateData($user,$id){
 
 		$conn = getConnection();
-		$sql = "update job_vacancy set title='{$user['title']}', empname='{$user['empname']}', manager='{$user['manager']}', location='{$user['location']}', position='{$user['position']}', description='{$user['description']}' where id='{$id}'";
+		$sql = "update job_vacancy set vacancytitle='{$user['vacancytitle']}', name='{$user['name']}', manager='{$user['manager']}', location='{$user['location']}', position='{$user['position']}', description='{$user['description']}' where id='{$id}'";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;

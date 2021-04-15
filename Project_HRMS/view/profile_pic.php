@@ -10,32 +10,33 @@
 		if(isset($_POST['submit_pic'])){
 
 			if(isset($_POST['submit_pic'])){
-			$file_info = $_FILES['choose_file'];
-			//echo $file_info['tmp_name'];
-			
-			$file = $file_info['name'];
-			$path = '../asset/upload/'.$file;
-			$filename = $file_info['tmp_name'];
+				$file_info = $_FILES['choose_file'];
+				//echo $file_info['tmp_name'];
+				
+				$file = $file_info['name'];
+				$path = '../asset/upload/'.$file;
+				$filename = $file_info['tmp_name'];
 
-			if(move_uploaded_file($filename, $path)){
-			
-					require_once('../model/db.php');
+				if(move_uploaded_file($filename, $path)){
+				
+						require_once('../model/db.php');
 
-						$conn = getConnection();
-						$sql = "insert into user_image values('','{$path}')";
-						$result=mysqli_query($conn, $sql);
+							$conn = getConnection();
+							$sql = "insert into user_image values('','{$path}')";
+							$result=mysqli_query($conn, $sql);
 
-						if($result){
-							echo "successfully...";
-						}else{
-							echo "Error...";
-						}
-			}else{
-				echo "Error...";
+							if($result){
+								echo "successfully...";
+
+							}else{
+								echo "Error...";
+							}
+				}else{
+					echo "Error...";
+				}
 			}
-		}
 
-		header('location: ../controler/view_profile_check.php');
+			header('location: ../controler/view_profile_check.php');
 		}
 	}
 ?>

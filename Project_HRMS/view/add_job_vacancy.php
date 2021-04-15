@@ -1,7 +1,7 @@
 <?php
 	session_start();
 
-	require_once('../model/UserModel.php');
+	require_once('../model/JobVacancyModel.php');
 
 	if(!isset($_SESSION['flag'])){
 		header('location: ../controler/login_check.php');
@@ -21,8 +21,7 @@
 		 $status = AddJobVacancyInsertData($user);
 
 		if($status){
-			echo "success...";
-			header('location: add_job_vacancy.php');
+			header('location: view_job_vacancy.php');
 		}else{
 			echo "**Error database connection";
 		}
