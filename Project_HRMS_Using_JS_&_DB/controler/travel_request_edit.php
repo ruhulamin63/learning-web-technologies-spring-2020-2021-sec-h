@@ -65,6 +65,9 @@
 	$title= "Edit Travel";
 	include('../view/header.html');
 ?>
+</head>
+<body>
+	
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>

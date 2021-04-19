@@ -33,14 +33,14 @@
 				if($result){
 					?>
 						<script type="text/javascript">
-							alert('Inserted image in database');
+							alert('Inserted image in database.');
 						</script>
 					<?php
 
 				}else{
 					?>
 						<script type="text/javascript">
-							alert('Error database connection');
+							alert('Error database connection.');
 						</script>
 					<?php
 				}
@@ -48,7 +48,7 @@
 			}else{
 				?>
 					<script type="text/javascript">
-						alert('Error');
+						alert('Error upload image file.');
 					</script>
 				<?php
 			}
@@ -63,7 +63,9 @@
 	$title= "Picture Change";
 	include('header.html');
 ?>
-
+</head>
+<body>
+	
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>
@@ -213,8 +215,9 @@
 					alert('Selected files is Not an Image');
 					return false;
 				}else{
+					
 					if(parseFloat(img.files[0].size/(1024*1024))>=3){
-						alert('File size must be smaller then 5 MB. Current image file size : ' + parseFloat(img.files[0].size/(1024*1024)) );
+						alert('File size must be smaller then 3 MB. Current image file size : ' + parseFloat(img.files[0].size/(1024*1024)) );
 						return false;
 					}
 				}

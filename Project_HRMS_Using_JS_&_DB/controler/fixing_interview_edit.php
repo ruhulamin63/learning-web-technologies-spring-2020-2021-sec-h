@@ -59,6 +59,9 @@
 	$title= "Edit Travel";
 	include('../view/header.html');
 ?>
+</head>
+<body>
+	
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>
@@ -115,7 +118,7 @@
 							<summary><a href="../view/travel_approval.php">Travel Approval</a></summary>
 						</details>
 						<details>
-							<summary><a href="../view/fixing_interview_approval.php">Search Employee</a></summary>
+							<summary><a href="../view/fixing_interview_approval.php">Fixing Interview Approval</a></summary>
 						</details>
 						<details>
 							<summary><a href="../view/performance_approval.php">Performance Overview</a></summary>
@@ -167,7 +170,7 @@
 						<td>
 							<form method="post" action="fixing_interview.php?id=<?php echo $id;?>">
 								<fieldset>
-									<h2>Fixing Intrview Online</h2>
+									<h2>Update Fixing Intrview</h2>
 									<hr>
 
 									<table>

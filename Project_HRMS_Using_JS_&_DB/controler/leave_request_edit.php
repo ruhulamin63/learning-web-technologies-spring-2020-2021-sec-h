@@ -65,6 +65,9 @@
 	$title= "Edit Leave";
 	include('../view/header.html');
 ?>
+</head>
+<body>
+	
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>
@@ -144,16 +147,6 @@
 						</details>
 						<details>
 							<summary><a href="../view/fixing_interview.php">Fixing Interview Online</a></summary>
-						</details>
-				</details>
-
-				<details>
-					<summary><b>Traking</b></summary>
-						<details>
-							<summary><a href="leave_request_edit.php">Edit Leave Request</a></summary>	
-						</details>
-						<details>
-							<summary><a href="leave_request_delete.php">Delete Leave Request</a></summary>	
 						</details>
 				</details>
 

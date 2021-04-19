@@ -59,9 +59,10 @@
 	include('../view/header.html');
 ?>
 
-	<script type="text/javascript" src="../js/script.js"></script>
+	<script type="text/javascript" src="../js/loginScript.js"></script>
 </head>
 <body>
+	
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>
@@ -87,7 +88,7 @@
 				<table>
 					<tr>
 						<td>
-							<form method="post" action="login_check.php" onsubmit="return validation()">
+							<form method="post" action="login_check.php" onsubmit="return loginCheckValidation()">
 								<fieldset>
 									<legend>LOGIN</legend>
 									<table>
@@ -139,38 +140,9 @@
 						</td>
 					</tr>
 				</table>
-
-<!-- ===============================Start Java Script Code===================================== -->
-
-<script type="text/javascript">
-		
-	function validation(){
-
-		var username = document.getElementById('username').value;
-		var password = document.getElementById('password').value;
-
-		if(username==""){
-			document.getElementById('user').innerHTML = "*Please fill the username ?";
-			return false;
-		}
-		if(username.length>0){
-			document.getElementById('user').innerHTML = "";
-		}
-
-		if(password==""){
-			document.getElementById('pass').innerHTML = "*Please fill the password ?";
-			return false;
-		}
-		if(password.length>0){
-			document.getElementById('pass').innerHTML = "";
-		}
-	}
-</script>
-
-<!-- ==============================End JS Code================================================== -->
-
 			</td>
 		</tr>
+		
 <?php 
 	include('../view/footer.html'); 
 ?>
