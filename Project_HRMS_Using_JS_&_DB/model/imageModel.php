@@ -1,14 +1,16 @@
 <?php
+
+	require_once('../model/db.php');
+
 //=======================Start Code========================================
 
-	function getImageById($id){
+	function getImageById($username){
 
 		$conn = getConnection();
-		$sql = "select * from user_image where id='{$id}'";
+		$sql = "select * from user_image where username='{$username}'";
 		$result = mysqli_query($conn, $sql);
-		$row = mysqli_fetch_assoc($result);
 
-		return $row;
+		return $result;
 	}
 
 //======================================================================================
@@ -31,7 +33,7 @@
 	function insertImage($user){
 
 		$conn = getConnection();
-		$sql = "insert into user_image values('', '{$user['photos']}'')";
+		$sql = "insert into user_image values('', '{$user['username']}', '{$user['photos']}')";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;

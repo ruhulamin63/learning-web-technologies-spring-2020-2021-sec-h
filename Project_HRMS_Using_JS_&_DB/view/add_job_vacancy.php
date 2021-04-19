@@ -1,80 +1,77 @@
 <?php
 	session_start();
 
+	require_once('../model/JobVacancyModel.php');
+
 	if(!isset($_SESSION['flag'])){
 		header('location: ../controler/login_check.php');
-	}else{
+	}
 
-		$user=$_SESSION['current_user'];
+	if(isset($_POST['job_vacancy_btn'])){
 
-		if(isset($_POST['submit_pic'])){
+		$user = [	
+					'vacancytitle'=>$_POST['vacancytitle'], 
+					'name'=>$_POST['name'], 
+					'manager'=>$_POST['manager'],
+					'location'=>$_POST['location'],
+					'position'=> $_POST['position'],
+					'description'=>$_POST['description']
+				];
+					
+		 $status = AddJobVacancyInsertData($user);
 
-			if(isset($_POST['submit_pic'])){
-				$file_info = $_FILES['choose_file'];
-				//echo $file_info['tmp_name'];
-				
-				$file = $file_info['name'];
-				$path = '../asset/upload/'.$file;
-				$filename = $file_info['tmp_name'];
+		if($status){
+			?>
+				<script type="text/javascript">
+					alert('Inserted data in database');
+				</script>
+			<?php
+			header('location: view_job_vacancy.php');
 
-				if(move_uploaded_file($filename, $path)){
-				
-						require_once('../model/db.php');
+		}else{
 
-							$conn = getConnection();
-							$sql = "insert into user_image values('','{$path}')";
-							$result=mysqli_query($conn, $sql);
-
-							if($result){
-								echo "successfully...";
-
-							}else{
-								echo "Error...";
-							}
-				}else{
-					echo "Error...";
-				}
-			}
-
-			header('location: ../controler/view_profile_check.php');
+			?>
+				<script type="text/javascript">
+					alert('Error database connection');
+				</script>
+			<?php
 		}
 	}
 ?>
-
-<!-- ========================================================= -->
-
+<!-- 
+======================================================= -->
 <?php 
-	$title= "Picture Change";
+	$title= "Vacancy";
 	include('header.html');
 ?>
-
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>
 				<table width="100%">
 					<tr>
-						<td width="200px" height="60px"><img src="../asset/company_logo.png" width="100%" height="100%"></td>
-						<td align="right" >
-							Logged in as
-							<a href="../controler/view_profile_check.php"> 
+						<td width="150px" height="50px">
+							<img src="../asset/company_logo.png" alt="main_logo" width="100%" height="100%">
+						</td>
+						<td align="right" >Logged in as
+							<a href="../controler/view_profile_check.php">
 								<?php
 									echo $_SESSION['current_user']['name'];
 								?>
 							</a> |
-							<a href="../controler/logout_check.php"> Logout </a> 
+							<a href="../controler/logout_check.php">Logout</a> 
 						</td>
 					</tr>
 				</table>
 			</td>
 		</tr>
 	</table>
-
-	<table border="1px" align="center" width="100%">
+<!-- new table creating -->
+	<table  border="1px" align="cen" width="100%">
 		<tr>
 			<td width="200px" height="425px"><h2>Main Menu</h2>
-			<hr>
+				<hr>
 
-			<details>
+				<details>
 					<summary><b>Dashboard</b></summary>
 						<details>
 							<summary><a href="dashboard.php">Dashboard</a></summary>	
@@ -146,30 +143,62 @@
 				</details>	
 			</td>
 
-			
-			<td>
-				<form method="post" action="profile_pic.php" enctype="multipart/form-data">
-					<fieldset>
-						<legend>PROFILE</legend>
-						<table>
-							<tr>
-								<td>
-									<img src="../asset/user.png" width="100px" height="100px"><br>
-									<input type="file" name="choose_file" value="">
-								</td>
-							</tr>
-						</table>
-						<hr>
-						<input type="submit" name="submit_pic" value="Upload">
-					</fieldset>
-				</form>
+			<td colspan="2" align="center">
+				<table align="center">
+					<tr>
+						<td>
+							<form method="post" action="add_job_vacancy.php">
+								<fieldset>
+									<h2>Add Job Vacancy</h2>
+									<hr>
+
+									<table>
+										<tr>
+											<td>Job Title</td>
+											<td>:
+												<input type="text" name="vacancytitle" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Vacancy Name</td>
+											<td>:
+												<input type="text" name="name" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Hiring Manager</td>
+											<td>:
+												<input type="text" name="manager" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Job Location</td>
+											<td>:
+												<input type="text" name="location" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Number Of Position</td>
+											<td>:
+												<input type="text" name="position" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Job Description</td>
+											<td>:
+												<textarea name="description"></textarea>
+											</td>
+										</tr>
+									</table>
+									<hr>
+									<input type="submit" name="job_vacancy_btn" value="Save">
+								</fieldset>
+							</form>
+						</td>
+					</tr>
+				</table>
 			</td>
 		</tr>
-		<tr height="50px">
-			<td colspan="2" align="center">
-				copyright@2021
-			</td> 
-		</tr>
-	</table>
-</body>
-</html>
+<?php 
+	include('footer.html'); 
+?>

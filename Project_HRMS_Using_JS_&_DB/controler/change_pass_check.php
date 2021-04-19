@@ -6,64 +6,47 @@
 
 	if(!isset($_SESSION['flag'])){
 		header('location: login_check.php');
+	}
 
-	}else{
-		$user=$_SESSION['current_user'];
-		//print_r($user);
+//=============================================================================
 
-		if(isset($_POST['change_pass_btn'])){
+	$user=$_SESSION['current_user'];
+	//print_r($user);
 
-			$curr_pass = $_POST['curr_pass'];
-			$new_pass = $_POST['new_pass'];
-			$re_pass = $_POST['re_pass'];
+	if(isset($_POST['change_pass_btn'])){
 
-			if($curr_pass==""||$new_pass==""||$re_pass==""){
-				echo "*Null submission";
-				//print_r($user['password']);
+		$curr_pass = $_POST['curr_pass'];
+		$new_pass = $_POST['new_pass'];
+		$re_pass = $_POST['re_pass'];
 
-			}else{
+//=========================================================================================
 
-				if(isset($new_pass)){
+		if($user['password']==$curr_pass){
+			if($new_pass==$re_pass){
 
-					$pass_len=strlen($new_pass);
-
-					if($pass_len>7 && ( $new_pass=='@' || $new_pass=='#'|| $new_pass=='$' || 
-						$new_pass=='%' || ($new_pass>='A'&&$new_pass<='Z') || ($new_pass>='a'
-						&&$new_pass<='z') || ($new_pass>='0'&&$new_pass<='9') || $new_pass=='-' 
-						|| $new_pass=='_' || $new_pass=='.') ){
-							echo "successful password field";
-							echo "<br>";
-					}else{
-						echo "*password at least 8 characters";
-						echo "<br>";
-					}
+				$conn=getConnection();
+				$sql="update registration set password='{$new_pass}' where username='{$user['username']}'";
+				$result=mysqli_query($conn, $sql);
+				
+				if($result){
+					?>
+						<script type="text/javascript">
+							alert('Successfully change password');
+						</script>
+					<?php
 				}
 
-//===============================================================================================================
-
-				if($user['password']==$curr_pass){
-					if($new_pass==$re_pass){
-
-						$conn=getConnection();
-						$sql="update registration set password='{$new_pass}' where username='{$user['username']}'";
-						$result=mysqli_query($conn, $sql);
-						echo "success...";
-					}else{
-						echo "New pass & re pass mismatch...?";
-					}
-
-				}else{
-					echo "Current password not match...?";
-				}
 			}
-			/*if($user['type']=="Admin"){
-				header('location: ../view/admin_home.php');
-			}else{
-				header('location: ../view/user_home.php');
-			}*/
-
-			//header('location: ../view/dashboard.php');
 		}
+
+//================================================================
+		/*if($user['type']=="Admin"){
+			header('location: ../view/admin_home.php');
+		}else{
+			header('location: ../view/user_home.php');
+		}*/
+
+		//header('location: ../view/dashboard.php');
 	}
 ?>
 
@@ -176,22 +159,46 @@
 				<table align="center">
 					<tr>
 						<td>
-							<form method="post" action="change_pass_check.php">
+							<form method="post" action="change_pass_check.php" onsubmit="return validation()">
 								<fieldset>
 									<legend>CHANGE PASSWORD</legend>
 									<table>
 										<tr>
 											<td>Current Password</td>
-											<td><input type="password" name="curr_pass" value=""></td>
+											<td>
+												<input type="password" name="curr_pass" id="curr_pass" value="">
+											</td>
 										</tr>
+										<tr>
+											<td colspan="2">
+												<span id="cp" class="user-error"></span>
+											</td>
+										</tr>
+
 										<tr>
 											<td>New Password</td>
-											<td><input type="password" name="new_pass" value=""></td>
+											<td>
+												<input type="password" name="new_pass" id="new_pass" value="">
+											</td>
 										</tr>
 										<tr>
-											<td>Retype New Password</td>
-											<td><input type="password" name="re_pass" value=""></td>
+											<td colspan="2">
+												<span id="np" class="user-error"></span>
+											</td>
 										</tr>
+
+										<tr>
+											<td>Retype New Password</td>
+											<td>
+												<input type="password" name="re_pass" id="re_pass" value="">
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span id="rp" class="user-error"></span>
+											</td>
+										</tr>
+
 									</table>
 									<hr>
 									<input type="submit" name="change_pass_btn" value="Save">
@@ -202,6 +209,52 @@
 				</table>
 			</td>
 		</tr>
+
+<!-- ===============================Start Java Script Code===================================== -->
+
+	<script>
+				
+		function validation(){
+
+			var curr_pass = document.getElementById('curr_pass').value;
+			var new_pass = document.getElementById('new_pass').value;
+			var re_pass = document.getElementById('re_pass').value;
+
+//===========================Current Pass validation======================================
+
+			if(curr_pass==""){
+				document.getElementById('cp').innerHTML = "*Please fill the curr_pass field ?";
+				return false;
+
+			}
+
+//=============================New Pass Validataion=======================================
+
+			if(new_pass==""){
+				document.getElementById('np').innerHTML = "*Please fill the new_pass field ?";
+				return false;
+			}
+
+			if(new_pass.length<=7 || new_pass.length>20){
+				document.getElementById('np').innerHTML = "*Password length must be btween 8 to 20 ?";
+				return false;
+			}
+
+//=====================Re-Password Validation=================================
+
+			if(re_pass==""){
+				document.getElementById('rp').innerHTML = "*Please fill the re_pass field ?";
+				return false;
+			}
+
+			if(new_pass!=re_pass){
+				document.getElementById('rp').innerHTML = "*New pass & re pass mismatch ?";
+				return false;
+			}
+		}
+
+	</script>
+<!-- ==============================End JS Code================================================== -->
 		
 <?php 
 	include('../view/footer.html'); 

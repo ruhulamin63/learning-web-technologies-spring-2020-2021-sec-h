@@ -1,34 +1,51 @@
 <?php
 	session_start();
-	require_once('../model/JobTitleModel.php');
+	require_once('../model/LeaveApprovalModel.php');
+
 
 	if(!isset($_SESSION['flag'])){
 		header('location: ../controler/login_check.php');
 	}
+//===================================================================	
 
-	//===================================================================	
-
-	if(isset($_POST['add_job_btn'])){
+	if(isset($_POST['save_btn'])){
 
 		$user = [	
-					'addjob'=>$_POST['addjob'], 
+					'empname'=>$_POST['empname'], 
+					'leavetype'=>$_POST['leavetype'],
+					'days'=>$_POST['days'],
+					'leavefor'=> $_POST['leavefor'],
+					'statedate'=> $_POST['statedate'],
+					'enddate'=>$_POST['enddate'],
+					'reason'=>$_POST['reason'],
+					'status'=>$_POST['status']
 				];
 					
-		 $status = AddJobInsertData($user);
+		 $status = LeaveRequestInsertData($user);
 
 		if($status){
-			echo "success...";
-			header('location: view_job.php');
+			?>
+				<script type="text/javascript">
+					alert('Inserted data in database');
+				</script>
+			<?php
+
+			header('location: leave_approval.php');
 		}else{
-			echo "**Error database connection";
+
+			?>
+				<script type="text/javascript">
+					alert('Error database connection');
+				</script>
+			<?php
 		}
 	}
-
 ?>
 
-<!-- ========================================================== -->
+<!-- ================================================================ -->
+
 <?php 
-	$title= " Add Job";
+	$title= "Leave Request";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -53,11 +70,11 @@
 		</tr>
 	</table>
 <!-- new table creating -->
-	<table  border="1px" align="center" width="100%">
+	<table  border="1px" align="cen" width="100%">
 		<tr>
 			<td width="200px" height="425px"><h2>Main Menu</h2>
 				<hr>
-				
+
 				<details>
 					<summary><b>Dashboard</b></summary>
 						<details>
@@ -74,7 +91,7 @@
 							<summary><a href="create_travel_request.php">Create Travel Request</a></summary>
 						</details>
 						<details>
-							<summary><a href="fixing_interview_approval.php">View Fixing Interview</a></summary>
+							<summary><a href="fixing_interview_approval.php">Fixing Interview</a></summary>
 						</details>
 				</details>
 
@@ -127,20 +144,81 @@
 						<details>
 							<summary><a href="../controler/logout_check.php">Logout</a></summary>
 						</details>
-				</details>
-				
+				</details>	
 			</td>
+
+
 			<td colspan="2" align="center">
 				<table align="center">
 					<tr>
 						<td>
-							<form method="post" action="add_job.php">
+							<form method="post" action="create_leave_request.php">
 								<fieldset>
-									<h3>Add Job Title<hr></h3>
-									Job <input type="text" name="addjob" value="">
-									<br><br>
+									<h2>Create Leave Request</h2>
 									<hr>
-									<input type="submit" name="add_job_btn" value="Save">
+								
+									<table align="center">
+										<tr>
+											<td>Employee Name</td>
+											<td>:
+												<input type="text" name="empname" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Leave Type</td>
+											<td>:
+												<input type="text" name="leavetype" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Number Of Days</td>
+											<td>:
+												<input type="number" name="days" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Leave For</td>
+											<td>:
+												<select name="leavefor">
+													<option>--Select--</option>
+													<option>Half Day</option>
+													<option>Full Day</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>State Date</td>
+											<td>:
+												<input type="date" name="statedate" value="">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>End Date</td>
+											<td>:
+												<input type="date" name="enddate" value="">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>Reason for Leave</td>
+											<td>:
+												<input type="text" name="reason" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Status for Leave</td>
+											<td>:
+												<input type="text" name="status" value="">
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2" align="left">
+												<hr>
+												<input type="submit" name="save_btn" value="Save">
+											</td>
+										</tr>
+									</table>
 								</fieldset>
 							</form>
 						</td>

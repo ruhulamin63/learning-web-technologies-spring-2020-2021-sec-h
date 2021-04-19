@@ -159,14 +159,17 @@
 											<form method="post" action="../view/profile_pic.php" enctype="multipart/form-data">
 												<td rowspan="4" align="center">
 													<?php
-														require_once('../model/db.php');
+														//require_once('../model/db.php');
+														require_once('../model/imageModel.php');
 														
-														$conn = getConnection();
-														$sql = "select * from user_image";
+														/*$conn = getConnection();
+														$sql = "select * from user_image where user";
 														$result = mysqli_query($conn, $sql);
+														$row = mysqli_fetch_assoc($result);*/
+
+														$result = getImageById($username);
 														$row = mysqli_fetch_assoc($result);
 
-														//print_r($row);
 														if($row>0){
 													?>
 														<img src="<?php echo "{$row['photos']}"; ?>" width="200px" height="200px"><br>

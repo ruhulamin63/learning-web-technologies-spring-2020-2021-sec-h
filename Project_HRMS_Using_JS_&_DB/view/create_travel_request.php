@@ -1,39 +1,51 @@
 <?php
 	session_start();
 
-	require_once('../model/UserModel.php');
+	require_once('../model/travelApprovalModel.php');
 
 	if(!isset($_SESSION['flag'])){
 		header('location: ../controler/login_check.php');
 	}
 
-//===================================================================	
-
-	if(isset($_POST['fixing_btn'])){
+	if(isset($_POST['save_btn'])){
 
 		$user = [	
-					'vacancy'=>$_POST['vacancy'], 
-					'candidate'=>$_POST['candidate'],
-					'time'=>$_POST['time'],
-					'date'=> $_POST['date'],
-					'status'=> $_POST['status'],
-					'comment'=>$_POST['comment']
+					'empname'=>$_POST['empname'], 
+					'leavetype'=>$_POST['leavetype'],
+					'days'=>$_POST['days'],
+					'contract'=> $_POST['contract'],
+					'statedate'=> $_POST['statedate'],
+					'enddate'=>$_POST['enddate'],
+					'reason'=>$_POST['reason'],
+					'status'=>$_POST['status']
 				];
 					
-		 $status = FixingInterviewInsertData($user);
+		 $status = TravelRequestInsertData($user);
 
 		if($status){
-			echo "success...";
-			header('location: fixing_interview_approval.php');
+			?>
+				<script type="text/javascript">
+					alert('Inserted data in database');
+				</script>
+			<?php
+
+			header('location: travel_approval.php');
+
 		}else{
-			echo "**Error database connection";
+	
+			?>
+				<script type="text/javascript">
+					alert('Error database connection');
+				</script>
+			<?php
 		}
 	}
 ?>
-<!-- 
-============================================================ -->
+
+<!-- ================================================================ -->
+
 <?php 
-	$title= "Fixing";
+	$title= "Travel Request";
 	include('header.html');
 ?>
 	<table border="1px" align="center" width="100%">
@@ -79,9 +91,6 @@
 							<summary><a href="create_travel_request.php">Create Travel Request</a></summary>
 						</details>
 						<details>
-							<summary><a href="fixing_interview_approval.php">Search Employee</a></summary>
-						</details>
-						<details>
 							<summary><a href="fixing_interview_approval.php">Fixing Interview</a></summary>
 						</details>
 				</details>
@@ -93,6 +102,9 @@
 						</details>
 						<details>
 							<summary><a href="travel_approval.php">Travel Approval</a></summary>
+						</details>
+						<details>
+							<summary><a href="fixing_interview_approval.php">Search Employee</a></summary>
 						</details>
 						<details>
 							<summary><a href="performance_approval.php">Performance Overview</a></summary>
@@ -136,58 +148,75 @@
 							<summary><a href="../controler/logout_check.php">Logout</a></summary>
 						</details>
 				</details>	
-			</td>
 
-			
+			</td>
 			<td colspan="2" align="center">
 				<table align="center">
 					<tr>
 						<td>
-							<form method="post" action="fixing_interview.php">
+							<form method="post" action="create_travel_request.php">
 								<fieldset>
-									<h2>Fixing Intrview Online</h2>
+									<h2>Create Travel Request</h2>
 									<hr>
-
-									<table>
+								
+									<table align="center">
 										<tr>
-											<td>Vacancy</td>
+											<td>Employee Name</td>
 											<td>:
-												<input type="text" name="vacancy" value="">
+												<input type="text" name="empname" value="">
 											</td>
 										</tr>
 										<tr>
-											<td>Candidate</td>
+											<td>Contract During Leave</td>
 											<td>:
-												<input type="text" name="candidate" value="">
+												<input type="text" name="contract" value="">
 											</td>
 										</tr>
 										<tr>
-											<td>Interview Time</td>
+											<td>Leave Type</td>
 											<td>:
-												<input type="time" name="time" value="">
+												<input type="text" name="leavetype" value="">
 											</td>
 										</tr>
 										<tr>
-											<td>Date</td>
+											<td>Number Of Days</td>
 											<td>:
-												<input type="date" name="date" value="">
+												<input type="number" name="days" value="">
 											</td>
 										</tr>
 										<tr>
-											<td>Status</td>
+											<td>State Date</td>
+											<td>:
+												<input type="date" name="statedate" value="">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>End Date</td>
+											<td>:
+												<input type="date" name="enddate" value="">
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td>Reason for Leave</td>
+											<td>:
+												<input type="text" name="reason" value="">
+											</td>
+										</tr>
+										<tr>
+											<td>Status for Leave</td>
 											<td>:
 												<input type="text" name="status" value="">
 											</td>
 										</tr>
 										<tr>
-											<td>Comments</td>
-											<td>:
-												<textarea name="comment"></textarea>
+											<td colspan="2" align="left">
+												<hr>
+												<input type="submit" name="save_btn" value="Save">
 											</td>
 										</tr>
 									</table>
-									<hr>
-									<input type="submit" name="fixing_btn" value="Save">
 								</fieldset>
 							</form>
 						</td>
