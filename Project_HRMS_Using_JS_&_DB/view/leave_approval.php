@@ -115,7 +115,6 @@
 				</details>	
 			</td>
 
-			
 			<td colspan="2" align="center">
 				<table border="1px" align="center">
 					<tr>

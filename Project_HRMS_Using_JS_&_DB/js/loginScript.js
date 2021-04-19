@@ -19,4 +19,16 @@
 		if(password.length>0){
 			document.getElementById('pass').innerHTML = "";
 		}
+
+		/*const xhttp = new XMLHttpRequest();
+
+		xhttp.onereadystatechange = function(){
+
+			if(this.readyState()==4 && this.status==200){
+
+			}
+		}
+		xhttp.open('GET', 'loginCheck.php?username='+username, true);
+		xhttp.open('GET', 'loginCheck.php?password='+password, true);
+		xhttp.send();*/
 	}

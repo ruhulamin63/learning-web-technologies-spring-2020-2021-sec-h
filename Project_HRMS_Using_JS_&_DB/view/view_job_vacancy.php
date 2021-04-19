@@ -10,6 +10,7 @@
 	$title= "View Vacancy";
 	include('header.html');
 ?>
+	<script type="text/javascript" src="../js/jobVacancyScript.js"></script>
 </head>
 <body>
 	
@@ -122,118 +123,76 @@
 									<hr><br>
 									<b>Search Job</b>
 									<span>
-										<input type="text" name="name" value="">
+										<input type="text" id="name" name="name" value="">
 									</span>
-
+									
 									<span>
-										<input type="submit" name="search_btn" value="Search">
-										<input type="submit" name="view_all_vacancy_btn" value="View All">
+										<input type="submit" name="search_btn" value="Search" >
+										<input type="submit" id="submit_btn" name="view_all_vacancy_btn" value="View All" onclick="ShowAllJobVacancy(this.value)">
 									</span>
 								</fieldset>
-							</form>							
+							</form>	
 
-								<?php 
-									//require_once('../model/db.php');
-									require_once('../model/JobVacancyModel.php');
+							
+
+							<?php 
+								//require_once('../model/db.php');
+								require_once('../model/JobVacancyModel.php');
 
 									if(isset($_POST['search_btn'])){
 
-								?>
-								<table border="1px" align="center">
-									<tr>
-										<th>SL</th>
-										<th>Job Title</th>
-										<th>Vacancy Name</th>
-										<th>Hiring Manager</th>
-										<th>Job Location</th>
-										<th>Number Of Position</th>
-										<th>Job Description</th>
-										<th colspan="2">Action</th>
-									</tr>
-										<?php
-										
-											$name=$_POST['name'];
-											$result=getUserAddJobSearchById($name);
+							?>
+							<table border="1px" align="center">
+								<tr>
+									<th>SL</th>
+									<th>Job Title</th>
+									<th>Vacancy Name</th>
+									<th>Hiring Manager</th>
+									<th>Job Location</th>
+									<th>Number Of Position</th>
+									<th>Job Description</th>
+									<th colspan="2">Action</th>
+								</tr>
+							<?php
+									
+										$name=$_POST['name'];
+										$result=getUserAddJobSearchById($name);
 
-											if(mysqli_num_rows($result)>0){
-												while($row=mysqli_fetch_array($result)){
-													echo "
-														<tr>
-															<td>{$row['id']}</td>
-															<td>{$row['vacancytitle']}</td>
-															<td>{$row['name']}</td>
-															<td>{$row['manager']}</td>
-															<td>{$row['location']}</td>
-															<td>{$row['position']}</td>
-															<td>{$row['description']}</td>
-															<td>
-																<a href='../controler/job_vacancy_edit.php?id=$row[id]'>Update</a>
-															</td>
-															<td>
-																<a href='../controler/view_job_vacancy_delete.php?id=$row[id]'>Delete</a>
-															</td>
-														</tr>
-													";
-												}
-											}else{
-												echo "No data available";
-											}
-										?>
-								</table>
-
-								<?php
-									}
-
-									//===============view all data====================
-
-									if(isset($_POST['view_all_vacancy_btn'])){
-										require_once('../model/JobVacancyModel.php');
-								?>
-
-								<table border="1px" align="center">
-									<tr>
-										<th>SL</th>
-										<th>Job Title</th>
-										<th>Vacancy Name</th>
-										<th>Hiring Manager</th>
-										<th>Job Location</th>
-										<th>Number Of Position</th>
-										<th>Job Description</th>
-										<th colspan="2">Action</th>
-									</tr>
-
-								<?php
-										$result = getAllAddJobVacancyData();
-
-										//print_r($result);
-
-										if(count($result)>0){
-											foreach ($result as $key => $value) {
+										if(mysqli_num_rows($result)>0){
+											while($row=mysqli_fetch_array($result)){
 												echo "
 													<tr>
-														<td>{$value['id']}</td>
-															<td>{$value['vacancytitle']}</td>
-															<td>{$value['name']}</td>
-															<td>{$value['manager']}</td>
-															<td>{$value['location']}</td>
-															<td>{$value['position']}</td>
-															<td>{$value['description']}</td>
-															<td>
-																<a href='../controler/job_vacancy_edit.php?id=$value[id]'>Update</a>
-															</td>
-															<td>
-																<a href='../controler/view_job_vacancy_delete.php?id=$value[id]'>Delete</a>
-															</td>
+														<td>{$row['id']}</td>
+														<td>{$row['vacancytitle']}</td>
+														<td>{$row['name']}</td>
+														<td>{$row['manager']}</td>
+														<td>{$row['location']}</td>
+														<td>{$row['position']}</td>
+														<td>{$row['description']}</td>
+														<td>
+															<a href='../controler/job_vacancy_edit.php?id=$row[id]'>Update</a>
+														</td>
+														<td>
+															<a href='../controler/view_job_vacancy_delete.php?id=$row[id]'>Delete</a>
+														</td>
 													</tr>
 												";
 											}
-										}
+										}else{
+											echo "No data available";
 									}
 								?>
-								</table>
-							</fieldset>
+							</table>
+								<?php
+									}
+								?>
+							<br>
+							<div id="txtHint">Customer info will be listed here...</div>
+
 						</td>
 					</tr>
+				
+
 				</table>
 			</td>
 		</tr>
