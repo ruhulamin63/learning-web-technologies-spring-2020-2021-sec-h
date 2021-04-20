@@ -1,21 +1,16 @@
 
-  function ShowAllJobVacancy(str) {
-    var xhttp;
+function showAllJObVacancy(){
 
-    //var name = document.getElementById('name').value;
+  const xhttp = new XMLHttpRequest();
 
-    if (str == "") {
-      document.getElementById("txtHint").innerHTML = "";
+  xhttp.open('POST', '../view/getJobVacancy.php', true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send();
+
+  xhttp.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+
+      document.getElementById('txtHint').innerHTML = this.responseText;
     }
-    xhttp = new XMLHttpRequest();
-    xhttp.open("GET", "../view/getJobVacancy.php", true);
-    xhttp.send();
-
-    xhttp.onreadystatechange = function() {
-
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("txtHint").innerHTML = this.responseText;
-      }
-    };
-   
   }
+}
