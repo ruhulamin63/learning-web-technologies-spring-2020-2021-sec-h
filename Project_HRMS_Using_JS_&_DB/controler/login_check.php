@@ -1,56 +1,4 @@
-<?php
-	session_start();
 
-	require_once('../model/UserModel.php');
-
-	if(isset($_POST['login_btn'])){
-
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-
-	
-		$status = validateUser($username, $password);
-
-		if($status){
-
-			if(!empty($_POST['remember'])){
-				setcookie('username', $username, time()+(86400*30));
-				setcookie('password', $password, time()+(86400*30)); // 1 day = 86400
-			}else{
-				if(isset($_COOKIE['username'])){
-					setcookie('username','');
-				}
-				if(isset($_COOKIE['password'])){
-					setcookie('password','');
-				}
-			}
-			
-			$_SESSION['flag'] = true;
-
-			$data = getUserById($username);
-			$_SESSION['current_user']=$data;
-
-//=====================================================================================
-			/*$_SESSION['user_type']=$user; //global declaration database
-	
-			if($user['user']=="Admin"){
-				header('location: ../view/admin_home.php');
-			}else{
-				header('location: ../view/user_home.php');
-			}*/
-//=====================================================================================
-
-			header('location: ../view/dashboard.php');
-		}else{
-
-			?>
-				<script type="text/javascript">
-					alert('*Invalid User ?');
-				</script>
-			<?php
-		}	
-	}
-?>
 
 <!-- ========================================================================= -->
 
@@ -59,10 +7,10 @@
 	include('../view/header.html');
 ?>
 
-	<script type="text/javascript" src="../js/loginScript.js"></script>
+	<script type="text/javascript" src="../js/loginCheckScript.js"></script>
 </head>
 <body>
-	
+	<div id="container">
 	<table border="1px" align="center" width="100%">
 		<tr>	
 			<td>
@@ -88,7 +36,7 @@
 				<table>
 					<tr>
 						<td>
-							<form method="post" action="login_check.php" onsubmit="return loginCheckValidation()">
+							<form method="#" action="#">
 								<fieldset>
 									<legend>LOGIN</legend>
 									<table>
@@ -96,8 +44,10 @@
 											<td colspan="2" align="center" width="150px" height="50px">
 												<img src="../asset/your_logo.png">
 												<hr>
+												<!-- <h2 id="txtHint">text</h2> -->
 											</td>
 										</tr>
+
 										<tr>
 											<td>Username</td>
 											<td>
@@ -123,12 +73,12 @@
 										</tr>
 
 										<tr>
-											<td><input type="checkbox" name="remember" <?php if (isset($_COOKIE['username'])){ echo "checked";} ?>> Remember Me</td>
+											<td><input type="checkbox" name="remember" id="remember" <?php if (isset($_COOKIE['username'])){ echo "checked";} ?>> Remember Me</td>
 										</tr>
 										<tr align="center">
 											<td colspan="2">
 												<hr><br>
-												<input align="center" type="submit" name="login_btn" value="Sing In"><br><br>
+												<input type="button"  name="button" value="Sing In" onclick="loginCheckValidation()"><br><br>
 
 												<a href="forgot_pass_check.php">Forgot Password ?</a><br><br>
 												<a href="regCheck.php">Create an account ?</a>

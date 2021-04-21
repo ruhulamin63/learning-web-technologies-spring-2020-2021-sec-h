@@ -36,7 +36,7 @@ function regCheckValidation(){
 		return false;
 	}
 
-	if(name.length<4 || name.length>20){
+	if(name.length<4 || name.length>20 (name>='A'&&name<='Z') || (name>='a'&&name<='z') ){
 		document.getElementById('n').innerHTML = "*At least 4 to 20 characters ?";
 		return false;
 	}
@@ -61,7 +61,8 @@ function regCheckValidation(){
 		return false;
 	}
 
-	if(password.length<=7 || password.length>20){
+	if(password.length<=7 || password.length>20 || (password>='A'&&password<='Z') ||
+	 (password>='a'&&password<='z') || password=='@'||password=='$' || password=='#' ){
 		document.getElementById('p').innerHTML = "*Password length must be btween 8 to 20 ?";
 		return false;
 	}
