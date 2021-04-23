@@ -1,5 +1,5 @@
 
-function loginCheckValidation(){
+function editProfileValidation(){
 
 	const username = document.getElementById('username').value;
 	const password = document.getElementById('password').value;
@@ -23,21 +23,15 @@ function loginCheckValidation(){
 
 	const xhttp = new XMLHttpRequest();
 
-	xhttp.open('post', '../controler/loginCheckTest.php', true);
+	xhttp.open('post', '../controler/loginCheckTest.php?username='+username+'&password='
+		+password+'&remember='+remember, true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	
+	xhttp.send();
+
 	xhttp.onreadystatechange = function(){
 
 		if(this.readyState == 4 && this.status == 200){
-
-			if(this.responseText == "success"){
-				location="../view/dashboard.php";
-			}
-			if (this.responseText == "Invalid User..."){
-				document.getElementById('txtHint').innerHTML =this.responseText;
-			}
+			document.getElementById('container').innerHTML=this.responseText;
 		}
-	}
-	xhttp.send('username='+username+'&password='+password+'&remember='+remember);
-
+	};
 }
