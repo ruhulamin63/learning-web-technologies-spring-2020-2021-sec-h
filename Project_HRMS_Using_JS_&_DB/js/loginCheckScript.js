@@ -33,7 +33,7 @@ function loginCheckValidation(){
 			if(this.responseText == "success"){
 				location="../view/dashboard.php";
 			}
-			if (this.responseText == "Invalid User..."){
+			if (this.responseText == "Invalid User"){
 				document.getElementById('txtHint').innerHTML =this.responseText;
 			}
 		}

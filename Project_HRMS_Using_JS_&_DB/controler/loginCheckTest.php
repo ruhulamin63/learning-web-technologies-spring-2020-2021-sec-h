@@ -5,7 +5,6 @@
 
 		$username = $_REQUEST['username'];
 		$password = $_REQUEST['password'];
-		//$remember = $_REQUEST['remember'];
 
 		$status = validateUser($username, $password);
 
@@ -27,7 +26,8 @@
 
 			$data = getUserById($username);
 			$_SESSION['current_user']=$data;
-			echo "success";
+			
+			header('location: ../view/dashboard.php');
 
 //=====================================================================================
 			/*$_SESSION['user_type']=$user; //global declaration database
@@ -39,6 +39,11 @@
 			}*/
 //=====================================================================================
 		}else{
-			echo "Invalid User...";
+			
+			?>
+				<script type="text/javascript">
+					alert('Invalid User');
+				</script>
+			<?php
 		}
 ?>

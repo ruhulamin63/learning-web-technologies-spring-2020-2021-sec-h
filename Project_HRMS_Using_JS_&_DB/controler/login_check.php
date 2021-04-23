@@ -33,7 +33,7 @@
 				<table>
 					<tr>
 						<td>
-							<form method="#" action="#">
+							<form method="post" action="loginCheckTest.php" onsubmit="return loginCheckValidation()">
 								<fieldset>
 									<legend>LOGIN</legend>
 									<table>
@@ -75,7 +75,7 @@
 										<tr align="center">
 											<td colspan="2">
 												<hr><br>
-												<input type="button" name="submit" value="Sing In" onclick="loginCheckValidation()"><br><br>
+												<input type="submit" name="submit" value="Sing In"><br><br>
 
 												<a href="forgot_pass_check.php">Forgot Password ?</a><br><br>
 												<a href="regCheck.php">Create an account ?</a>
