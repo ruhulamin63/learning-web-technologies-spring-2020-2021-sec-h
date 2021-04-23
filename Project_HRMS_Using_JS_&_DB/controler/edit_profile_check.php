@@ -5,66 +5,67 @@
 
 	if(!isset($_SESSION['flag'])){
 		header('location: ../controler/login_check.php');
-
-	}else{
+	}
+		
+	$data=$_SESSION['current_user'];
 			
-		$data=$_SESSION['current_user'];
-				
 //==============================================================
 
-		if(isset($_POST['edit_btn'])){
-				
-			$username=$_POST['username'];
-			$name=$_POST['name'];
-			$email=$_POST['email'];
-			$gender=$_POST['gender'];
-			$phone=$_POST['phone'];
-			$address=$_POST['address'];
-			$department=$_POST['department'];
-			$blood=$_POST['blood'];  
-			$dob=$_POST['dob'];
+	if(isset($_REQUEST['edit_btn'])){
+			
+		$username=$_REQUEST['username'];
+		$name=$_REQUEST['name'];
+		$email=$_REQUEST['email'];
+		$gender=$_REQUEST['gender'];
+		$phone=$_REQUEST['phone'];
+		$address=$_REQUEST['address'];
+		$department=$_REQUEST['department'];
+		$blood=$_REQUEST['blood'];  
+		$dob=$_REQUEST['dob'];
 
-			$conn = getConnection();
-			$sql = "update registration set username='{$username}', name='{$name}', email='{$email}', phone='{$phone}', address='{$address}', gender='{$gender}', department='{$department}', blood='{$blood}', dob='{$dob}' where username='{$data['username']}'";
-			$result=mysqli_query($conn, $sql);
+		$conn = getConnection();
+		$sql = "update registration set username='{$username}', name='{$name}', email='{$email}', phone='{$phone}', address='{$address}', gender='{$gender}', department='{$department}', blood='{$blood}', dob='{$dob}' where username='{$data['username']}'";
+		$result=mysqli_query($conn, $sql);
+
+		$success = "success";
 
 //==============================================================================
 
-			/*$get_id=$_SESSION['current_user']['username'];
-			$id=getUserById($get_id);
+		/*$get_id=$_SESSION['current_user']['username'];
+		$id=getUserById($get_id);
 
-			$user = [
-						'username'=>$_POST['username'],
-						'name'=>$_POST['name'],
-						'email'=>$_POST['email'],
-						'gender'=>$_POST['gender'],
-						'phone'=>$_POST['phone'],
-						'address'=>$_POST['address'],
-						'department'=>$_POST['department'],
-						'blood'=>$_POST['blood'],
-						'dob'=>$_POST['dob'],
-					];
+		$user = [
+					'username'=>$_POST['username'],
+					'name'=>$_POST['name'],
+					'email'=>$_POST['email'],
+					'gender'=>$_POST['gender'],
+					'phone'=>$_POST['phone'],
+					'address'=>$_POST['address'],
+					'department'=>$_POST['department'],
+					'blood'=>$_POST['blood'],
+					'dob'=>$_POST['dob'],
+				];
 
-			$status=updateUser($user,$id);*/	
-				
+		$status=updateUser($user,$id);*/	
+			
 //=====================================================================================
 
-		}else{
-			$id=$_SESSION['current_user']['username'];
-			$data = getUserById($id);
+	}else{
+		$id=$_SESSION['current_user']['username'];
+		$data = getUserById($id);
 
-			$username=$data['username'];
-			$name=$data['name'];
-			$email=$data['email'];
-			$gender=$data['gender'];
-			$phone=$data['phone'];
-			$address=$data['address'];
-			$department=$data['department'];
-			$blood=$data['blood'];
-			$dob=$data['dob'];
-		}
+		$username=$data['username'];
+		$name=$data['name'];
+		$email=$data['email'];
+		$gender=$data['gender'];
+		$phone=$data['phone'];
+		$address=$data['address'];
+		$department=$data['department'];
+		$blood=$data['blood'];
+		$dob=$data['dob'];
+
+		$default = "default";
 	}
-
 ?>
 
 <!-- ================================================================================== -->
@@ -73,6 +74,7 @@
 	$title= "Edit Profile";
 	include('../view/header.html');
 ?>
+	<script type="text/javascript" src="../js/editProfileScript.js"></script>
 </head>
 <body>
 	
@@ -180,53 +182,53 @@
 				<table align="center">
 					<tr>
 						<td>
-							<form method="post" action="edit_profile_check.php">
+							<form method="#" action="#">
 								<fieldset>
 									<legend>EDIT PROFILE</legend>
 									<table>
 										<tr>
 											<td>Username</td>
 											<td>:
-												<input type="username" name="username" value="<?php echo $username;?>">
+												<input type="username" name="username" id="username" value="<?php echo $username;?>">
 											</td> 
 										</tr>
 										<tr>
 											<td>Name</td>
 											<td>:
-												<input type="name" name="name" value="<?php echo $name;?>">
+												<input type="name" name="name" id="name" value="<?php echo $name;?>">
 											</td> 
 										</tr>
 										<tr>
 											<td>Email</td>
 											<td>:
-												<input type="email" name="email" value="<?php echo $email;?>">
+												<input type="email" name="email" id="email" value="<?php echo $email;?>">
 											</td> 
 										</tr>
 										<tr>
 											<td>Gender</td>
 											<td>:
-												<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male"> Male
-												<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Female") echo "checked";?> value="Female"> Female
-												<input type="radio" name="gender" <?php if (isset($gender) && $gender=="Other") echo "checked";?> value="Other"> Other 
+												<input type="radio" name="gender" id="gender" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male"> Male
+												<input type="radio" name="gender" id="gender" <?php if (isset($gender) && $gender=="Female") echo "checked";?> value="Female"> Female
+												<input type="radio" name="gender" id="gender" <?php if (isset($gender) && $gender=="Other") echo "checked";?> value="Other"> Other 
 											</td> 
 										</tr>
 										<tr>
 											<td>Phone</td>
 											<td>:
-												<input type="number" name="phone" value="<?php echo $phone;?>">
+												<input type="number" name="phone" id="phone" value="<?php echo $phone;?>">
 											</td>
 										</tr>
 										<tr>
 											<td>Address</td>
 											<td>:
-											<textarea cols="22" name="address" value=""><?php echo $address;?></textarea>
+											<textarea cols="22" name="address" id="address" value=""><?php echo $address;?></textarea>
 											</td>
 										</tr>
 										<tr>
 											<td>Department</td>
 											<td>:
 												
-												<select name="department">
+												<select name="department" id="department">
 													<option><?php echo $department;?></option>
 													<option >CSE</option>
 													<option>EEE</option>
@@ -239,7 +241,7 @@
 										<tr>
 											<td>Blood Group</td>
 											<td>:
-												<select name="blood">
+												<select name="blood" id="blood">
 													<option><?php echo $blood;?></option>
 													<option>A+</option>
 													<option>B+</option>
@@ -255,13 +257,13 @@
 										<tr>:
 											<td>Date of Birth</td>
 											<td>
-												<input type="date" name="dob" value="<?php echo $dob;?>">
+												<input type="date" name="dob" id="dob" value="<?php echo $dob;?>">
 											</td> 
 										</tr>
 										<tr>
 											<!-- add line -->
 											<td>
-												<input type="submit" name="edit_btn" value="Save">
+												<input type="submit" name="edit_btn" id="submit" value="Save" onclick="editProfileValidation()">
 												<!-- <a href="view_profile_check.php"><span>Back</span></a> -->
 											</td>
 										</tr>

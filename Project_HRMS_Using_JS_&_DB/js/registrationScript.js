@@ -8,10 +8,13 @@ function regCheckValidation(){
 	var phone = document.getElementById('phone').value;
 	var email = document.getElementById('email').value;
 	var address = document.getElementById('address').value;
-	var gender = document.getElementById('gender').value;
+	//var gender = document.getElementById('gender').value;
 	var department = document.getElementById('department').value;
 	var blood = document.getElementById('blood').value;
 	var dob = document.getElementById('dob').value;
+	var usertype = document.getElementById('usertype').value;
+	
+
 
 //===========================Username validation======================================
 
@@ -36,7 +39,7 @@ function regCheckValidation(){
 		return false;
 	}
 
-	if(name.length<4 || name.length>20 (name>='A'&&name<='Z') || (name>='a'&&name<='z') ){
+	if(name.length<4 || name.length>20){
 		document.getElementById('n').innerHTML = "*At least 4 to 20 characters ?";
 		return false;
 	}
@@ -61,8 +64,7 @@ function regCheckValidation(){
 		return false;
 	}
 
-	if(password.length<=7 || password.length>20 || (password>='A'&&password<='Z') ||
-	 (password>='a'&&password<='z') || password=='@'||password=='$' || password=='#' ){
+	if(password.length<=7 || password.length>20){
 		document.getElementById('p').innerHTML = "*Password length must be btween 8 to 20 ?";
 		return false;
 	}
@@ -135,10 +137,10 @@ function regCheckValidation(){
 
 //==================================Gender Validation==========================================
 
-	if(gender==""){
+	/*if(gender==""){
 		document.getElementById('g').innerHTML = "* Please fill the gender field ?";
 		return false;
-	}
+	}*/
 
 //==================================Department Validation==========================================
 
@@ -169,4 +171,37 @@ function regCheckValidation(){
 	if(dob.length>0){
 		document.getElementById('d').innerHTML="";
 	}
+
+//==============================User Type Validation=================================================
+
+	if(usertype==""){
+		document.getElementById('ut').innerHTML = "* Please fill the dob field ?";
+		return false;
+	}
+	if(usertype.length>0){
+		document.getElementById('ut').innerHTML="";
+	}
+
+//===================================================================================================
+
+	const xhttp = new XMLHttpRequest();
+
+	xhttp.open('post', '../controler/regCheckTest.php', true);
+	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	
+	xhttp.onreadystatechange = function(){
+
+		if(this.readyState == 4 && this.status == 200){
+
+			if(this.responseText == "success"){
+				location="../controler/login_check.php";
+			}
+		}
+	}
+	xhttp.send('username='+username+'&name='+name+'&password='+password+'&confpass='+confpass+
+		'&phone='+phone+'&email='+email+'&address='+address+'&department='+department+
+		'&blood'+blood+'&dob='+dob+'&usertype='+usertype);
+
+//=====================================================================================
+
 }

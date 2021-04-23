@@ -1,74 +1,3 @@
-<?php
-	session_start();
-
-	require_once('../model/UserModel.php');
-	require_once('../model/usernameModel.php');
-
-//================================================================
-
-	if(isset($_POST['sign_up_btn'])){
-		
-		$username = $_POST['username'];
-		$name = $_POST['name'];
-		$password = $_POST['password'];
-		$confpass = $_POST['confpass'];
-		$email = $_POST['email'];
-		$phone = $_POST['phone'];
-		$address = $_POST['address'];
-		$department = $_POST['department'];
-		$blood = $_POST['blood'];
-		$dob = $_POST['dob'];
-
-//=========================================================================
-		
-		$count = UserNameQuery($username);
-
-		//print_r($count);
-
-		if($count>0){
-			?>
-				<script type="text/javascript">
-					alert('Username already exists ?');
-				</script>
-			<?php
-		}else{
-
-			$user = [	
-					'username'=>$_POST['username'], 
-					'name'=>$name,
-					'password'=>$password,
-					'email'=> $email,
-					'phone'=> $phone,
-					'address'=>$address,
-					'gender'=>$_POST['gender'],
-					'department'=>$department,
-					'blood'=>$_POST['blood'],
-					'dob'=> $_POST['dob']
-				];
-				
-			$status = insertUser($user);
-
-			if($status){
-				
-				?>
-					<script type="text/javascript">
-						alert("Inserted data in database");
-					</script>
-				<?php
-					header('location: login_check.php');
-				
-			}else{
-				?>
-					<script type="text/javascript">
-						alert("*Not inserted data");
-					</script>
-				<?php
-			}
-		}
-	}
-?>
-
-<!-- ======================================================================================= -->
 
 <?php 
 	$title= "Registration";
@@ -104,7 +33,7 @@
 					<tr>
 						<td>
 							<!-- <?php //echo htmlentities($_SERVER['PHP_SELF']); ?> -->
-							<form method="post" action="regCheck.php" onsubmit="return regCheckValidation()">
+							<form method="post" action="regCheckTest.php" onsubmit="return regCheckValidation()">
 								<fieldset>
 									<legend>REGISTRATION</legend>
 									<table>
@@ -113,11 +42,14 @@
 												<h2 align="center">Sign Up</h2>
 												<img src="../asset/your_logo.png">
 												<hr>
+
+												<h2 id="txtHint"></h2>
+
 											</td>
 										</tr>
 										<tr>
-											<td>Username</td>
 											<td>
+												<label>Username</label><br>
 												<input type="text" name="username" id="username" value="">
 											</td>
 										</tr>
@@ -128,8 +60,8 @@
 										</tr>
 
 										<tr>
-											<td>Name</td>
 											<td>
+												<label>Name</label><br>
 												<input type="text" name="name" id="name" value="">
 											</td>
 										</tr>
@@ -140,8 +72,8 @@
 										</tr>
 
 										<tr>
-											<td>Password</td>
 											<td>
+												<label>Password</label><br>
 												<input type="password" name="password" id="password" value="">
 											</td>
 										</tr>
@@ -152,8 +84,8 @@
 										</tr>
 
 										<tr>
-											<td>Confirm Password</td>
 											<td>
+												<label>Confirm Password</label><br>
 												<input type="password" name="confpass" id="confpass" value="">
 											</td>
 										</tr>
@@ -164,8 +96,8 @@
 										</tr>
 
 										<tr>
-											<td>Phone</td>
 											<td>
+												<label>Phone</label><br>
 												<input type="text" name="phone" value="" id="phone">
 											</td>
 										</tr>
@@ -176,8 +108,8 @@
 										</tr>
 
 										<tr>
-											<td>Email</td>
 											<td>
+												<label>Email</label><br>
 												<input type="email" name="email" id="email" value="">
 											</td>
 										</tr>
@@ -188,8 +120,8 @@
 										</tr>
 
 										<tr>
-											<td>Address</td>
 											<td>
+												<label>Address</label><br>
 												<textarea cols="22" name="address" id="address"></textarea>
 											</td>
 										</tr>
@@ -200,8 +132,8 @@
 										</tr>
 
 										<tr>
-											<td>Gender</td>
 											<td>
+												<label>Gender</label>
 												<input type="radio" name="gender" id="gender" value="Male">Male
 												<input type="radio" name="gender" id="gender" value="Female">Female
 												<input type="radio" name="gender" id="gender" value="Others">Others
@@ -214,10 +146,11 @@
 										</tr>
 
 										<tr>
-											<td>Department</td>
 											<td>
+												<label>Department</label>
+
 												<select name="department" id="department">
-													<option value="">--Select--</option>
+													<option value="">-Choice-</option>
 													<option value="CSE">CSE</option>
 													<option value="EEE">EEE</option>
 													<option value="IPE">IPE</option>
@@ -233,10 +166,11 @@
 										</tr>
 
 										<tr>
-											<td>Blood Group</td>
 											<td>
+												<label>Blood Group</label>
+
 												<select name="blood" id="blood">
-													<option value="">--Select--</option>
+													<option value="">-Select-</option>
 													<option value="A+">A+</option>
 													<option value="B+">B+</option>
 													<option value="AB+">AB+</option>
@@ -255,8 +189,8 @@
 										</tr>
 
 										<tr>
-											<td>Date of Birth</td>
 											<td>
+												<label>Date of Birth</label>
 												<input type="date" name="dob" id="dob" value="">
 											</td>
 										</tr>
@@ -265,16 +199,29 @@
 												<span id="d" class="user-error"></span>
 											</td>
 										</tr>
+
+										<tr>
+											<td>
+												<label>User Type</label>
+												<select name="usertype" id="usertype">
+													<option value="">-Choose-</option>
+													<option value="admin">admin</option>
+													<option value="manager">manager</option>
+													<option value="director">director</option>
+													<option value="employee">employee</option>
+												</select>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												<span id="ut" class="user-error"></span>
+											</td>
+										</tr>
  							
 										<tr align="center">
 											<td colspan="2">
-												<br>
-												<hr>
-											</td>
-										</tr>
-										<tr align="left">
-											<td colspan="2" align="center">
-												<input type="submit" name="sign_up_btn" value="Sign Up"><br><br>
+												<hr><br>
+												<input type="submit" name="submit" value="Sing Up"><br><br>
 												<span>Already SignUp ?</span><a href="login_check.php">Login</a>
 											</td>
 											<!-- <td align="right">

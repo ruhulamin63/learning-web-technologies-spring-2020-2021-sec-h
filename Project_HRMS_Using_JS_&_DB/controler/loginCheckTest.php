@@ -12,8 +12,8 @@
 		if($status){
 
 			if(!empty($_REQUEST['remember'])){
-				setcookie('username', $username, time()+(86400*30), '/');
-				setcookie('password', $password, time()+(86400*30), '/'); // 1 day = 86400
+				setcookie('username', $username, time()+(86400*30));
+				setcookie('password', $password, time()+(86400*30)); // 1 day = 86400
 			}else{
 				if(isset($_COOKIE['username'])){
 					setcookie('username','');

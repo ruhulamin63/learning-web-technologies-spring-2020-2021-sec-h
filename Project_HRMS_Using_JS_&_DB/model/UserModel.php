@@ -49,7 +49,7 @@
 	function insertUser($user){
 
 		$conn = getConnection();
-		$sql = "insert into registration values('', '{$user['username']}', '{$user['name']}', '{$user['password']}', '{$user['email']}', '{$user['phone']}', '{$user['address']}', '{$user['gender']}', '{$user['department']}', '{$user['blood']}', '{$user['dob']}')";
+		$sql = "insert into registration values('', '{$user['username']}', '{$user['name']}', '{$user['password']}', '{$user['email']}', '{$user['phone']}', '{$user['address']}', '{$user['gender']}', '{$user['department']}', '{$user['blood']}', '{$user['dob']}', '{$user['usertype']}')";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;
@@ -63,7 +63,7 @@
 	function updateUser($user,$username){
 
 		$conn = getConnection();
-		$sql = "update registration set username='{$user['username']}', name='{$user['name']}', email='{$user['email']}', phone='{$user['phone']}', address='{$user['address']}', gender='{$user['gender']}', department='{$user['department']}', blood='{$user['blood']}', dob='{$user['dob']}' where username='{$username}'";
+		$sql = "update registration set username='{$user['username']}', name='{$user['name']}', email='{$user['email']}', phone='{$user['phone']}', address='{$user['address']}', gender='{$user['gender']}', department='{$user['department']}', blood='{$user['blood']}', dob='{$user['dob']}', '{$user['usertype']}' where username='{$username}'";
 		
 		if(mysqli_query($conn, $sql)){
 			return true;
