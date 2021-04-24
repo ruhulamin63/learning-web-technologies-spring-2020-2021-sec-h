@@ -8,7 +8,7 @@ function regCheckValidation(){
 	var phone = document.getElementById('phone').value;
 	var email = document.getElementById('email').value;
 	var address = document.getElementById('address').value;
-	//var gender = document.getElementById('gender').value;
+	var gender = document.getElementById('gender').value;
 	var department = document.getElementById('department').value;
 	var blood = document.getElementById('blood').value;
 	var dob = document.getElementById('dob').value;
@@ -137,10 +137,10 @@ function regCheckValidation(){
 
 //==================================Gender Validation==========================================
 
-	/*if(gender==""){
+	if(gender==""){
 		document.getElementById('g').innerHTML = "* Please fill the gender field ?";
 		return false;
-	}*/
+	}
 
 //==================================Department Validation==========================================
 

@@ -14,6 +14,7 @@
 		$address = $_REQUEST['address'];
 		$department = $_REQUEST['department'];
 		$blood = $_REQUEST['blood'];
+		$gender = $_REQUEST['gender'];
 		$dob = $_REQUEST['dob'];
 		$usertype = $_REQUEST['usertype'];
 
@@ -38,7 +39,7 @@
 					'email'=> $email,
 					'phone'=> $phone,
 					'address'=>$address,
-					'gender'=>$_POST['gender'],
+					'gender'=>$gender,
 					'department'=>$department,
 					'blood'=>$blood,
 					'dob'=> $dob,
