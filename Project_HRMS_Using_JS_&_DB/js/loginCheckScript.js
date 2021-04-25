@@ -3,7 +3,8 @@ function loginCheckValidation(){
 
 	const username = document.getElementById('username').value;
 	const password = document.getElementById('password').value;
-	const remember = document.getElementById('remember').value;
+	const remember = document.getElementById('remember').checked;
+	const submit = document.getElementById('submit').value;
 
 	if(username==""){
 		document.getElementById('user').innerHTML = "*Please fill the username ?";
@@ -32,12 +33,15 @@ function loginCheckValidation(){
 
 			if(this.responseText == "success"){
 				location="../view/dashboard.php";
-			}
-			if (this.responseText == "Invalid User"){
-				document.getElementById('txtHint').innerHTML =this.responseText;
+				
+			}else{
+				if (this.responseText == "Invalid User"){
+					var resutl = this.responseText;
+					document.getElementById('txtHint').innerHTML =resutl.fontcolor('red');
+				}
 			}
 		}
 	}
-	xhttp.send('username='+username+'&password='+password+'&remember='+remember);
+	xhttp.send('username='+username+'&password='+password+'&remember='+remember+'&submit='+submit);
 
 }

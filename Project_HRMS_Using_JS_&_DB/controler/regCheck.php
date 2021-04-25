@@ -33,7 +33,7 @@
 					<tr>
 						<td>
 							<!-- <?php //echo htmlentities($_SERVER['PHP_SELF']); ?> -->
-							<form method="post" action="regCheckTest.php" onsubmit="return regCheckValidation()">
+							
 								<fieldset>
 									<legend>REGISTRATION</legend>
 									<table>
@@ -43,7 +43,7 @@
 												<img src="../asset/your_logo.png">
 												<hr>
 
-												<h2 id="txtHint"></h2>
+												<h2 align="center" id="txtHint"></h2>
 
 											</td>
 										</tr>
@@ -74,7 +74,7 @@
 										<tr>
 											<td>
 												<label>Password</label><br>
-												<input type="password" name="password" id="password" value="">
+												<input type="text" name="password" id="password" value="">
 											</td>
 										</tr>
 										<tr>
@@ -86,7 +86,7 @@
 										<tr>
 											<td>
 												<label>Confirm Password</label><br>
-												<input type="password" name="confpass" id="confpass" value="">
+												<input type="text" name="confpass" id="confpass" value="">
 											</td>
 										</tr>
 										<tr>
@@ -134,9 +134,9 @@
 										<tr>
 											<td>
 												<label>Gender</label>
-												<input type="radio" name="gender" id="gender" value="Male">Male
-												<input type="radio" name="gender" id="gender" value="Female">Female
-												<input type="radio" name="gender" id="gender" value="Others">Others
+												<input type="radio"  id="gender" value="Male">Male
+												<input type="radio"  id="gender" value="Female">Female
+												<input type="radio"  id="gender" value="Others">Others
 											</td>
 										</tr>
 										<tr>
@@ -221,7 +221,7 @@
 										<tr align="center">
 											<td colspan="2">
 												<hr><br>
-												<input type="submit" name="submit" value="Sing Up"><br><br>
+												<input type="submit" name="submit" id="submit" value="Sign Up" onclick="regCheckValidation()"><br><br>
 												<span>Already SignUp ?</span><a href="login_check.php">Login</a>
 											</td>
 											<!-- <td align="right">
@@ -230,7 +230,6 @@
 										</tr>
 									</table>
 								</fieldset>
-							</form>
 						</td>
 					</tr>
 				</table>

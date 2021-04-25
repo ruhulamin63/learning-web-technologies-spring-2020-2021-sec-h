@@ -116,19 +116,18 @@
 				<table align="center">
 					<tr>
 						<td>
-							<form method="post" action="#">
-								<fieldset>
-									<b>Search Job</b>
-									<span>
-										<input type="text" name="addjob" value="">
-									</span>
-									<hr>
-									<span>
-										<input type="submit" name="search_btn" value="Search">
-										<input type="submit" name="view_all_btn" value="View All">
-									</span>
-								</fieldset>
-							</form>
+							<fieldset>
+								<b>Search Job</b>
+								<span>
+									<input type="text" name="addjob" value="">
+								</span>
+								<hr>
+								<span>
+									<input type="submit" name="search_btn" value="Search">
+									<input type="submit" name="view_all_btn" value="View All">
+								</span>
+							</fieldset>
+							
 								
 								<?php 
 									//require_once('../model/db.php');

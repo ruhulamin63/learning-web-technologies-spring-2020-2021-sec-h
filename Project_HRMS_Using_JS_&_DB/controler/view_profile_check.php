@@ -3,8 +3,7 @@
 
 	if(!isset($_SESSION['flag'])){
 		header('location: ../controler/login_check.php');
-
-	}else{
+	}
 
 		require_once('../model/UserModel.php');
 
@@ -22,7 +21,6 @@
 		$dob=$data['dob'];
 		
 //==================================================
-	}
 ?>
 
 <!-- ========================================================= -->
@@ -31,6 +29,7 @@
 	$title= "View Profile";
 	include('../view/header.html');
 ?>
+	<script type="text/javascript" src="../js/view_profile_check.js"></script>
 </head>
 <body>
 
@@ -139,116 +138,116 @@
 				<table>
 					<tr>
 						<td>
-							<form method="post" action="view_profile_check.php">
-								<fieldset>
-									<legend>PROFILE</legend>
-									<table align="center">
-										<tr>
-											<td>Username</td>
-											<td>:
-												<?php
-													echo $username;
-												?>
-											</td> 
-										</tr>
-										<tr>
-											<td>Name</td>
-											<td>:
-												<?php
-													echo $name;
-												?>
-											</td>
+							<form onsubmit="return viewProfileValidation()">
+							<fieldset>
+								<legend>PROFILE</legend>
+								<table align="center">
+									<tr>
+										<td>Username</td>
+										<td>:
+											<?php
+												echo $username;
+											?>
+										</td> 
+									</tr>
+									<tr>
+										<td>Name</td>
+										<td>:
+											<?php
+												echo $name;
+											?>
+										</td>
 
-											<form method="post" action="../view/profile_pic.php" enctype="multipart/form-data">
-												<td rowspan="4" align="center">
-													<?php
-														//require_once('../model/db.php');
-														require_once('../model/imageModel.php');
-														
-														/*$conn = getConnection();
-														$sql = "select * from user_image where user";
-														$result = mysqli_query($conn, $sql);
-														$row = mysqli_fetch_assoc($result);*/
+										<form method="post" action="../view/profile_pic.php" enctype="multipart/form-data">
+											<td rowspan="4" align="center">
+												<?php
+													//require_once('../model/db.php');
+													require_once('../model/imageModel.php');
+													
+													/*$conn = getConnection();
+													$sql = "select * from user_image where user";
+													$result = mysqli_query($conn, $sql);
+													$row = mysqli_fetch_assoc($result);*/
 
-														$result = getImageById($username);
-														$row = mysqli_fetch_assoc($result);
+													$result = getImageById($username);
+													$row = mysqli_fetch_assoc($result);
 
-														if($row>0){
-													?>
-														<img src="<?php echo "{$row['photos']}"; ?>" width="200px" height="200px"><br>
-													<?php 
-														}else{
-													?>
-														<img src="../asset/user.png" width="100px" height="100px"><br>
-													<?php 
-														}
-													?>
-													<a href="../view/profile_pic.php">Change</a>
-												</td>
-											</form>
-										</tr>
-										<tr>
-											<td>Email</td>
-											<td>:
-												<?php
-													echo $email;
+													if($row>0){
 												?>
+													<img src="<?php echo "{$row['photos']}"; ?>" width="200px" height="200px"><br>
+												<?php 
+													}else{
+												?>
+													<img src="../asset/user.png" width="100px" height="100px"><br>
+												<?php 
+													}
+												?>
+												<a href="../view/profile_pic.php">Change</a>
+											</td>
+										</form>
+									</tr>
+									<tr>
+										<td>Email</td>
+										<td>:
+											<?php
+												echo $email;
+											?>
 
-											</td>
-										</tr>
-										<tr>
-											<td>Gender</td>
-											<td>:
-												<?php
-													echo $gender;
-												?>
-											</td>
-										</tr>
-										<tr>
-											<td>Phone</td>
-											<td>:
-												<?php
-													echo $phone;
-												?>
-											</td>
-										</tr>
-										<tr>
-											<td>Address</td>
-											<td>:
-												<?php
-													echo $address;
-												?>
-											</td>
-										</tr>
-										<tr>
-											<td>Department</td>
-											<td>:
-												<?php
-													echo $department;
-												?>
-											</td>
-										</tr>
-										<tr>
-											<td>Blood Group</td>
-											<td>:
-												<?php
-													echo $blood;
-												?>
-											</td>
-										</tr>
-										<tr>
-											<td>Date of Birth</td>
-											<td>:
-												<?php
-													echo $dob;
-												?>
-											</td>
-										</tr>
-										<tr>
-											<td><a href="edit_profile_check.php">Edit Profile</a></td>
-										</tr>
-									</table>
-								</fieldset>
+										</td>
+									</tr>
+									<tr>
+										<td>Gender</td>
+										<td>:
+											<?php
+												echo $gender;
+											?>
+										</td>
+									</tr>
+									<tr>
+										<td>Phone</td>
+										<td>:
+											<?php
+												echo $phone;
+											?>
+										</td>
+									</tr>
+									<tr>
+										<td>Address</td>
+										<td>:
+											<?php
+												echo $address;
+											?>
+										</td>
+									</tr>
+									<tr>
+										<td>Department</td>
+										<td>:
+											<?php
+												echo $department;
+											?>
+										</td>
+									</tr>
+									<tr>
+										<td>Blood Group</td>
+										<td>:
+											<?php
+												echo $blood;
+											?>
+										</td>
+									</tr>
+									<tr>
+										<td>Date of Birth</td>
+										<td>:
+											<?php
+												echo $dob;
+											?>
+										</td>
+									</tr>
+									<tr>
+										<td><a href="edit_profile_check.php">Edit Profile</a></td>
+									</tr>
+								</table>
+							</fieldset>
 							</form>
 						</td>
 					</tr>

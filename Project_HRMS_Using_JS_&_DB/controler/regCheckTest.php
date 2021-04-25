@@ -5,7 +5,8 @@
 	require_once('../model/usernameModel.php');
 
 //================================================================
-		
+	if(isset($_POST['submit'])){
+
 		$username = $_REQUEST['username'];
 		$name = $_REQUEST['name'];
 		$password = $_REQUEST['password'];
@@ -13,23 +14,19 @@
 		$phone = $_REQUEST['phone'];
 		$address = $_REQUEST['address'];
 		$department = $_REQUEST['department'];
-		$blood = $_REQUEST['blood'];
+		$blood = $_POST['blood'];
 		$gender = $_REQUEST['gender'];
 		$dob = $_REQUEST['dob'];
 		$usertype = $_REQUEST['usertype'];
 
 //=========================================================================
-		
+	
 		$count = UserNameQuery($username);
 
 		//print_r($count);
 
 		if($count>0){
-			?>
-				<script type="text/javascript">
-					alert('Username Already Exist');
-				</script>
-			<?php
+			echo "Username Already Exits";
 		}else{
 
 			$user = [	
@@ -49,17 +46,10 @@
 			$status = insertUser($user);
 
 			if($status){
-					echo "success";
-			
-					header('location: login_check.php');
-				
+					echo "success";				
 			}else{
-				?>
-				<script type="text/javascript">
-					alert('Not Inserted Data');
-				</script>
-			<?php
+				echo "missingInfo";
 			}
 		}
-	//}
+	}
 ?>

@@ -9,7 +9,7 @@
 
 //=============================================================================	
 
-	if(isset($_POST['update_btn'])){
+	if(isset($_POST['fixing_btn'])){
 
 		$user = [	
 					'vacancy'=>$_POST['vacancy'], 
@@ -25,6 +25,7 @@
 
 			if($status){
 				header('location: ../view/fixing_interview_approval.php');
+
 			}else{
 				echo "*Error db connted";
 			}
@@ -168,7 +169,7 @@
 				<table align="center">
 					<tr>
 						<td>
-							<form method="post" action="fixing_interview.php?id=<?php echo $id;?>">
+							<form method="post" action="fixing_interview_edit.php?id=<?php echo $id;?>">
 								<fieldset>
 									<h2>Update Fixing Intrview</h2>
 									<hr>

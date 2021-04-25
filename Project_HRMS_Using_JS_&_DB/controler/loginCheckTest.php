@@ -3,8 +3,11 @@
 
 	require_once('../model/UserModel.php');
 
+	if(isset($_POST['submit'])){
+
 		$username = $_REQUEST['username'];
 		$password = $_REQUEST['password'];
+		//$type = $_REQUEST['type'];
 
 		$status = validateUser($username, $password);
 
@@ -26,8 +29,8 @@
 
 			$data = getUserById($username);
 			$_SESSION['current_user']=$data;
-			
-			header('location: ../view/dashboard.php');
+
+			echo "success";
 
 //=====================================================================================
 			/*$_SESSION['user_type']=$user; //global declaration database
@@ -40,10 +43,7 @@
 //=====================================================================================
 		}else{
 			
-			?>
-				<script type="text/javascript">
-					alert('Invalid User');
-				</script>
-			<?php
+			echo "Invalid User";
 		}
+	}
 ?>

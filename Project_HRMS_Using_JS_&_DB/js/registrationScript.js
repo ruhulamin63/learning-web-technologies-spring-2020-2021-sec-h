@@ -13,6 +13,17 @@ function regCheckValidation(){
 	var blood = document.getElementById('blood').value;
 	var dob = document.getElementById('dob').value;
 	var usertype = document.getElementById('usertype').value;
+	var submit = document.getElementById('submit').value;
+
+/*	console.log(confpass);
+	console.log(phone);
+	console.log(email);
+	console.log(address);
+	console.log(gender);
+	console.log(blood);
+	console.log(dob);
+	console.log(department);
+	console.log(usertype);*/
 	
 
 
@@ -186,21 +197,27 @@ function regCheckValidation(){
 
 	const xhttp = new XMLHttpRequest();
 
-	xhttp.open('post', '../controler/regCheckTest.php', true);
+	xhttp.open('POST', '../controler/regCheckTest.php', true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	
 	xhttp.onreadystatechange = function(){
 
 		if(this.readyState == 4 && this.status == 200){
+			//document.getElementById('txtHint').innerHTML=this.responseText;
 
 			if(this.responseText == "success"){
 				location="../controler/login_check.php";
+			}else{
+				if(this.responseText == "missingInfo"){
+					var result = this.responseText;
+					document.getElementById('txtHint').innerHTML=result.fontcolor('red');
+				}
 			}
 		}
 	}
 	xhttp.send('username='+username+'&name='+name+'&password='+password+'&confpass='+confpass+
-		'&phone='+phone+'&email='+email+'&address='+address+'&department='+department+
-		'&blood'+blood+'&dob='+dob+'&usertype='+usertype);
+		'&phone='+phone+'&email='+email+'&address='+address+'&gender='+gender+'&department='+department+
+		'&blood='+blood+'&dob='+dob+'&usertype='+usertype+'&submit='+submit);
 
 //=====================================================================================
 

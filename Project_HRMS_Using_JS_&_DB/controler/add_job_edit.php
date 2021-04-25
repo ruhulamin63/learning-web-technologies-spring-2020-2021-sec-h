@@ -9,10 +9,10 @@
 
 //=============================================================================	
 
-	if(isset($_POST['update_btn'])){
+	if(isset($_POST['submit'])){
 
 		$user = [	
-					'addjob'=>$_POST['addjob']
+					'addjob'=>$_REQUEST['addjob']
 				];
 
 			$id=$_GET['id'];
@@ -44,7 +44,7 @@
 	$title= "Edit Add Job";
 	include('../view/header.html');
 ?>
-
+	<script type="text/javascript" src="../js/add_job_edit.js"></script>
 </head>
 <body>
 	

@@ -12,6 +12,7 @@
 	$title= "Fixing Approval";
 	include('header.html');
 ?>
+
 </head>
 <body>
 	

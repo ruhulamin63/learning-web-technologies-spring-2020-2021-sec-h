@@ -11,7 +11,7 @@
 			
 //==============================================================
 
-	if(isset($_REQUEST['edit_btn'])){
+	if(isset($_POST['submit'])){
 			
 		$username=$_REQUEST['username'];
 		$name=$_REQUEST['name'];
@@ -26,8 +26,6 @@
 		$conn = getConnection();
 		$sql = "update registration set username='{$username}', name='{$name}', email='{$email}', phone='{$phone}', address='{$address}', gender='{$gender}', department='{$department}', blood='{$blood}', dob='{$dob}' where username='{$data['username']}'";
 		$result=mysqli_query($conn, $sql);
-
-		$success = "success";
 
 //==============================================================================
 
@@ -63,8 +61,6 @@
 		$department=$data['department'];
 		$blood=$data['blood'];
 		$dob=$data['dob'];
-
-		$default = "default";
 	}
 ?>
 
@@ -182,94 +178,95 @@
 				<table align="center">
 					<tr>
 						<td>
-							<form method="#" action="#">
-								<fieldset>
-									<legend>EDIT PROFILE</legend>
-									<table>
-										<tr>
-											<td>Username</td>
-											<td>:
-												<input type="username" name="username" id="username" value="<?php echo $username;?>">
-											</td> 
-										</tr>
-										<tr>
-											<td>Name</td>
-											<td>:
-												<input type="name" name="name" id="name" value="<?php echo $name;?>">
-											</td> 
-										</tr>
-										<tr>
-											<td>Email</td>
-											<td>:
-												<input type="email" name="email" id="email" value="<?php echo $email;?>">
-											</td> 
-										</tr>
-										<tr>
-											<td>Gender</td>
-											<td>:
-												<input type="radio" name="gender" id="gender" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male"> Male
-												<input type="radio" name="gender" id="gender" <?php if (isset($gender) && $gender=="Female") echo "checked";?> value="Female"> Female
-												<input type="radio" name="gender" id="gender" <?php if (isset($gender) && $gender=="Other") echo "checked";?> value="Other"> Other 
-											</td> 
-										</tr>
-										<tr>
-											<td>Phone</td>
-											<td>:
-												<input type="number" name="phone" id="phone" value="<?php echo $phone;?>">
-											</td>
-										</tr>
-										<tr>
-											<td>Address</td>
-											<td>:
-											<textarea cols="22" name="address" id="address" value=""><?php echo $address;?></textarea>
-											</td>
-										</tr>
-										<tr>
-											<td>Department</td>
-											<td>:
-												
-												<select name="department" id="department">
-													<option><?php echo $department;?></option>
-													<option >CSE</option>
-													<option>EEE</option>
-													<option >IPE</option>
-													<option>BBA</option>
-													<option >ENG</option>
-												</select>
-											</td>
-										</tr>
-										<tr>
-											<td>Blood Group</td>
-											<td>:
-												<select name="blood" id="blood">
-													<option><?php echo $blood;?></option>
-													<option>A+</option>
-													<option>B+</option>
-													<option>AB+</option>
-													<option>O+</option>
-													<option>A-</option>
-													<option>B-</option>
-													<option>AB-</option>
-													<option>O-</option>
-												</select>
-											</td>
-										</tr>
-										<tr>:
-											<td>Date of Birth</td>
-											<td>
-												<input type="date" name="dob" id="dob" value="<?php echo $dob;?>">
-											</td> 
-										</tr>
-										<tr>
-											<!-- add line -->
-											<td>
-												<input type="submit" name="edit_btn" id="submit" value="Save" onclick="editProfileValidation()">
-												<!-- <a href="view_profile_check.php"><span>Back</span></a> -->
-											</td>
-										</tr>
-									</table>
-								</fieldset>
-							</form>
+							<fieldset>
+								<legend>EDIT PROFILE</legend>
+
+								<h2 id="txtHint"></h2>
+
+								<table>
+									<tr>
+										<td>Username</td>
+										<td>:
+											<input type="username" name="username" id="username" value="<?php echo $username;?>">
+										</td> 
+									</tr>
+									<tr>
+										<td>Name</td>
+										<td>:
+											<input type="name" name="name" id="name" value="<?php echo $name;?>">
+										</td> 
+									</tr>
+									<tr>
+										<td>Email</td>
+										<td>:
+											<input type="email" name="email" id="email" value="<?php echo $email;?>">
+										</td> 
+									</tr>
+									<tr>
+										<td>Gender</td>
+										<td>:
+											<input type="radio" id="gender" <?php if (isset($gender) && $gender=="Male") echo "checked";?> value="Male"> Male
+											<input type="radio" id="gender" <?php if (isset($gender) && $gender=="Female") echo "checked";?> value="Female"> Female
+											<input type="radio" id="gender" <?php if (isset($gender) && $gender=="Other") echo "checked";?> value="Other"> Other 
+										</td> 
+									</tr>
+									<tr>
+										<td>Phone</td>
+										<td>:
+											<input type="number" name="phone" id="phone" value="<?php echo $phone;?>">
+										</td>
+									</tr>
+									<tr>
+										<td>Address</td>
+										<td>:
+										<textarea cols="22" name="address" id="address" value=""><?php echo $address;?></textarea>
+										</td>
+									</tr>
+									<tr>
+										<td>Department</td>
+										<td>:
+											
+											<select name="department" id="department">
+												<option><?php echo $department;?></option>
+												<option >CSE</option>
+												<option>EEE</option>
+												<option >IPE</option>
+												<option>BBA</option>
+												<option >ENG</option>
+											</select>
+										</td>
+									</tr>
+									<tr>
+										<td>Blood Group</td>
+										<td>:
+											<select name="blood" id="blood">
+												<option><?php echo $blood;?></option>
+												<option>A+</option>
+												<option>B+</option>
+												<option>AB+</option>
+												<option>O+</option>
+												<option>A-</option>
+												<option>B-</option>
+												<option>AB-</option>
+												<option>O-</option>
+											</select>
+										</td>
+									</tr>
+									<tr>:
+										<td>Date of Birth</td>
+										<td>
+											<input type="date" name="dob" id="dob" value="<?php echo $dob;?>">
+										</td> 
+									</tr>
+									<tr>
+										<!-- add line -->
+										<td>
+											<input type="submit" name="edit_btn" id="submit" value="Save" onclick="editProfileValidation()">
+											<!-- <a href="view_profile_check.php"><span>Back</span></a> -->
+										</td>
+									</tr>
+								</table>
+							</fieldset>
 						</td>
 					</tr>
 				</table>
